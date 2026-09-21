@@ -1,0 +1,25 @@
+{
+  "_hinweis": "Fakten-SSOT nach P2. Die KI darf keinen dieser Werte erfinden. Leere Werte erscheinen auf der Seite sichtbar als […]. Quelle: geprüfte Rechtstexte vom 31.08.2026 und Compliance-Daten vom 13.08.2026. Stand: Entwurf Stufe 0, von Ulrike zu bestätigen.",
+  "firma": "Camping Schorni",
+  "rechtsform": "",
+  "inhaberin": "Ulrike Schorn",
+  "anschrift": {
+    "strasse": "Ditzumerhammrich 20 A",
+    "plz": "26831",
+    "ort": "Bunde",
+    "land": "Deutschland"
+  },
+  "telefon": "04959 9155100",
+  "email": "info@caravan-reiniger.de",
+  "ustIdNr": "DE227068675",
+  "oeffnungszeiten": "Montag bis Freitag von 9:00 bis 17:00 Uhr, außer an Feiertagen",
+  "shopUrl": "https://camping-schorni.de",
+  "seit": "2001",
+  "streitbeilegung": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+  "biozidPflichthinweis": "Biozidprodukte vorsichtig verwenden. Vor Gebrauch stets Etikett und Produktinformationen lesen.",
+  "social": {
+    "youtube": "",
+    "instagram": "",
+    "facebook": ""
+  }
+}
