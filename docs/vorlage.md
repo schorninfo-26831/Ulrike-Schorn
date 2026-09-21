@@ -39,8 +39,8 @@ Später, wenn die fünf stehen: Ratgeber-Kapitel je Thema, „Der Weg des Wasser
 
 ## 2 · Die eine Handlung
 
-Die Vorlage will sichtbar dreierlei: kaufen, anrufen, sich informieren. **Noch offen für die
-Inhaltsseite** — Vorschlag in `docs/entscheidungen.md`.
+Die Vorlage will sichtbar dreierlei: kaufen, anrufen, sich informieren. **Für die Inhaltsseite
+entschieden (21.09.2026): „Zum passenden Produkt im Shop."** Anrufen bleibt sichtbar, aber leise.
 
 ## 3 · Gestaltung
 

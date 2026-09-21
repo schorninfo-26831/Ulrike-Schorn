@@ -16,9 +16,9 @@ später Umzug auf B. Voraussetzung: Node 22 oder neuer — noch zu prüfen.)*
 KI-nativ; Produkte und Kauf bleiben auf Shopify und werden verlinkt. *(bestätigt von Ulrike, 21.09.2026)*
 **Leser:** *(Vorschlag)* Der Wohnmobil-Besitzer, der vor dem Saisonstart nicht weiß, was er in seinen
 Frischwassertank geben soll — und der Fachchinesisch satt hat
-**Die eine Handlung:** **?** — *(Vorschlag)* „Zum passenden Produkt im Shop"
-*(Alternative: Beratung anrufen unter 04959 9155100. Das Telefon bleibt in jedem Fall im Kopf der
-Seite sichtbar; die Frage ist nur, welcher Knopf der auffällige ist.)*
+**Die eine Handlung:** „Zum passenden Produkt im Shop" *(bestätigt von Ulrike, 21.09.2026)*
+*(Das Telefon 04959 9155100 bleibt im Kopf jeder Seite sichtbar, ist aber nicht der auffällige Knopf.
+Jede Ratgeber-Seite endet mit genau einem Verweis auf das passende Sortiment im Shop.)*
 **Seiten zum Start:** *(Vorschlag)* Start · Wasser-Ratgeber · Über uns / Schorni · Kontakt & Beratung ·
 Impressum + Datenschutz
 **Designrichtung:** übernommen aus dem dokumentierten CI, nicht aus dem aktuellen Shopify-Theme
