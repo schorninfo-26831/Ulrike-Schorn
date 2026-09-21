@@ -9,20 +9,25 @@ export default {
   name: 'nav',
   label: 'Kopfzeile',
   schema: {
-    marke:     { type: 'text', default: 'Camping Schorni',              label: 'Markenname' },
-    claim:     { type: 'text', default: 'Sauberes Wasser im Wohnmobil', label: 'Kurzer Claim unter der Marke' },
-    telefon:   { type: 'text', default: '{{facts.telefon}}',            label: 'Telefon (aus den Fakten)' },
-    shopLabel: { type: 'text', default: 'Zum Shop',                     label: 'Shop-Knopf' },
-    shopHref:  { type: 'text', default: '{{facts.shopUrl}}',            label: 'Shop-Ziel (aus den Fakten)' },
+    logo:      { type: 'image', default: '/img/schorni-logo.png',         label: 'Logo' },
+    logoAlt:   { type: 'text',  default: 'Schorni, das Maskottchen von Camping Schorni', label: 'Logo-Alternativtext' },
+    marke:     { type: 'text',  default: 'Camping Schorni',               label: 'Markenname' },
+    claim:     { type: 'text',  default: 'Sauberes Wasser im Wohnmobil',  label: 'Kurzer Claim unter der Marke' },
+    telefon:   { type: 'text',  default: '{{facts.telefon}}',             label: 'Telefon (aus den Fakten)' },
+    shopLabel: { type: 'text',  default: 'Zum Shop',                      label: 'Shop-Knopf' },
+    shopHref:  { type: 'text',  default: '{{facts.shopUrl}}',             label: 'Shop-Ziel (aus den Fakten)' },
   },
   css: `
     .nav { position: sticky; top: 0; z-index: 10; background: var(--grund);
       border-bottom: 1px solid var(--grund-3); }
-    .nav__zeile { display: flex; align-items: center; gap: 18px 28px; flex-wrap: wrap;
-      padding-block: 14px; }
-    .nav__marke { font-family: var(--font-display); font-weight: 800; font-size: 20px;
-      color: var(--handlung); text-decoration: none; letter-spacing: -.02em; line-height: 1.1; }
-    .nav__marke small { display: block; font-family: var(--font-body); font-weight: 500;
+    .nav__zeile { display: flex; align-items: center; gap: 14px 28px; flex-wrap: wrap;
+      padding-block: 12px; }
+    .nav__marke { display: flex; align-items: center; gap: 12px; text-decoration: none;
+      color: var(--handlung); }
+    .nav__logo { width: 48px; height: 48px; flex: none; }
+    .nav__wort { font-family: var(--font-display); font-weight: 800; font-size: 20px;
+      letter-spacing: -.02em; line-height: 1.1; }
+    .nav__wort small { display: block; font-family: var(--font-body); font-weight: 500;
       font-size: 12px; color: var(--text-muted); letter-spacing: 0; margin-top: 2px; }
     .nav__menue { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
     .nav__menue a { color: var(--text); text-decoration: none; font-weight: 500; }
@@ -37,9 +42,13 @@ export default {
     const punkte = baum.map((p) =>
       html`<li><a href="${raw(escapeAttr(ziel(p.href)))}">${p.label}</a></li>`);
     const telHref = ziel(`tel:${String(data.telefon || '').replace(/[^\d+]/g, '')}`);
+    const logo = ziel(data.logo);
     return html`
       <header class="nav"><div class="container nav__zeile">
-        <a class="nav__marke" href="/">${data.marke}${data.claim ? html`<small>${data.claim}</small>` : ''}</a>
+        <a class="nav__marke" href="/">
+          ${logo ? html`<img class="nav__logo" src="${raw(escapeAttr(logo))}" alt="${data.logoAlt}" width="48" height="48">` : ''}
+          <span class="nav__wort">${data.marke}${data.claim ? html`<small>${data.claim}</small>` : ''}</span>
+        </a>
         ${punkte.length ? html`<nav aria-label="Hauptmenü"><ul class="nav__menue">${reihe(punkte, '')}</ul></nav>` : ''}
         <div class="nav__rechts">
           ${data.telefon && telHref ? html`<a class="nav__telefon" href="${raw(escapeAttr(telHref))}">${data.telefon}</a>` : ''}

@@ -1,0 +1,217 @@
+<!-- Goldreferenz Startseite (P4). Erzeugt am 2026-09-21 aus scripts/seed.mjs. Jeder Generator-Lauf fuer diesen Seitentyp wird gegen diese Datei abgenommen. -->
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sauberes Wasser im Wohnmobil – Camping Schorni</title>
+<meta name="description" content="Sauberes Wasser im Wohnmobil, verständlich erklärt. Ratgeber und Beratung von Camping Schorni, Produkte im Shop.">
+
+<style>
+    @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400;
+      font-display: swap; src: url('/fonts/poppins-400-latin.woff2') format('woff2'); }
+    @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500;
+      font-display: swap; src: url('/fonts/poppins-500-latin.woff2') format('woff2'); }
+    @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600;
+      font-display: swap; src: url('/fonts/poppins-600-latin.woff2') format('woff2'); }
+    @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700;
+      font-display: swap; src: url('/fonts/poppins-700-latin.woff2') format('woff2'); }
+    @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 800;
+      font-display: swap; src: url('/fonts/poppins-800-latin.woff2') format('woff2'); }
+    :root { --grund: #F1ECE3; --grund-2: #FAF7F2; --grund-3: #E3DCCF; --text: #16242F; --text-muted: #5B6B77; --signal: #00C2A8; --handlung: #0B3B5C; --handlung-text: #FFFFFF; --akzent: #1A5A8A; --mint: #E6F8F5; --font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif; --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif; --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; --container: 1120px; --radius: 14px; --abstand-section: 56px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--grund); color: var(--text);
+      font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em;
+      line-height: 1.15; margin: 0; text-wrap: balance; }
+    p { margin: 0 0 1em; }
+    a { color: var(--handlung); }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: var(--container); margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+    .section { padding-block: var(--abstand-section); }
+    .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--signal); margin: 0 0 10px; }
+    a:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  
+    .nav { position: sticky; top: 0; z-index: 10; background: var(--grund);
+      border-bottom: 1px solid var(--grund-3); }
+    .nav__zeile { display: flex; align-items: center; gap: 14px 28px; flex-wrap: wrap;
+      padding-block: 12px; }
+    .nav__marke { display: flex; align-items: center; gap: 12px; text-decoration: none;
+      color: var(--handlung); }
+    .nav__logo { width: 48px; height: 48px; flex: none; }
+    .nav__wort { font-family: var(--font-display); font-weight: 800; font-size: 20px;
+      letter-spacing: -.02em; line-height: 1.1; }
+    .nav__wort small { display: block; font-family: var(--font-body); font-weight: 500;
+      font-size: 12px; color: var(--text-muted); letter-spacing: 0; margin-top: 2px; }
+    .nav__menue { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+    .nav__menue a { color: var(--text); text-decoration: none; font-weight: 500; }
+    .nav__rechts { margin-left: auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .nav__telefon { color: var(--text-muted); text-decoration: none; font-size: 15px; white-space: nowrap; }
+    .nav__shop { display: inline-block; padding: 10px 18px; border-radius: 999px;
+      background: var(--handlung); color: var(--handlung-text); font-weight: 700;
+      text-decoration: none; font-size: 15px; white-space: nowrap; }
+  
+
+    .hero { padding: clamp(40px, 7vw, 88px) 0 clamp(40px, 6vw, 72px); }
+    .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; }
+    .hero__pill { font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--signal); margin: 0; }
+    .hero__titel { font-size: clamp(32px, 5vw, 58px); font-weight: 800;
+      line-height: 1.08; margin: 12px 0 16px; max-width: 16ch; }
+    .hero__sub { font-size: 18px; line-height: 1.6; color: var(--text-muted);
+      max-width: 58ch; }
+    .hero__cta { display: inline-block; margin-top: 24px; padding: 14px 26px;
+      border-radius: 999px; background: var(--handlung); color: var(--handlung-text);
+      font-weight: 700; text-decoration: none; }
+    .hero__bild { justify-self: center; width: min(240px, 60vw); }
+    .hero__bild img { display: block; width: 100%; height: auto; }
+    @media (min-width: 800px) {
+      .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 48px; }
+      .hero__bild { width: 100%; justify-self: end; }
+    }
+  
+
+    .cards__kopf { max-width: 60ch; margin-bottom: 28px; }
+    .cards__titel { font-size: clamp(24px, 3vw, 34px); }
+    .cards__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .card { background: var(--grund-2); border: 1px solid var(--grund-3); border-radius: var(--radius);
+      padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; }
+    .card__titel { font-size: 19px; color: var(--handlung); }
+    .card__text { margin: 0; color: var(--text-muted); font-size: 15.5px; flex: 1; }
+    .card__link { align-self: flex-start; margin-top: 6px; font-weight: 700; color: var(--handlung);
+      text-decoration: none; border-bottom: 2px solid var(--signal); padding-bottom: 1px; }
+  
+
+    .tipp { padding-block: 8px 56px; }
+    .tipp__box { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+    .tipp__bild { flex: none; width: 128px; height: 128px; border-radius: 50%;
+      background: var(--mint); display: grid; place-items: center; overflow: hidden; }
+    .tipp__bild img { width: 112px; height: 112px; display: block; margin-top: 10px; }
+    .tipp__blase { position: relative; flex: 1 1 320px; min-width: 0; background: #fff;
+      border: 1px solid var(--grund-3); border-radius: var(--radius); padding: 20px 24px; }
+    .tipp__blase::before { content: ''; position: absolute; left: -9px; top: 50%; width: 16px; height: 16px;
+      background: #fff; border-left: 1px solid var(--grund-3); border-bottom: 1px solid var(--grund-3);
+      transform: translateY(-50%) rotate(45deg); }
+    .tipp__titel { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--signal); margin: 0 0 6px; }
+    .tipp__text { margin: 0; font-size: 17px; }
+    .tipp__text strong { color: var(--handlung); }
+    @media (max-width: 560px) {
+      .tipp__blase::before { left: 28px; top: -9px; transform: rotate(135deg); }
+    }
+  
+
+    .cta__box { background: var(--grund-2); border: 1px solid var(--grund-3);
+      border-left: 5px solid var(--signal); border-radius: var(--radius);
+      padding: 32px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; }
+    .cta__text { flex: 1 1 320px; min-width: 0; }
+    .cta__titel { font-size: clamp(22px, 2.6vw, 28px); margin-bottom: 8px; }
+    .cta__text p { margin: 0; color: var(--text-muted); }
+    .cta__knopf { display: inline-block; padding: 14px 26px; border-radius: 999px;
+      background: var(--handlung); color: var(--handlung-text); font-weight: 700;
+      text-decoration: none; white-space: nowrap; }
+  
+
+    .footer { border-top: 1px solid var(--grund-3); padding-block: 40px 48px; font-size: 15px;
+      color: var(--text-muted); }
+    .footer__zeile { display: flex; flex-wrap: wrap; gap: 24px 48px; }
+    .footer__spalte { flex: 1 1 220px; min-width: 0; }
+    .footer__marke { font-family: var(--font-display); font-weight: 800; color: var(--handlung);
+      font-size: 17px; margin-bottom: 6px; }
+    .footer p { margin: 0 0 4px; }
+    .footer a { color: var(--handlung); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer__recht { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px; }
+  </style>
+</head>
+<body>
+      <header class="nav"><div class="container nav__zeile">
+        <a class="nav__marke" href="/">
+          <img class="nav__logo" src="/img/schorni-logo.png" alt="Schorni, das Maskottchen von Camping Schorni" width="48" height="48">
+          <span class="nav__wort">Camping Schorni<small>Sauberes Wasser im Wohnmobil</small></span>
+        </a>
+        
+        <div class="nav__rechts">
+          <a class="nav__telefon" href="tel:049599155100">04959 9155100</a>
+          <a class="nav__shop" href="https://camping-schorni.de">Zum Shop</a>
+        </div>
+      </div></header>
+
+      <section class="section hero"><div class="container hero__grid">
+        <div>
+          <p class="hero__pill">Camping Schorni · seit 2001</p>
+          <h1 class="hero__titel">Sauberes Wasser im Wohnmobil. Verständlich erklärt.</h1>
+          <p class="hero__sub">Du willst unterwegs einfach gutes Wasser aus dem Hahn. Hier erfährst du, was im Tank passiert, was wirklich hilft und in welcher Reihenfolge. Schorni erklärt es dir so, wie er es am Telefon auch tun würde: kurz, ehrlich und aus der Praxis.</p>
+          <a class="hero__cta" href="https://camping-schorni.de/collections/wasser">Zum passenden Produkt im Shop</a>
+        </div>
+        <figure class="hero__bild"><img src="/img/schorni-logo.png" alt="Schorni, das Maskottchen von Camping Schorni, zeigt mit dem Daumen nach oben" width="400" height="400"></figure>
+      </div></section>
+
+      <section class="section cards"><div class="container">
+        <div class="cards__kopf">
+          <p class="eyebrow">Drei Wege</p>
+          <h2 class="cards__titel">Was du hier findest</h2>
+        </div>
+        <div class="cards__grid">
+        <article class="card">
+          <h3 class="card__titel">Der Wasser-Ratgeber</h3>
+          <p class="card__text">Konservieren, entkalken, desinfizieren, filtern. Was wann sinnvoll ist, in welcher Reihenfolge, und wo du dir Arbeit sparen kannst.</p>
+          <a class="card__link" href="/wasser-ratgeber/">Zum Ratgeber &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card__titel">Schorni persönlich</h3>
+          <p class="card__text">Seit 2001 auf Campingplätzen, Messen und in Werkstätten unterwegs. Wer hinter dem Shop steht und warum hier die Beratung an erster Stelle steht.</p>
+          <a class="card__link" href="/ueber-uns/">Über uns &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card__titel">Ein kurzer Draht</h3>
+          <p class="card__text">Bleibt eine Frage offen, ruf einfach an: <strong>04959 9155100</strong>, Mo bis Fr 9 bis 17 Uhr. Du bekommst eine ehrliche Empfehlung. Auch dann, wenn sie „lass es&quot; lautet.</p>
+          <a class="card__link" href="/kontakt/">Kontakt &rarr;</a>
+        </article></div>
+      </div></section>
+
+      <section class="section tipp"><div class="container">
+        <div class="tipp__box">
+          <div class="tipp__bild"><img src="/img/schorni-logo.png" alt="Schorni zeigt mit dem Daumen nach oben" width="112" height="112"></div>
+          <div class="tipp__blase">
+            <p class="tipp__titel">Schorni&#39;s Tipp</p>
+            <p class="tipp__text"><strong>Kalk zuerst.</strong> Kalkablagerungen bremsen die Wärmeübertragung im Boiler und bieten Biofilm einen Untergrund. Wer vor der Saison entkalkt, macht alles danach leichter.</p>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="section cta"><div class="container">
+        <div class="cta__box">
+          <div class="cta__text">
+            <h2 class="cta__titel">Bereit für sauberes Wasser?</h2>
+            <p>Alles, was Schorni empfiehlt, findest du im Shop. Sortiert nach Tankgröße und Anwendung, mit ehrlichen Angaben zu jedem Produkt.</p>
+          </div>
+          <a class="cta__knopf" href="https://camping-schorni.de/collections/wasser">Zum Sortiment Wasser</a>
+        </div>
+      </div></section>
+
+      <footer class="footer"><div class="container footer__zeile">
+        <div class="footer__spalte">
+          <p class="footer__marke">Camping Schorni</p>
+          <p>Inhaberin: Ulrike Schorn</p>
+          <p>Ditzumerhammrich 20 A · 26831 Bunde</p>
+        </div>
+        <div class="footer__spalte">
+          <p>Telefon: <a href="tel:049599155100">04959 9155100</a></p>
+          <p>E-Mail: <a href="mailto:info@caravan-reiniger.de">info@caravan-reiniger.de</a></p>
+          <p>Produkte, Preise und Bestellung findest du im Shop. <a href="https://camping-schorni.de">Zum Shop</a></p>
+        </div>
+        <div class="footer__spalte">
+          <ul class="footer__recht"><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul>
+        </div>
+      </div></footer></body>
+</html>

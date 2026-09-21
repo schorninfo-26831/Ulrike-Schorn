@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Design-Tokens nach docs/entscheidungen.md (CI aus MARKE-CAMPING-SCHORNI.md). Nie eine Farbe direkt in einen Baustein schreiben — nur über diese Tokens. Die Signalfarbe ist Signal, nie Fläche.",
+  "_hinweis": "Design-Tokens nach docs/entscheidungen.md (CI aus MARKE-CAMPING-SCHORNI.md). Nie eine Farbe direkt in einen Baustein schreiben — nur über diese Tokens. Die Signalfarbe ist Signal, nie Fläche. Schriften werden selbst gehostet (public/fonts, SIL Open Font License) — nie von einem fremden Dienst geladen.",
   "farben": {
     "grund": "#F1ECE3",
     "grund-2": "#FAF7F2",
@@ -17,6 +17,13 @@
     "body": "'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif",
     "mono": "ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
   },
+  "schriftdateien": [
+    { "familie": "Poppins", "gewicht": 400, "datei": "/fonts/poppins-400-latin.woff2" },
+    { "familie": "Poppins", "gewicht": 500, "datei": "/fonts/poppins-500-latin.woff2" },
+    { "familie": "Poppins", "gewicht": 600, "datei": "/fonts/poppins-600-latin.woff2" },
+    { "familie": "Poppins", "gewicht": 700, "datei": "/fonts/poppins-700-latin.woff2" },
+    { "familie": "Poppins", "gewicht": 800, "datei": "/fonts/poppins-800-latin.woff2" }
+  ],
   "masse": {
     "container": "1120px",
     "radius": "14px",

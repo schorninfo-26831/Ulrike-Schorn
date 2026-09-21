@@ -36,6 +36,22 @@ test('Entwurf trägt noindex, Veröffentlichtes nicht', () => {
   assert.ok(!renderPage(seite([], 'published')).includes('noindex'));
 });
 
+test('Karten: drei Einträge, Markdown-inline, Link nur mit sicherem Ziel', () => {
+  const out = renderPage(seite([{ type: 'cards', data: { titel: 'T', items: [
+    { titel: 'A', text: '**fett**', label: 'mehr', href: '/a/' },
+    { titel: 'B', text: 'x', label: 'mehr', href: 'javascript:1' },
+    { titel: 'C', text: 'y' },
+  ] } }]));
+  assert.equal((out.match(/<article class="card">/g) || []).length, 3);
+  assert.ok(out.includes('<strong>fett</strong>'));
+  assert.equal((out.match(/class="card__link"/g) || []).length, 1);
+});
+
+test('Tipp ohne Text rendert nichts', () => {
+  const out = renderPage(seite([{ type: 'tipp', data: { text: '' } }]));
+  assert.ok(!out.includes('class="tipp__blase"')); // CSS nennt die Klasse, das Element darf nicht existieren
+});
+
 test('Vertrag: Pflichtbausteine und erlaubte Bausteine', () => {
   assert.equal(validateContent('home', { blocks: [{ type: 'nav' }, { type: 'hero' }, { type: 'footer' }] }).ok, true);
   assert.equal(validateContent('home', { blocks: [{ type: 'hero' }] }).ok, false);
