@@ -38,7 +38,7 @@ npm test                                 # läuft ohne Datenbank und ohne Schlü
 | 0b · Die Vorlage lesen | ✔ Teilaufnahme — vollständige Sitemap und CSS-Auslesen stehen aus |
 | 1 · Der Motor | ✔ 21.09.2026 — Motor läuft, Startseite rendert, 6 Tests grün, kein waagerechtes Scrollen bei 390 px |
 | 2 · Goldreferenz + Startseiten | ✔ 21.09.2026 — sechs Seiten (start, wasser-ratgeber, ueber-uns, kontakt, impressum, datenschutz), vier Seitentypen mit golden.html, Poppins selbst gehostet, 11 Tests grün. Offen: Über-uns-Originaltext von Ulrike; Datenschutz vor Stufe 5 durch Justus prüfen |
-| 3 · Cockpit | ✔ technisch 21.09.2026 — Login, Seiten (anlegen/bearbeiten/umbenennen mit 301/löschen mit Umleitung), Navigation als Daten, Medien mit Alt-Pflicht, Umleitungen, Formular mit Honigtopf und Anfragen-Liste, Fakten ohne Deploy, Handbuch; automatisierte Abnahme 19/19 im Browser, 18 Unit-Tests. **Menschliche Abnahme durch Ulrike steht aus** → docs/lokal-starten.md |
+| 3 · Cockpit | ✔ 21.09.2026 — Login, Seiten (anlegen/bearbeiten/umbenennen mit 301/löschen mit Umleitung), Navigation als Daten, Medien mit Alt-Pflicht, Umleitungen, Formular mit Honigtopf und Anfragen-Liste, Fakten ohne Deploy, Handbuch; automatisierte Abnahme 19/19 im Browser, 18 Unit-Tests. **Von Ulrike am Mac abgenommen: alle neun Handgriffe** (docs/lokal-starten.md) |
 | 4 · KI als Motor | nächste |
 | 5 · Öffentlich | — |
 | 6 · Erweitern | — |
