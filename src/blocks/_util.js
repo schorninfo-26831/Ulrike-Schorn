@@ -48,5 +48,6 @@ export function markdownInline(text) {
     const z = ziel(h);
     return z ? `<a href="${escapeAttr(z)}">${t}</a>` : t;
   });
+  s = s.replace(/\n/g, '<br>'); // einzelner Zeilenumbruch innerhalb eines Absatzes (Anschriften)
   return raw(s);
 }

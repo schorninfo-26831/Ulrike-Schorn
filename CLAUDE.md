@@ -13,12 +13,13 @@ Weitere Referenzen: [docs/vorlage.md](docs/vorlage.md) (Bestandsaufnahme von cam
 
 ```bash
 npm i && npm run seed && npm start      # → http://localhost:3000
+npm run seed -- --force                  # Inhalte aus content/*.json neu einspielen (P5: nur mit Force)
 npm test                                 # läuft ohne Datenbank und ohne Schlüssel
 ```
 
 ## Was hier gilt
 
-- **P1** Die KI schreibt nie HTML. Sie liefert JSON gegen ein Schema; die Bausteine in `src/blocks/` rendern.
+- **P1** Die KI schreibt nie HTML. Sie liefert JSON gegen ein Schema; die Bausteine in `src/blocks/` rendern. Seiteninhalte liegen als JSON in `content/`.
 - **P2** Fakten nur aus `config/facts.json`, im Text als `{{facts.pfad}}`. Fehlt ein Wert, steht sichtbar `[…]` auf der Seite.
 - Farben und Schriften nur als Token aus `config/theme.json`. Nie eine Farbe direkt in einen Baustein.
 - Die eine Handlung: **Zum passenden Produkt im Shop.** Das Telefon bleibt auf jeder Seite sichtbar, aber leise.
@@ -35,8 +36,8 @@ npm test                                 # läuft ohne Datenbank und ohne Schlü
 | 0 · Das Gespräch | ✔ 21.09.2026 |
 | 0b · Die Vorlage lesen | ✔ Teilaufnahme — vollständige Sitemap und CSS-Auslesen stehen aus |
 | 1 · Der Motor | ✔ 21.09.2026 — Motor läuft, Startseite rendert, 6 Tests grün, kein waagerechtes Scrollen bei 390 px |
-| 2 · Goldreferenz Startseite | nächste — echte Texte, Poppins selbst gehostet, Logo |
-| 3 · Cockpit | — |
+| 2 · Goldreferenz + Startseiten | ✔ 21.09.2026 — sechs Seiten (start, wasser-ratgeber, ueber-uns, kontakt, impressum, datenschutz), vier Seitentypen mit golden.html, Poppins selbst gehostet, 11 Tests grün. Offen: Über-uns-Originaltext von Ulrike; Datenschutz vor Stufe 5 durch Justus prüfen |
+| 3 · Cockpit | nächste |
 | 4 · KI als Motor | — |
 | 5 · Öffentlich | — |
 | 6 · Erweitern | — |

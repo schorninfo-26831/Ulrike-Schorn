@@ -25,6 +25,14 @@ test('Link-Ziel aus den Fakten besteht die ziel()-Prüfung', () => {
   assert.ok(out.includes('href="https://camping-schorni.de"'));
 });
 
+test('Fakten-Tor stempelt auch in Listen — Kartenlink aus den Fakten überlebt die ziel()-Prüfung', () => {
+  const out = renderPage(seite([{ type: 'cards', data: { items: [
+    { titel: 'A', text: 'x', label: 'Shop', href: '{{facts.shopUrl}}/collections/wasser' },
+  ] } }]));
+  assert.ok(out.includes('href="https://camping-schorni.de/collections/wasser"'));
+  assert.ok(out.includes('class="card__link"'));
+});
+
 test('Gefährliche Ziele werden verworfen', () => {
   const out = renderPage(seite([{ type: 'hero', data: { titel: 'x', ctaLabel: 'Klick', ctaHref: 'javascript:alert(1)' } }]));
   assert.ok(!out.includes('javascript:'));
@@ -50,6 +58,18 @@ test('Karten: drei Einträge, Markdown-inline, Link nur mit sicherem Ziel', () =
 test('Tipp ohne Text rendert nichts', () => {
   const out = renderPage(seite([{ type: 'tipp', data: { text: '' } }]));
   assert.ok(!out.includes('class="tipp__blase"')); // CSS nennt die Klasse, das Element darf nicht existieren
+});
+
+test('Pflichthinweis kommt aus den Fakten und steht abgehoben', () => {
+  const facts = loadFacts();
+  const out = renderPage(seite([{ type: 'hinweis', data: {} }]));
+  assert.ok(out.includes('class="hinweis__box"'));
+  assert.ok(out.includes(facts.biozidPflichthinweis));
+});
+
+test('Rechtstext-Typ lässt keinen Handlungsaufruf zu', () => {
+  assert.equal(validateContent('recht', { blocks: [{ type: 'nav' }, { type: 'hero' }, { type: 'richtext' }, { type: 'cta' }, { type: 'footer' }] }).ok, false);
+  assert.equal(validateContent('recht', { blocks: [{ type: 'nav' }, { type: 'hero' }, { type: 'richtext' }, { type: 'footer' }] }).ok, true);
 });
 
 test('Vertrag: Pflichtbausteine und erlaubte Bausteine', () => {

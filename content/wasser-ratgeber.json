@@ -1,0 +1,86 @@
+{
+  "slug": "wasser-ratgeber",
+  "page_type": "ratgeber",
+  "status": "published",
+  "title": "Wasser-Ratgeber: Konservieren, Entkalken, Desinfizieren, Filtern",
+  "description": "Vier Handgriffe für sauberes Wasser im Wohnmobil-Tank. Was jeder Schritt tut, wann er dran ist und in welcher Reihenfolge. Von Camping Schorni.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Wasser-Ratgeber",
+          "titel": "Vier Handgriffe für sauberes Wasser im Tank.",
+          "sub": "Konservieren, entkalken, desinfizieren, filtern. Hier steht, was jeder Schritt tut, wann er dran ist und in welcher Reihenfolge. Am Ende weißt du, was dein Tank braucht.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was im Tank passiert",
+          "text": "Wasser, das im Tank steht, verändert sich. Wärme, Licht und Zeit lassen Mikroorganismen wachsen, und an den Wänden bildet sich ein Belag: der Biofilm. Kalk setzt sich in Boiler und Leitungen ab und bietet diesem Belag einen Untergrund.\n\nDie Reihenfolge, die sich in der Praxis bewährt hat: **erst entkalken, dann desinfizieren, dann konservieren.** Filtern gehört zum Befüllen und läuft nebenher. Wer die Reihenfolge einhält, spart sich die zweite Runde."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Die vier Schritte",
+          "titel": "Was wann dran ist",
+          "items": [
+            {
+              "titel": "1 · Entkalken",
+              "text": "Kalkablagerungen bremsen die Wärmeübertragung im Boiler und bieten Biofilm einen Untergrund. **KXpress** entkalkt Tank, Leitungen, Armaturen und Boiler rückstandsfrei und setzt auf den Wirkstoff der Zitrone. Passt zu nahezu allen Tankmaterialien und Tankgrößen.",
+              "label": "KXpress im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "2 · Desinfizieren",
+              "text": "**DEXDA Clean** löst mit Chlordioxid-Technologie Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System nachhaltig. pH-neutral, nachweislich auch für Truma Boiler. Zusammen mit KXpress in einem Arbeitsschritt nutzbar: vor und nach der Saison sowie nach längeren Standzeiten.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "3 · Konservieren",
+              "text": "**Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, ohne Nanosilber. Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert. Bis zu 6 Monate frisches Wasser im Tank, ohne manuelles Dosieren.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "4 · Filtern",
+              "text": "Ein **Befüllfilter** hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe. Aktivkohle bindet zusätzlich Stoffe, die Geruch und Geschmack beeinflussen. Für die Hygiene im Tank bleibt die Konservierung zuständig.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            }
+          ]
+        }
+      },
+      { "type": "hinweis", "data": {} },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Und UV-C?",
+          "text": "UV-C-Geräte wie die UV-8 Serie von WM aquatec arbeiten rein physikalisch: Die Bestrahlung passiert im Durchfluss, ohne Aufwärmphase und ohne Lampenwechsel. Sie werden in die Wasserleitung eingebaut und ergänzen die Konservierung im Tank. Welche Ausführung zu deinem Fahrzeug passt, klären wir am besten kurz am Telefon: {{facts.telefon}}.\n\n[UV-C-Geräte im Shop]({{facts.shopUrl}}/collections/uv-c-desinfektion)"
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Leerer Tank, frisches Wasser, **Silbernetz Flex** rein. Es dosiert sich bei jeder neuen Tankfüllung selbst, du musst nichts abmessen. Das flexible Material passt in fast alle Tanköffnungen."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Was braucht dein Tank?",
+          "text": "Alles aus diesem Ratgeber findest du im Shop, sortiert nach Tankgröße und Anwendung. Und wenn du unsicher bist: {{facts.telefon}}.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

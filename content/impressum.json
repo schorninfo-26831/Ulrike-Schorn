@@ -1,0 +1,56 @@
+{
+  "slug": "impressum",
+  "page_type": "recht",
+  "status": "published",
+  "title": "Impressum",
+  "description": "Impressum von Camping Schorni, Inhaberin Ulrike Schorn, Bunde.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      { "type": "hero", "data": { "pill": "Rechtliches", "titel": "Impressum" } },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Angaben gemäß § 5 DDG",
+          "text": "**{{facts.firma}}**\nInhaberin: {{facts.inhaberin}}\n{{facts.anschrift.strasse}}\n{{facts.anschrift.plz}} {{facts.anschrift.ort}}\n{{facts.anschrift.land}}"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Kontakt",
+          "text": "Telefon: {{facts.telefon}}\nE-Mail: {{facts.email}}"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Umsatzsteuer-Identifikationsnummer",
+          "text": "USt-IdNr. gemäß § 27a UStG: {{facts.ustIdNr}}"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+          "text": "{{facts.inhaberin}}\n{{facts.anschrift.strasse}}\n{{facts.anschrift.plz}} {{facts.anschrift.ort}}"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Streitbeilegung",
+          "text": "{{facts.streitbeilegung}}"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Produkte und Bestellung",
+          "text": "Produkte, Preise und Bestellungen laufen über unseren Shop: [{{facts.shopUrl}}]({{facts.shopUrl}}). Dort gelten die dort veröffentlichten AGB, die Widerrufsbelehrung und die Datenschutzerklärung des Shops."
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

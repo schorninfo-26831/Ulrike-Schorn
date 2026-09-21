@@ -1,0 +1,49 @@
+{
+  "slug": "ueber-uns",
+  "page_type": "seite",
+  "status": "published",
+  "title": "Über uns – von Schorni erzählt",
+  "description": "Camping Schorni: seit {{facts.seit}} auf Campingplätzen, Messen und in Werkstätten. Wer hinter dem Shop steht und warum Beratung hier an erster Stelle steht.",
+  "_hinweis": "Entstanden aus der Zusammenfassung der bestehenden Über-uns-Seite und den Fakten. Ulrikes Originaltext ersetzt diesen Inhalt, sobald er vorliegt.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Über uns",
+          "titel": "Von Schorni erzählt.",
+          "sub": "Seit {{facts.seit}} auf Campingplätzen, Messen und in Werkstätten unterwegs. Wir campen selbst, und genau so beraten wir: ehrlich, konkret und aus der Praxis.",
+          "ctaLabel": "Zum Sortiment im Shop",
+          "ctaHref": "{{facts.shopUrl}}",
+          "bild": "/img/schorni-logo.png",
+          "bildAlt": "Schorni, das Maskottchen von Camping Schorni, zeigt mit dem Daumen nach oben"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Beratung an erster Stelle",
+          "text": "Ein Campingshop lebt von Vertrauen. Deshalb bekommst du hier eine Empfehlung, die zu deinem Fahrzeug passt, und im Zweifel den Rat, etwas wegzulassen. Ins Sortiment kommt nur, was sich draußen bewährt hat: praktisches Zubehör, das funktioniert.\n\nDas Team ist klein und kennt jedes Detail. Wenn du anrufst, sprichst du mit jemandem, der das Produkt selbst in der Hand hatte."
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Wasser ist unser Thema",
+          "text": "Trinkwasserhygiene im Wohnmobil ist unser Schwerpunkt. Wir erklären sie einfach, ehrlich und verständlich, und wir arbeiten mit Herstellern, deren Produkte wir sorgfältig ausgewählt haben: **WM aquatec**, Vision Aqua und Osmopure.\n\nInhaberin: {{facts.inhaberin}} · {{facts.anschrift.ort}}"
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Fragen? Schorni ist am Telefon.",
+          "text": "{{facts.telefon}}, {{facts.oeffnungszeitenKurz}}. Oder direkt ins Sortiment.",
+          "label": "Zum Shop",
+          "href": "{{facts.shopUrl}}"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

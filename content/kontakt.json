@@ -1,0 +1,55 @@
+{
+  "slug": "kontakt",
+  "page_type": "seite",
+  "status": "published",
+  "title": "Kontakt und Beratung",
+  "description": "Ruf an, bevor du kaufst: Camping Schorni berät dich am Telefon zu Wasserhygiene im Wohnmobil. Telefon, E-Mail, Anschrift und Öffnungszeiten.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Kontakt & Beratung",
+          "titel": "Ruf an. Schorni berät dich, bevor du kaufst.",
+          "sub": "Am Telefon klären wir in ein paar Minuten, was dein Tank braucht: Größe, Material, Boiler, wie lange das Wasser steht. Auf Wunsch planen wir dein komplettes Trinkwassersystem.",
+          "ctaLabel": "Jetzt anrufen: {{facts.telefon}}",
+          "ctaHref": "{{facts.telefonLink}}"
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Drei Wege",
+          "titel": "So erreichst du uns",
+          "items": [
+            {
+              "titel": "Telefon",
+              "text": "**{{facts.telefon}}**\n{{facts.oeffnungszeiten}}.\nAm schnellsten, wenn es um dein Fahrzeug geht.",
+              "label": "Anrufen",
+              "href": "{{facts.telefonLink}}"
+            },
+            {
+              "titel": "E-Mail",
+              "text": "**{{facts.email}}**\nSchick uns deine Frage, gern mit Fahrzeugtyp und Tankgröße.",
+              "label": "E-Mail schreiben",
+              "href": "mailto:{{facts.email}}"
+            },
+            {
+              "titel": "Vor Ort",
+              "text": "{{facts.firma}}\n{{facts.anschrift.strasse}}\n{{facts.anschrift.plz}} {{facts.anschrift.ort}}\nAbholung nach Absprache, bitte zwei Werktage vorher Bescheid geben."
+            }
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was am Telefon passiert",
+          "text": "Du beschreibst dein Fahrzeug und deinen Tank. Wir sagen dir, welche Schritte bei dir sinnvoll sind und in welcher Reihenfolge. Manchmal ist die Antwort ein einzelnes Produkt, manchmal ein ganzes System. Und manchmal lautet sie: Lass es.\n\nDen Einbau fester UV-Anlagen übernehmen wir auf Anfrage."
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

@@ -20,8 +20,15 @@ function stemple(text, facts, { escape }) {
   });
 }
 
-const stempleDaten = (daten, facts) => Object.fromEntries(
-  Object.entries(daten).map(([k, v]) => [k, typeof v === 'string' ? stemple(v, facts, { escape: false }) : v]));
+/** Stempelt in die Tiefe: auch Listen (Karten) und verschachtelte Objekte. */
+function stempleDaten(wert, facts) {
+  if (typeof wert === 'string') return stemple(wert, facts, { escape: false });
+  if (Array.isArray(wert)) return wert.map((v) => stempleDaten(v, facts));
+  if (wert && typeof wert === 'object') {
+    return Object.fromEntries(Object.entries(wert).map(([k, v]) => [k, stempleDaten(v, facts)]));
+  }
+  return wert;
+}
 
 /** Reine Funktion: gleiche Daten, gleiches HTML, immer. */
 export function renderPage(page, { dynamicData = {} } = {}) {
