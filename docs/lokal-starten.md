@@ -40,7 +40,7 @@ Die Datei `.env` bleibt auf deinem Mac; sie wird nie ins Repository übertragen.
 npm i && npm run seed && npm start
 ```
 
-Wenn `[Motor] v0.3.0 läuft auf http://localhost:3000 · Cockpit: /admin/` erscheint, bist du drin:
+Wenn `[Motor] v0.4.0 läuft auf http://localhost:3000 · Cockpit: /admin/` erscheint, bist du drin:
 
 - Website: http://localhost:3000
 - Cockpit: http://localhost:3000/admin/
@@ -76,3 +76,37 @@ cd ~/Documents/camping-schorni-website && git pull && npm i && npm start
 **Vorsicht mit `npm run seed -- --force`:** Das überschreibt die sechs Startseiten mit dem Stand aus
 `content/*.json` — auch das, was du im Cockpit daran geändert hast. Ohne `--force` lässt das Seed
 vorhandene Seiten in Ruhe (P5: nichts wird stillschweigend überschrieben).
+
+## Stufe 4: den Schlüssel für den Generator eintragen
+
+Der Generator spricht mit der Anthropic-API. Dafür braucht er einen Schlüssel, den du unter
+https://console.anthropic.com anlegst (Konto → API Keys). Er kommt in die Datei `.env`, sonst
+nirgendwohin: nie ins Repository, nie in einen Chat. Ohne Schlüssel läuft alles andere weiter.
+
+```bash
+cd ~/Documents/camping-schorni-website && git pull && npm i
+grep -q '^ANTHROPIC_API_KEY=' .env || echo 'ANTHROPIC_API_KEY=' >> .env
+sed -i '' 's/^ANTHROPIC_API_KEY=.*/ANTHROPIC_API_KEY=DeinSchluessel/' .env
+npm start
+```
+
+Im Cockpit steht links jetzt **Generieren**. Solange der Schlüssel fehlt, zeigt die Seite einen
+Hinweis und der Knopf bleibt aus.
+
+### Die Abnahme Stufe 4: das Ergebnis gegen die Goldreferenz (P4)
+
+Nimm ein Thema, zu dem du etwas zu sagen hast, zum Beispiel „Winterfest machen". Schreib unter
+„Quelle" hinein, was du am Telefon dazu erzählen würdest, Stichworte reichen.
+
+| | Prüfpunkt | Geschafft |
+|---|---|---|
+| 1 | „Generieren" mit Seitentyp Ratgeber, Arbeitstitel, Quelle → „Generieren lassen" liefert nach ein bis zwei Minuten eine Seite mit Status „generiert" | ☐ |
+| 2 | Die Hinweise aus der Prüfung lesen: Jede Zahl im Text ist entweder ein Fakt oder eine freigegebene Formulierung | ☐ |
+| 3 | Vorschau neben dem Wasser-Ratgeber öffnen: gleicher Aufbau (Aufmacher, Schritte, Tipp, ein Handlungsaufruf in den Shop), gleiche Anmutung | ☐ |
+| 4 | Der Text klingt nach dir: Du-Anrede, klare Sätze, kein Marketing-Sprech, keins der vier verbotenen Wörter | ☐ |
+| 5 | Wird ein Biozidprodukt genannt, steht der Pflichthinweis darunter; Telefon und Öffnungszeiten stammen aus den Fakten | ☐ |
+
+Was nicht passt, änderst du im Editor wie bei jeder anderen Seite. Erst dann „Veröffentlichen".
+Ist etwas grundsätzlich schief (falscher Ton, falsche Struktur), ist das kein Fall für den Editor,
+sondern eine Rückmeldung an mich: dann wird die Stimme (`knowledge/voice.md`) oder die Anweisung des
+Seitentyps (`page-types/<typ>/prompt.md`) nachgeschärft.

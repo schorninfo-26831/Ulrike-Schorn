@@ -83,7 +83,7 @@
 
   // ---- Rahmen ---------------------------------------------------------------------------
   const ansichten = {
-    seiten: { titel: 'Seiten' }, navigation: { titel: 'Navigation' }, medien: { titel: 'Medien' },
+    seiten: { titel: 'Seiten' }, generieren: { titel: 'Generieren' }, navigation: { titel: 'Navigation' }, medien: { titel: 'Medien' },
     umleitungen: { titel: 'Umleitungen' }, anfragen: { titel: 'Anfragen' }, fakten: { titel: 'Fakten' }, handbuch: { titel: 'Handbuch' },
   };
   let hauptbereich, badge;
@@ -222,6 +222,8 @@
 
     leeren(hauptbereich).append(
       kopf(seite.title || 'Seite',
+        ['published', 'archived'].includes(seite.status) ? null
+          : el('button', { class: 'knopf knopf--leise', type: 'button', id: 'neu-generieren', onclick: () => neuGenerieren(seite, id) }, 'Neu generieren'),
         el('a', { class: 'knopf knopf--leise', href: '/api/preview/' + id, target: '_blank', id: 'vorschau' }, 'Vorschau'),
         el('button', { class: 'knopf knopf--leise', type: 'button', id: 'speichern', onclick: () => speichern() }, 'Speichern'),
         el('button', { class: 'knopf', type: 'button', id: 'veroeffentlichen', onclick: () => speichern('published') }, 'Veröffentlichen')),
@@ -484,6 +486,91 @@
     leeren(hauptbereich).append(kopf('Handbuch'), el('p', { class: 'hinweis' }, 'Jeder Ablauf mit den echten Knopfnamen. Wenn hier etwas nicht stimmt, ist das ein Fehler — bitte melden.'), el('div', { class: 'handbuch' }, eintraege));
   }
 
+  // ---- Generieren (Stufe 4) -----------------------------------------------------------------
+  /** Ergebnis eines Laufs: Hinweise aus der Prüfung und der Verbrauch. „Seite öffnen" führt in den Editor. */
+  function zeigeGeneratorErgebnis(s) {
+    const hinweise = s.hinweise || [];
+    const v = s.verbrauch;
+    const verbrauch = v ? `Verbrauch: ${v.eingabe ?? '?'} Token hinein, ${v.ausgabe ?? '?'} heraus${v.modell ? ` (${v.modell})` : ''}.` : '';
+    const box = el('div', { class: 'modal__box', role: 'dialog', 'aria-modal': 'true', id: 'generator-ergebnis' },
+      el('h2', {}, `Fertig: „${s.title}"`),
+      el('p', {}, 'Die Seite liegt als ', el('span', { class: 'status status--generated' }, 'generiert'), ' im Cockpit. Lies sie, ändere, was nicht passt, und veröffentliche erst dann.'),
+      hinweise.length
+        ? el('div', { class: 'warn', id: 'generator-hinweise' }, el('b', {}, `${hinweise.length} Hinweise aus der Prüfung:`), el('ul', {}, hinweise.map((h) => el('li', {}, h))))
+        : el('p', { class: 'hinweis', id: 'generator-hinweise' }, 'Keine Hinweise aus der Prüfung.'),
+      verbrauch ? el('p', { class: 'hinweis' }, verbrauch) : null,
+      el('div', { class: 'zeile', style: 'justify-content:flex-end' },
+        el('a', { class: 'knopf knopf--leise', href: '/api/preview/' + s.id, target: '_blank' }, 'Vorschau'),
+        el('button', { class: 'knopf', type: 'button', id: 'generator-oeffnen', onclick: () => {
+          modal.remove();
+          if (location.hash === '#/seite/' + s.id) route(); else location.hash = '#/seite/' + s.id;
+        } }, 'Seite öffnen')));
+    const modal = el('div', { class: 'modal' }, box);
+    document.body.append(modal);
+    box.querySelector('#generator-oeffnen').focus();
+  }
+
+  async function ansichtGenerieren() {
+    const status = await api('/generate/status');
+    const typ = el('select', { id: 'gen-typ' }, stamm.types.map((t) => el('option', { value: t.name, selected: t.name === 'ratgeber' }, `${t.label} — ${t.beschreibung || ''}`)));
+    const titel = el('input', { type: 'text', id: 'gen-titel', placeholder: 'z. B. Winterfest machen' });
+    const slug = el('input', { type: 'text', id: 'gen-slug', placeholder: 'entsteht aus dem Titel' });
+    titel.addEventListener('input', () => { if (!slug.dataset.hand) slug.value = slugify(titel.value); });
+    slug.addEventListener('input', () => { slug.dataset.hand = '1'; });
+    const quelle = el('textarea', { id: 'gen-quelle', style: 'min-height:220px', placeholder: 'Notizen, Stichworte, ein Diktat, ein alter Text: alles, was auf die Seite soll. Telefon und Öffnungszeiten setzt der Motor aus den Fakten.' });
+    const meldung = el('div', {});
+    const knopf = el('button', { class: 'knopf', type: 'button', id: 'generieren', disabled: !status.bereit, onclick: async () => {
+      leeren(meldung);
+      knopf.disabled = true; knopf.textContent = 'Der Generator schreibt … (ein bis zwei Minuten)';
+      try {
+        const s = await api('/generate', { method: 'POST', body: { page_type: typ.value, title: titel.value, slug: slug.value, quelle: quelle.value } });
+        toast('Seite generiert');
+        zeigeGeneratorErgebnis(s);
+      } catch (err) { leeren(meldung).append(el('div', { class: 'fehler' }, err.message)); }
+      finally { knopf.disabled = !status.bereit; knopf.textContent = 'Generieren lassen'; }
+    } }, 'Generieren lassen');
+    leeren(hauptbereich).append(
+      kopf('Generieren'),
+      el('p', { class: 'hinweis' }, 'Aus Notizen wird ein Seitenentwurf: Der Generator bekommt deine Quelle, die Bausteine des Seitentyps, die Goldreferenz und deine Stimme, und liefert JSON, nie HTML. Das Ergebnis heißt „generiert" und wird von dir gelesen, bevor es jemand sieht.'),
+      status.bereit
+        ? el('p', { class: 'hinweis', id: 'generator-status' }, `Bereit · Modell: ${status.modell}`)
+        : el('div', { class: 'warn', id: 'generator-status' }, 'ANTHROPIC_API_KEY ist nicht gesetzt. Trag den Schlüssel in die Datei .env ein (Vorlage: .env.example, Anleitung: docs/lokal-starten.md) und starte den Motor neu. Der Schlüssel bleibt auf deinem Rechner: nie ins Repository, nie in einen Chat.'),
+      el('div', { class: 'karte' },
+        el('div', { class: 'zeile', style: 'align-items:flex-start' },
+          el('label', { class: 'feld', style: 'flex:1 1 220px' }, el('span', {}, 'Seitentyp'), typ),
+          el('label', { class: 'feld', style: 'flex:2 1 260px' }, el('span', {}, 'Arbeitstitel'), titel),
+          el('label', { class: 'feld', style: 'flex:1 1 200px' }, el('span', {}, 'Slug — Adresse /…/'), slug)),
+        el('label', { class: 'feld' }, el('span', {}, 'Quelle: Notizen, Diktat, Stichworte'), quelle),
+        meldung,
+        el('div', { class: 'zeile' }, knopf, el('span', { class: 'hinweis' }, 'Jeder Lauf kostet beim Anbieter ein paar Cent. Der Verbrauch steht danach dabei.'))));
+  }
+
+  /** Im Editor: eine bestehende Seite aus neuer Quelle schreiben lassen. Bearbeitete Seiten nur nach Rückfrage (P5). */
+  async function neuGenerieren(seite, id) {
+    const status = await api('/generate/status');
+    if (!status.bereit) return toast('ANTHROPIC_API_KEY ist nicht gesetzt (.env). Ohne Schlüssel kein Generator.', true);
+    const quelle = el('textarea', { id: 'regen-quelle', style: 'min-height:200px', placeholder: 'Was soll auf die Seite? Notizen, Stichworte, ein Diktat.' });
+    const meldung = el('div', {});
+    const bearbeitet = ['edited', 'approved'].includes(seite.status);
+    const beschriftung = bearbeitet ? 'Überschreiben und generieren' : 'Generieren lassen';
+    const box = el('div', { class: 'modal__box', role: 'dialog', 'aria-modal': 'true' },
+      el('h2', {}, 'Neu generieren'),
+      bearbeitet ? el('div', { class: 'warn' }, 'Diese Seite wurde von Hand bearbeitet. Neu generieren ersetzt alle Bausteine durch das neue Ergebnis.') : null,
+      el('label', { class: 'feld' }, el('span', {}, 'Quelle'), quelle),
+      meldung,
+      el('div', { class: 'zeile', style: 'justify-content:flex-end' },
+        el('button', { class: 'knopf knopf--leise', type: 'button', onclick: () => modal.remove() }, 'Abbrechen'),
+        el('button', { class: 'knopf' + (bearbeitet ? ' knopf--rot' : ''), type: 'button', id: 'regen-los', onclick: async (e) => {
+          const b = e.currentTarget; b.disabled = true; b.textContent = 'Der Generator schreibt …';
+          try {
+            const s = await api('/pages/' + id + '/generate', { method: 'POST', body: { quelle: quelle.value, force: bearbeitet } });
+            modal.remove(); toast('Seite neu generiert'); zeigeGeneratorErgebnis(s);
+          } catch (err) { leeren(meldung).append(el('div', { class: 'fehler' }, err.message)); b.disabled = false; b.textContent = beschriftung; }
+        } }, beschriftung)));
+    const modal = el('div', { class: 'modal' }, box);
+    document.body.append(modal); quelle.focus();
+  }
+
   // ---- Router ---------------------------------------------------------------------------------------------
   async function route() {
     const h = location.hash || '#/seiten';
@@ -493,7 +580,7 @@
     zaehleUngelesen(); // bei jedem Ansichtswechsel — sonst zählt der Badge nur den Stand vom Laden
     try {
       if (view === 'seite' && id) return await ansichtSeite(id);
-      const f = { seiten: ansichtSeiten, navigation: ansichtNavigation, medien: ansichtMedien, umleitungen: ansichtUmleitungen, anfragen: ansichtAnfragen, fakten: ansichtFakten, handbuch: ansichtHandbuch }[view];
+      const f = { seiten: ansichtSeiten, generieren: ansichtGenerieren, navigation: ansichtNavigation, medien: ansichtMedien, umleitungen: ansichtUmleitungen, anfragen: ansichtAnfragen, fakten: ansichtFakten, handbuch: ansichtHandbuch }[view];
       if (f) return await f();
       location.hash = '#/seiten';
     } catch (err) { if (err.message !== 'Anmeldung nötig') { leeren(hauptbereich).append(el('div', { class: 'fehler' }, err.message)); } }

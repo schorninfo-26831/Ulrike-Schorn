@@ -27,6 +27,7 @@ npm test                                 # läuft ohne Datenbank und ohne Schlü
 - **Keine Preise** auf dieser Seite — sie verlinkt in den Shop. Der Shop bleibt auf Shopify und wird nicht nachgebaut.
 - Anrede **Du**. Verbotene Wörter: eintauchen, entdecken, enthüllen, umarmen.
 - Wasserhygiene-Texte folgen den geprüften Compliance-Daten (Skill `schorn-biozid-compliance`): Pflichtsatz nach Biozid-VO Art. 72, Silber-Regel, Stopp-Wörter.
+- **Stufe 4** Der Generator liest `knowledge/` (Stimme, Compliance, Shop-Ziele) und `page-types/<typ>/prompt.md`, liefert JSON gegen den Vertrag, Status immer `generated`. Schlüssel nur in `.env` (`ANTHROPIC_API_KEY`), nie im Repo, nie im Chat. Das Modell ist eine Funktion; Tests laufen ohne Netz.
 - Prüfen am laufenden System, nicht am Quelltext: `node -e "fetch('http://localhost:3000/').then(r=>console.log(r.status))"`
 - Windows und Mac gleich: Pfade mit Schrägstrich, Ordner vor Gebrauch anlegen, keine Shell-Skripte in `package.json`.
 
@@ -39,7 +40,7 @@ npm test                                 # läuft ohne Datenbank und ohne Schlü
 | 1 · Der Motor | ✔ 21.09.2026 — Motor läuft, Startseite rendert, 6 Tests grün, kein waagerechtes Scrollen bei 390 px |
 | 2 · Goldreferenz + Startseiten | ✔ 21.09.2026 — sechs Seiten (start, wasser-ratgeber, ueber-uns, kontakt, impressum, datenschutz), vier Seitentypen mit golden.html, Poppins selbst gehostet, 11 Tests grün. Offen: Über-uns-Originaltext von Ulrike; Datenschutz vor Stufe 5 durch Justus prüfen |
 | 3 · Cockpit | ✔ 21.09.2026 — Login, Seiten (anlegen/bearbeiten/umbenennen mit 301/löschen mit Umleitung), Navigation als Daten, Medien mit Alt-Pflicht, Umleitungen, Formular mit Honigtopf und Anfragen-Liste, Fakten ohne Deploy, Handbuch; automatisierte Abnahme 19/19 im Browser, 18 Unit-Tests. **Von Ulrike am Mac abgenommen: alle neun Handgriffe** (docs/lokal-starten.md) |
-| 4 · KI als Motor | nächste |
+| 4 · KI als Motor | gebaut 21.09.2026 — `src/generator.js` (Auftrag aus Schema, Goldreferenz-JSON, `knowledge/`, `page-types/<typ>/prompt.md`; gehärteter JSON-Parser; Vertrag hart, Hinweise weich; Pflichthinweis wird ergänzt; Status immer `generated`), Cockpit-Punkt „Generieren" + „Neu generieren" im Editor, Handbuch, 24 Tests grün ohne Schlüssel. **Abnahme offen:** erster echter Lauf mit Ulrikes Schlüssel, Ergebnis gegen die Goldreferenz (docs/lokal-starten.md) |
 | 5 · Öffentlich | — |
 | 6 · Erweitern | — |
 | 7 · Assistent | — |

@@ -16,6 +16,29 @@ window.HANDBUCH = [
     fallstricke: ['Ein Slug muss eindeutig sein. „Gibt es schon" heißt: eine andere Seite hat ihn — auch ein archivierter Entwurf.'],
   },
   {
+    titel: 'Eine Seite generieren lassen (Stufe 4)',
+    wann: 'Du hast Notizen, ein Diktat, Stichworte oder einen alten Text und willst daraus einen Seitenentwurf.',
+    schritte: [
+      'Einmalig: den Anthropic-Schlüssel in die Datei .env eintragen (Zeile ANTHROPIC_API_KEY=…) und den Motor neu starten. Der Schlüssel bleibt auf deinem Rechner. Wie das geht, steht in docs/lokal-starten.md.',
+      'Links „Generieren" öffnen. Seitentyp wählen, Arbeitstitel eingeben, unter „Quelle" alles hineinschreiben oder einfügen, was auf die Seite soll. Stichworte reichen.',
+      '„Generieren lassen" drücken und ein bis zwei Minuten warten.',
+      'Die Hinweise aus der Prüfung lesen (Zahlen, unbekannte Fakten, verbotene Wörter, ergänzter Pflichthinweis). Dann „Seite öffnen": Sie steht als „generiert" im Cockpit und wird wie jede andere Seite gelesen, bearbeitet und erst dann veröffentlicht.',
+      'Eine bestehende Seite neu schreiben lassen: im Editor oben „Neu generieren", Quelle eingeben. Bei einer von Hand bearbeiteten Seite fragt das Cockpit vorher, weil das Ergebnis alle Bausteine ersetzt.',
+    ],
+    automatisch: [
+      'Der Generator bekommt deine Quelle, die erlaubten Bausteine des Seitentyps, die Goldreferenz und deine Stimme (knowledge/voice.md, Compliance, Shop-Ziele) und liefert nur JSON — nie HTML.',
+      'Der Vertrag des Seitentyps wird geprüft, bevor etwas gespeichert wird. Ein Ergebnis, das ihn verletzt, wird verworfen, mit Meldung.',
+      'Telefon, Anschrift, Öffnungszeiten setzt das Modell als {{facts.…}}-Platzhalter; die Werte kommen aus „Fakten". Nennt der Text ein Biozidprodukt, setzt der Motor den Pflichthinweis-Baustein von allein.',
+      'Der Status ist immer „generiert", nie „veröffentlicht". Ein Mensch entscheidet.',
+    ],
+    fallstricke: [
+      'Ohne Schlüssel in .env steht unter „Generieren" ein Hinweis, und der Knopf bleibt aus. Alles andere läuft weiter.',
+      'Jeder Lauf kostet beim Anbieter Geld, im Cent-Bereich pro Seite. Der Verbrauch steht nach jedem Lauf dabei.',
+      'Zahlen im Text sind ein Hinweis, kein Fehler. Prüf sie: Nur freigegebene Angaben (etwa „bis zu 6 Monate") dürfen stehen.',
+      'Veröffentlichte Seiten werden nie neu generiert; sonst ginge ungelesener Text sofort live. Leg dafür eine neue Seite an.',
+    ],
+  },
+  {
     titel: 'Eine Seite bearbeiten',
     wann: 'Text ändern, einen Abschnitt ergänzen, die Reihenfolge ändern.',
     schritte: [

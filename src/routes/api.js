@@ -17,6 +17,7 @@ import { cache } from '../cache.js';
 import { loadFacts } from '../config.js';
 import { STATUS, normalisiereSlug, neuerInhalt, brauchtUmleitung, naechsterStatus, pfad } from '../pages.js';
 import { dynamik } from './public.js';
+import { generiere, ladeModell, generatorStatus } from '../generator.js';
 import {
   anmeldungNoetig, passwortStimmt, passwortKonfiguriert, neueSitzung, sitzungBeenden,
   cookieSetzen, parseCookies, COOKIE,
@@ -145,6 +146,60 @@ apiRouter.get('/preview/:id', async (req, res, next) => {
     if (!page) return fehler(res, 404, 'Seite nicht gefunden');
     res.set('Cache-Control', 'no-store');
     res.type('html').send(renderPage(page, { facts: await ladeFakten(), dynamicData: await dynamik(page) }));
+  } catch (err) { next(err); }
+});
+
+// ---- Generator (Stufe 4) ------------------------------------------------------
+// Liefert JSON gegen den Vertrag; gespeichert wird als 'generated'. Ein Mensch entscheidet.
+const OHNE_SCHLUESSEL = 'ANTHROPIC_API_KEY ist nicht gesetzt (.env). Ohne Schlüssel kein Generator.';
+apiRouter.get('/generate/status', (_req, res) => res.json(generatorStatus()));
+
+apiRouter.post('/generate', async (req, res, next) => {
+  try {
+    const { page_type, title, quelle } = req.body || {};
+    const typ = getType(page_type);
+    if (!typ) return fehler(res, 400, 'Unbekannter Seitentyp');
+    const slug = normalisiereSlug(req.body?.slug || title);
+    if (!slug) return fehler(res, 400, 'Titel oder Slug fehlt');
+    if (!String(quelle || '').trim()) return fehler(res, 400, 'Quelle fehlt: Notizen, Stichworte oder ein Diktat');
+    if (!generatorStatus().bereit) return fehler(res, 503, OHNE_SCHLUESSEL);
+    if (await queryOne('SELECT id FROM pages WHERE slug = $1', [slug])) return fehler(res, 409, `Slug „${slug}" gibt es schon`);
+    let ergebnis;
+    try {
+      ergebnis = await generiere({ typ: page_type, quelle, titel: String(title || ''), modell: await ladeModell(), facts: await ladeFakten() });
+    } catch (err) { return fehler(res, 422, err.message); }
+    const id = randomUUID();
+    const zeit = jetzt();
+    await query(
+      `INSERT INTO pages (id, slug, page_type, status, title, description, content_json, created_at, updated_at)
+       VALUES ($1, $2, $3, 'generated', $4, $5, $6, $7, $8)`,
+      [id, slug, page_type, ergebnis.title || slug, ergebnis.description, JSON.stringify(ergebnis.content), zeit, zeit]);
+    const neu = await queryOne('SELECT * FROM pages WHERE id = $1', [id]);
+    res.status(201).json({ ...neu, content_json: JSON.parse(neu.content_json), hinweise: ergebnis.hinweise, verbrauch: ergebnis.verbrauch });
+  } catch (err) { next(err); }
+});
+
+// Eine bestehende Seite neu schreiben lassen. Von Hand bearbeitete Seiten nur mit force (P5: nichts
+// wird stillschweigend überschrieben); veröffentlichte nie — sonst ginge ungelesener Text sofort live (P7).
+apiRouter.post('/pages/:id/generate', async (req, res, next) => {
+  try {
+    const alt = await queryOne('SELECT * FROM pages WHERE id = $1', [req.params.id]);
+    if (!alt) return fehler(res, 404, 'Seite nicht gefunden');
+    const { quelle, force } = req.body || {};
+    if (!String(quelle || '').trim()) return fehler(res, 400, 'Quelle fehlt: Notizen, Stichworte oder ein Diktat');
+    if (!generatorStatus().bereit) return fehler(res, 503, OHNE_SCHLUESSEL);
+    if (alt.status === 'published' || alt.status === 'archived') return fehler(res, 409, 'Veröffentlichte und archivierte Seiten werden nicht neu generiert. Leg dafür eine neue Seite an.');
+    if ((alt.status === 'edited' || alt.status === 'approved') && force !== true) return fehler(res, 409, 'Diese Seite wurde von Hand bearbeitet. Neu generieren überschreibt das — nur mit ausdrücklicher Bestätigung.');
+    let ergebnis;
+    try {
+      ergebnis = await generiere({ typ: alt.page_type, quelle, titel: alt.title || '', modell: await ladeModell(), facts: await ladeFakten() });
+    } catch (err) { return fehler(res, 422, err.message); }
+    await query(
+      `UPDATE pages SET title = $1, description = $2, status = 'generated', content_json = $3, updated_at = $4 WHERE id = $5`,
+      [ergebnis.title || alt.title, ergebnis.description || alt.description || '', JSON.stringify(ergebnis.content), jetzt(), alt.id]);
+    cache.clear();
+    const neu = await queryOne('SELECT * FROM pages WHERE id = $1', [alt.id]);
+    res.json({ ...neu, content_json: JSON.parse(neu.content_json), hinweise: ergebnis.hinweise, verbrauch: ergebnis.verbrauch });
   } catch (err) { next(err); }
 });
 
