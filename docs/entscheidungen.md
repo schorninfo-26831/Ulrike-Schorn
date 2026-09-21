@@ -1,9 +1,10 @@
 # Entscheidungen
 
-> **Stand: ENTWURF aus Stufe 0 — noch nicht bestätigt.**
-> Werte mit *(Vorschlag)* hat Claude aus dem Gespräch und den vorhandenen Unterlagen
-> (MARKE-CAMPING-SCHORNI.md, geprüfte Compliance-Daten vom 13.08.2026, Rechtstexte vom 31.08.2026)
-> abgeleitet. Werte mit **?** sind offen. Sobald Ulrike korrigiert hat, wird dieser Hinweis entfernt.
+> **Stand: Stufe 0 vollständig ausgefüllt — zur Freigabe durch Ulrike.**
+> Die drei Kernentscheidungen (Shop bleibt, die eine Handlung, Abweichung von der Vorlage) sind
+> einzeln bestätigt. Werte mit *(Vorschlag)* hat Claude aus dem Gespräch und den Unterlagen
+> (MARKE-CAMPING-SCHORNI.md, Compliance-Daten vom 13.08.2026, Rechtstexte vom 31.08.2026) abgeleitet
+> und gelten mit der Gesamtfreigabe. Noch offen: Node-Version am Mac, vollständige Sitemap.
 
 **Weiche 1 — was bauen wir:** NACHBAU von https://camping-schorni.de
 *(eigene Website — Texte, Fotos und Logo dürfen vollständig übernommen werden)*
@@ -22,7 +23,9 @@ Jede Ratgeber-Seite endet mit genau einem Verweis auf das passende Sortiment im 
 **Seiten zum Start:** *(Vorschlag)* Start · Wasser-Ratgeber · Über uns / Schorni · Kontakt & Beratung ·
 Impressum + Datenschutz
 **Designrichtung:** übernommen aus dem dokumentierten CI, nicht aus dem aktuellen Shopify-Theme
-**Abweichung von der Vorlage:** **?** — *Was an der jetzigen Gestaltung soll anders werden?*
+**Abweichung von der Vorlage:** Das Shopify-Theme nutzt das CI nicht durchgängig. Die neue Seite
+tut es konsequent: Sand als Grund, Türkis als Signal, Marineblau für Text und Knöpfe, Poppins als
+einzige Schrift — ohne Ausnahmen. *(bestätigt von Ulrike, 21.09.2026)*
 **Farben:** Grund `#F1ECE3` (Sand) · Signal `#00C2A8` (Türkis) · Akzent `#0B3B5C` (Marineblau)
 *(weitere CI-Werte: Mittelblau `#1A5A8A`, Mint `#E6F8F5`, Gelb `#FFD23F`)*
 **Schriften:** Poppins / Poppins *(eine Hausschrift, Gewichte 400 bis 800)*
