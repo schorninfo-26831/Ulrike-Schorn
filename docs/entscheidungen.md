@@ -12,11 +12,13 @@
 *(Shopify kann keinen eigenen Node-Prozess ausführen und scheidet als Weg C aus. Start auf dem Mac,
 später Umzug auf B. Voraussetzung: Node 22 oder neuer — noch zu prüfen.)*
 
-**Art der Website:** **?** — siehe Kernfrage unten
+**Art der Website:** Inhaltsseite neben dem Shop — Beratung, Ratgeber, Über uns, Kontakt entstehen
+KI-nativ; Produkte und Kauf bleiben auf Shopify und werden verlinkt. *(bestätigt von Ulrike, 21.09.2026)*
 **Leser:** *(Vorschlag)* Der Wohnmobil-Besitzer, der vor dem Saisonstart nicht weiß, was er in seinen
 Frischwassertank geben soll — und der Fachchinesisch satt hat
-**Die eine Handlung:** **?** — hängt an der Kernfrage
-*(Kaufen im Shop · oder: Beratung anrufen unter 04959 9155100)*
+**Die eine Handlung:** **?** — *(Vorschlag)* „Zum passenden Produkt im Shop"
+*(Alternative: Beratung anrufen unter 04959 9155100. Das Telefon bleibt in jedem Fall im Kopf der
+Seite sichtbar; die Frage ist nur, welcher Knopf der auffällige ist.)*
 **Seiten zum Start:** *(Vorschlag)* Start · Wasser-Ratgeber · Über uns / Schorni · Kontakt & Beratung ·
 Impressum + Datenschutz
 **Designrichtung:** übernommen aus dem dokumentierten CI, nicht aus dem aktuellen Shopify-Theme
@@ -30,18 +32,20 @@ Verhältnis der Zweit-Domain caravan-reiniger.de zu camping-schorni.de
 
 ---
 
-## Kernfrage — vor allem anderen zu klären
+## Kernfrage — entschieden am 21.09.2026
 
 camping-schorni.de ist ein **laufender Shopify-Shop** mit Warenkorb, Kasse und Zahlungsabwicklung.
-Der Website-Motor baut Inhaltsseiten; einen Kaufprozess (Warenkorb, Kasse, Zahlung) hat er nicht.
+Der Website-Motor baut Inhaltsseiten; einen Kaufprozess hat er nicht.
 
-Zwei Wege sind möglich:
+**Entscheidung: Der Shop bleibt auf Shopify und läuft unverändert weiter. Die neue Seite entsteht
+daneben** — Beratung, Ratgeber, Über uns, Kontakt und später der Assistent (Stufe 7). Produkte
+werden in den Shop verlinkt, nie nachgebaut.
 
-| | Weg | Folge |
-|---|---|---|
-| **1** | **Inhaltsseite neben dem Shop** *(Vorschlag)* — Beratung, Ratgeber, Über uns, Kontakt entstehen KI-nativ; Produkte und Kauf bleiben auf Shopify und werden verlinkt | Shop läuft unverändert weiter, kein Risiko für Bestellungen |
-| **2** | **Shop ersetzen** | Nicht mit diesem Motor machbar — es fehlt der gesamte Kaufprozess |
+Was daraus folgt:
 
-Bei Weg 1 ist zusätzlich zu entscheiden, **welche Domain** die neue Seite bekommt
-(z. B. Hauptdomain für die Inhalte, Shop auf einer Subdomain — oder umgekehrt). Das ist eine
-SEO-Entscheidung mit Umleitungsliste (Stufe 0b, Punkt 6) und wird nicht nebenbei getroffen.
+- Der Kaufprozess wird nicht angefasst. Keine Bestellung ist in Gefahr.
+- **Domain noch offen:** Hauptdomain für die Inhalte und Shop auf einer Subdomain — oder umgekehrt.
+  Das ist eine SEO-Entscheidung mit Umleitungsliste (Stufe 0b, Punkt 6) und wird gesondert getroffen,
+  nicht nebenbei. Bis dahin läuft die neue Seite lokal (Weg A) und braucht keine Domain.
+- Produktfakten (Preise, Gebinde, Verfügbarkeit) bleiben in Shopify. Die neue Seite nennt keine
+  Preise — sie verlinkt (P2: Fakten kommen nie aus dem Modell, und hier auch nicht aus einer zweiten Quelle).
