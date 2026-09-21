@@ -1,0 +1,19 @@
+{
+  "name": "camping-schorni-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "KI-native Inhaltsseite für Camping Schorni — gebaut nach WEBSITE-MOTOR.md",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node scripts/seed.mjs",
+    "test": "node --test \"tests/**/*.test.js\""
+  },
+  "dependencies": {
+    "dotenv": "^18.0.2",
+    "express": "^5.2.1"
+  }
+}

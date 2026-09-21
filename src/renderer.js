@@ -1,0 +1,68 @@
+import { blocks } from './blocks/index.js';
+import { themeCss } from './blocks/_theme.js';
+import { escapeHtml } from './blocks/_util.js';
+import { loadSite, loadFacts } from './config.js';
+
+/**
+ * Das Fakten-Tor (P2): {{facts.pfad}} → Wert. Fehlt der Wert, erscheint sichtbar […]
+ * statt einer Erfindung. Läuft zweimal: vor dem Baustein auf dessen Daten (damit ein
+ * Link-Ziel aus den Fakten die ziel()-Prüfung besteht) und zum Schluss über das
+ * fertige HTML für alles, was nicht durch einen Baustein ging (Titel, Beschreibung).
+ */
+function stemple(text, facts, { escape }) {
+  return String(text).replace(/\{\{facts\.([\w.]+)\}\}/g, (_, pfad) => {
+    const wert = pfad.split('.').reduce((o, k) => (o ?? {})[k], facts);
+    if (wert == null || wert === '') {
+      console.warn(`[Motor] [WARN] Fakt fehlt: ${pfad}`);
+      return '[…]';
+    }
+    return escape ? escapeHtml(String(wert)) : String(wert);
+  });
+}
+
+const stempleDaten = (daten, facts) => Object.fromEntries(
+  Object.entries(daten).map(([k, v]) => [k, typeof v === 'string' ? stemple(v, facts, { escape: false }) : v]));
+
+/** Reine Funktion: gleiche Daten, gleiches HTML, immer. */
+export function renderPage(page, { dynamicData = {} } = {}) {
+  const site = loadSite();
+  const facts = loadFacts();
+  const inhalt = typeof page.content_json === 'string'
+    ? JSON.parse(page.content_json) : page.content_json;
+  const liste = inhalt.blocks || [];
+
+  const benutzt = [...new Set(liste.map((b) => b.type))];
+  const css = benutzt.map((t) => blocks[t]?.css || '').join('\n');
+
+  const koerper = liste.map((eintrag) => {
+    const block = blocks[eintrag.type];
+    if (!block) {
+      // Laut sein: ein unbekannter Baustein verschwindet sonst stumm und
+      // die Seite bleibt 200, aber leer. Das ist die fieseste Fehlerart.
+      console.warn(`[Motor] [WARN] Unbekannter Baustein: ${eintrag.type}`);
+      return '';
+    }
+    const vorgaben = Object.fromEntries(
+      Object.entries(block.schema).map(([k, v]) => [k, v.default]));
+    const daten = stempleDaten(
+      { ...vorgaben, ...(eintrag.data || {}), ...(dynamicData[eintrag.type] || {}) }, facts);
+    const out = block.render(daten);
+    return out?.__raw ? out.value : String(out);
+  }).join('\n');
+
+  const titel = escapeHtml(page.title || site.name) + escapeHtml(site.titleSuffix || '');
+  const beschreibung = escapeHtml(page.description || site.beschreibung || '');
+
+  return stemple(`<!doctype html>
+<html lang="${escapeHtml(site.locale || 'de')}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${titel}</title>
+<meta name="description" content="${beschreibung}">
+${page.status === 'published' ? '' : '<meta name="robots" content="noindex">'}
+<style>${themeCss()}${css}</style>
+</head>
+<body>${koerper}</body>
+</html>`, facts, { escape: true });
+}

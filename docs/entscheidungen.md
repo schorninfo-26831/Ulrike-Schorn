@@ -1,10 +1,9 @@
 # Entscheidungen
 
-> **Stand: Stufe 0 vollständig ausgefüllt — zur Freigabe durch Ulrike.**
-> Die drei Kernentscheidungen (Shop bleibt, die eine Handlung, Abweichung von der Vorlage) sind
-> einzeln bestätigt. Werte mit *(Vorschlag)* hat Claude aus dem Gespräch und den Unterlagen
-> (MARKE-CAMPING-SCHORNI.md, Compliance-Daten vom 13.08.2026, Rechtstexte vom 31.08.2026) abgeleitet
-> und gelten mit der Gesamtfreigabe. Noch offen: Node-Version am Mac, vollständige Sitemap.
+> **Freigegeben von Ulrike am 21.09.2026.** Diese Datei ist die Bezugsgröße für alle weiteren
+> Stufen. Kommt später eine Frage auf, steht die Antwort hier — und wenn nicht, wird sie gestellt,
+> nicht geraten. Werte mit *(Vorschlag)* wurden mit der Gesamtfreigabe angenommen.
+> Nachzuliefern (blockiert nichts): Node-Version auf Ulrikes Mac, vollständige Sitemap.
 
 **Weiche 1 — was bauen wir:** NACHBAU von https://camping-schorni.de
 *(eigene Website — Texte, Fotos und Logo dürfen vollständig übernommen werden)*

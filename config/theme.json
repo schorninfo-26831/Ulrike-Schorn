@@ -1,0 +1,25 @@
+{
+  "_hinweis": "Design-Tokens nach docs/entscheidungen.md (CI aus MARKE-CAMPING-SCHORNI.md). Nie eine Farbe direkt in einen Baustein schreiben — nur über diese Tokens. Die Signalfarbe ist Signal, nie Fläche.",
+  "farben": {
+    "grund": "#F1ECE3",
+    "grund-2": "#FAF7F2",
+    "grund-3": "#E3DCCF",
+    "text": "#16242F",
+    "text-muted": "#5B6B77",
+    "signal": "#00C2A8",
+    "handlung": "#0B3B5C",
+    "handlung-text": "#FFFFFF",
+    "akzent": "#1A5A8A",
+    "mint": "#E6F8F5"
+  },
+  "schriften": {
+    "display": "'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif",
+    "body": "'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif",
+    "mono": "ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+  },
+  "masse": {
+    "container": "1120px",
+    "radius": "14px",
+    "abstand-section": "56px"
+  }
+}
