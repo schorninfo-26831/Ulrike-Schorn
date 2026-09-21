@@ -1,6 +1,6 @@
 {
   "name": "camping-schorni-website",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "KI-native Inhaltsseite für Camping Schorni — gebaut nach WEBSITE-MOTOR.md",

@@ -47,6 +47,13 @@
       {
         "type": "richtext",
         "data": {
+          "titel": "Kontaktformular",
+          "text": "Wenn du das Formular auf der Kontaktseite nutzt, speichern wir die Angaben, die du dort machst (Name, E-Mail, deine Nachricht), um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b DSGVO). Die Anfrage liegt auf unserem eigenen Server; sie wird an keinen Dritten weitergegeben. Wir löschen sie, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
           "titel": "Der Shop",
           "text": "Produkte und Bestellungen laufen über unseren Shop: [{{facts.shopUrl}}]({{facts.shopUrl}}). Dort gilt die dort veröffentlichte Datenschutzerklärung."
         }
@@ -62,7 +69,7 @@
         "type": "richtext",
         "data": {
           "titel": "Stand",
-          "text": "September 2026. Diese Erklärung wird ergänzt, sobald die Seite ein Kontaktformular oder einen Assistenten bekommt."
+          "text": "September 2026. Diese Erklärung wird ergänzt, sobald die Seite einen Assistenten bekommt oder öffentlich gehostet wird."
         }
       },
       { "type": "footer", "data": {} }

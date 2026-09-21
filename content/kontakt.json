@@ -43,6 +43,14 @@
         }
       },
       {
+        "type": "form",
+        "data": {
+          "name": "kontakt",
+          "titel": "Oder schreib uns",
+          "text": "Fahrzeug, Tankgröße, deine Frage. Wir melden uns."
+        }
+      },
+      {
         "type": "richtext",
         "data": {
           "titel": "Was am Telefon passiert",

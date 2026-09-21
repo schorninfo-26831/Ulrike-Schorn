@@ -30,10 +30,12 @@ function stempleDaten(wert, facts) {
   return wert;
 }
 
-/** Reine Funktion: gleiche Daten, gleiches HTML, immer. */
-export function renderPage(page, { dynamicData = {} } = {}) {
+/**
+ * Reine Funktion: gleiche Daten, gleiches HTML, immer. Die Fakten kommen von außen
+ * (mit Cockpit-Overrides) oder, ohne Angabe, aus der Datei.
+ */
+export function renderPage(page, { dynamicData = {}, facts = loadFacts() } = {}) {
   const site = loadSite();
-  const facts = loadFacts();
   const inhalt = typeof page.content_json === 'string'
     ? JSON.parse(page.content_json) : page.content_json;
   const liste = inhalt.blocks || [];
@@ -59,6 +61,7 @@ export function renderPage(page, { dynamicData = {} } = {}) {
 
   const titel = escapeHtml(page.title || site.name) + escapeHtml(site.titleSuffix || '');
   const beschreibung = escapeHtml(page.description || site.beschreibung || '');
+  const ogImage = page.og_image ? `<meta property="og:image" content="${escapeHtml(page.og_image)}">` : '';
 
   return stemple(`<!doctype html>
 <html lang="${escapeHtml(site.locale || 'de')}">
@@ -67,6 +70,11 @@ export function renderPage(page, { dynamicData = {} } = {}) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${titel}</title>
 <meta name="description" content="${beschreibung}">
+<meta property="og:title" content="${escapeHtml(page.title || site.name)}">
+<meta property="og:description" content="${beschreibung}">
+<meta property="og:type" content="website">
+${ogImage}
+<link rel="icon" href="/img/schorni-logo.png" type="image/png">
 ${page.status === 'published' ? '' : '<meta name="robots" content="noindex">'}
 <style>${themeCss()}${css}</style>
 </head>

@@ -1,0 +1,8 @@
+{
+  "_hinweis": "Anfangsmenü. Wird nur eingespielt, wenn die Navigationstabelle leer ist — danach gehört das Menü dem Cockpit (Punkt Navigation). Zwei Ebenen, Reihenfolge ist Redaktion.",
+  "punkte": [
+    { "label": "Wasser-Ratgeber", "href": "/wasser-ratgeber/" },
+    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Kontakt", "href": "/kontakt/" }
+  ]
+}

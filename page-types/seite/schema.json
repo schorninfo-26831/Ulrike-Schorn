@@ -1,4 +1,4 @@
 {
-  "allowedBlocks": ["nav", "hero", "richtext", "cards", "tipp", "cta", "footer"],
+  "allowedBlocks": ["nav", "hero", "richtext", "cards", "bild", "tipp", "form", "cta", "footer"],
   "requiredBlocks": ["nav", "hero", "footer"]
 }

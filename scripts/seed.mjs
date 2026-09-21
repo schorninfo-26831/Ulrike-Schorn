@@ -16,8 +16,25 @@ import { validateContent } from '../src/archetypes.js';
 const FORCE = process.argv.includes('--force');
 await runMigrations();
 
-const dateien = readdirSync('content').filter((f) => f.endsWith('.json')).sort();
+const dateien = readdirSync('content').filter((f) => f.endsWith('.json') && !f.startsWith('_')).sort();
 let fehler = 0;
+
+// Anfangsmenü — nur, wenn die Tabelle leer ist. Danach pflegt das Cockpit die Navigation (3.2).
+const menue = JSON.parse(readFileSync('content/_navigation.json', 'utf8'));
+const vorhandeneMenues = await query('SELECT COUNT(*) AS n FROM navigation');
+if (Number(vorhandeneMenues[0].n) === 0) {
+  let sort = 0;
+  for (const p of menue.punkte) {
+    const id = randomUUID();
+    await query('INSERT INTO navigation (id, parent_id, label, href, sort, visible) VALUES ($1, NULL, $2, $3, $4, 1)', [id, p.label, p.href, sort++]);
+    for (const k of p.kinder || []) {
+      await query('INSERT INTO navigation (id, parent_id, label, href, sort, visible) VALUES ($1, $2, $3, $4, $5, 1)', [randomUUID(), id, k.label, k.href, sort++]);
+    }
+  }
+  console.log(`[Seed] Menü angelegt: ${menue.punkte.map((p) => p.label).join(' · ')}`);
+} else {
+  console.log('[Seed] Menü vorhanden — unverändert (Pflege im Cockpit)');
+}
 
 for (const datei of dateien) {
   const seite = JSON.parse(readFileSync(`content/${datei}`, 'utf8'));

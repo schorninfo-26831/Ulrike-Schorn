@@ -36,6 +36,9 @@ export default {
       .hero__bild { width: 100%; justify-self: end; }
     }
   `,
+  pruefe(data) {
+    return data.bild && !String(data.bildAlt || '').trim() ? ['Bild ohne Alternativtext'] : [];
+  },
   render(data) {
     const bild = ziel(data.bild);
     return html`

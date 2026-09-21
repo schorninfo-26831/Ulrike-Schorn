@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cockpit – Camping Schorni</title>
+<link rel="icon" href="/img/schorni-logo.png" type="image/png">
+<style>
+  @font-face { font-family: 'Poppins'; font-weight: 400; font-display: swap; src: url('/fonts/poppins-400-latin.woff2') format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 600; font-display: swap; src: url('/fonts/poppins-600-latin.woff2') format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 700; font-display: swap; src: url('/fonts/poppins-700-latin.woff2') format('woff2'); }
+  :root { --navy:#0B3B5C; --blau:#1A5A8A; --teal:#00C2A8; --mint:#E6F8F5; --sand:#F1ECE3; --papier:#FBF9F5; --ink:#16242F;
+    --ink-soft:#5B6B77; --linie:#E3DCCF; --rot:#B3261E; --rot-hell:#FDEEEC; --gelb-hell:#FFF6D6; --gruen-hell:#E4F5EA; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; font-family: 'Poppins', system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; color: var(--ink); background: var(--sand); }
+  button, input, select, textarea { font: inherit; }
+  a { color: var(--navy); }
+  [hidden] { display: none !important; }
+
+  /* Login */
+  .login { min-height: 100%; display: grid; place-items: center; padding: 24px; }
+  .login__box { background: #fff; border: 1px solid var(--linie); border-radius: 16px; padding: 28px; width: min(380px, 100%); }
+  .login__box h1 { font-size: 20px; margin: 0 0 4px; }
+  .login__box p { margin: 0 0 18px; color: var(--ink-soft); }
+
+  /* Rahmen */
+  .app { display: grid; grid-template-columns: 232px minmax(0, 1fr); min-height: 100%; }
+  .seite { background: var(--navy); color: #fff; padding: 18px 14px; display: flex; flex-direction: column; gap: 4px; }
+  .seite__marke { display: flex; align-items: center; gap: 10px; padding: 4px 8px 16px; }
+  .seite__marke img { width: 36px; height: 36px; }
+  .seite__marke b { display: block; font-size: 15px; line-height: 1.15; }
+  .seite__marke small { font-size: 11.5px; opacity: .75; }
+  .seite a.punkt { display: flex; align-items: center; justify-content: space-between; color: #fff; text-decoration: none;
+    padding: 9px 12px; border-radius: 10px; font-weight: 600; opacity: .85; }
+  .seite a.punkt:hover { background: rgba(255,255,255,.08); opacity: 1; }
+  .seite a.punkt.aktiv { background: var(--teal); color: #06232B; opacity: 1; }
+  .badge { background: #FFD23F; color: #06232B; font-size: 11.5px; font-weight: 700; padding: 1px 8px; border-radius: 999px; }
+  .seite__fuss { margin-top: auto; padding: 8px; font-size: 12px; opacity: .7; }
+  .seite__fuss button { background: none; border: 1px solid rgba(255,255,255,.4); color: #fff; border-radius: 8px; padding: 6px 10px; cursor: pointer; width: 100%; margin-top: 8px; }
+  main { padding: 22px 28px 60px; min-width: 0; }
+  .kopf { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .kopf h1 { font-size: 22px; margin: 0; }
+  .kopf .rechts { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+  .hinweis { color: var(--ink-soft); font-size: 13.5px; }
+
+  /* Bausteine der Oberfläche */
+  .karte { background: #fff; border: 1px solid var(--linie); border-radius: 14px; padding: 18px; margin-bottom: 14px; }
+  .karte h2 { font-size: 16px; margin: 0 0 12px; }
+  .zeile { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .feld { display: block; margin-bottom: 12px; }
+  .feld > span { display: block; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px; }
+  .feld input[type=text], .feld input[type=password], .feld input[type=email], .feld textarea, .feld select {
+    width: 100%; padding: 9px 11px; border: 1px solid var(--linie); border-radius: 9px; background: #fff; color: var(--ink); }
+  .feld textarea { min-height: 96px; resize: vertical; }
+  .feld input:focus-visible, .feld textarea:focus-visible, .feld select:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 1px; }
+  .feld--inline { display: flex; align-items: center; gap: 8px; }
+  .feld--inline > span { margin: 0; }
+  .knopf { border: 1px solid var(--navy); background: var(--navy); color: #fff; border-radius: 999px; padding: 8px 16px; font-weight: 600; cursor: pointer; }
+  .knopf--leise { background: #fff; color: var(--navy); }
+  .knopf--klein { padding: 4px 10px; font-size: 13px; }
+  .knopf--rot { background: #fff; color: var(--rot); border-color: var(--rot); }
+  .knopf[disabled] { opacity: .5; cursor: default; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--linie); border-radius: 14px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--linie); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-soft); background: var(--papier); }
+  tr:last-child td { border-bottom: 0; }
+  .status { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--sand); }
+  .status--published { background: var(--gruen-hell); }
+  .status--draft, .status--generated { background: var(--gelb-hell); }
+  .status--archived { background: #eee; color: var(--ink-soft); }
+  .block { border: 1px solid var(--linie); border-radius: 12px; margin-bottom: 12px; background: var(--papier); }
+  .block__kopf { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #fff; border-bottom: 1px solid var(--linie); border-radius: 12px 12px 0 0; }
+  .block__kopf b { flex: 1; }
+  .block__kopf small { color: var(--ink-soft); }
+  .block__inhalt { padding: 14px; }
+  .liste__zeile { border: 1px dashed var(--linie); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; background: #fff; }
+  .liste__zeile .zeile { justify-content: flex-end; }
+  .medien { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .medium { background: #fff; border: 1px solid var(--linie); border-radius: 12px; padding: 10px; font-size: 12.5px; }
+  .medium img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: var(--papier); border-radius: 8px; display: block; margin-bottom: 8px; }
+  .medium code { display: block; word-break: break-all; color: var(--ink-soft); }
+  .warn { background: var(--gelb-hell); border-left: 4px solid #E8C65A; padding: 8px 12px; border-radius: 8px; font-size: 13px; margin: 8px 0; }
+  .fehler { background: var(--rot-hell); border-left: 4px solid var(--rot); padding: 8px 12px; border-radius: 8px; font-size: 13px; margin: 8px 0; }
+  .nav-tree { list-style: none; margin: 0; padding: 0; }
+  .nav-tree > li { background: #fff; border: 1px solid var(--linie); border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }
+  .nav-tree ul { list-style: none; margin: 8px 0 0 22px; padding: 0; }
+  .nav-tree ul li { border-top: 1px dashed var(--linie); padding: 8px 0 0; margin-top: 8px; }
+  .nav-tree input[type=text] { padding: 6px 9px; border: 1px solid var(--linie); border-radius: 8px; }
+  .zwei { display: grid; grid-template-columns: 1fr 1.4fr; gap: 16px; }
+  @media (max-width: 900px) { .app { grid-template-columns: 1fr; } .seite { flex-direction: row; flex-wrap: wrap; } .seite__fuss { margin: 0; } .zwei { grid-template-columns: 1fr; } main { padding: 16px; } }
+  .anfrage { cursor: pointer; }
+  .anfrage--neu td { font-weight: 700; }
+  .anfrage__detail { background: var(--papier); }
+  .anfrage__detail dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; }
+  .anfrage__detail dt { color: var(--ink-soft); }
+  .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; font-weight: 600; z-index: 50; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+  .toast--fehler { background: var(--rot); }
+  .modal { position: fixed; inset: 0; background: rgba(22,36,48,.45); display: grid; place-items: center; z-index: 40; padding: 20px; }
+  .modal__box { background: #fff; border-radius: 14px; padding: 20px; width: min(720px, 100%); max-height: 90vh; overflow: auto; }
+  .modal__box h2 { margin: 0 0 10px; font-size: 17px; }
+  .handbuch details { background: #fff; border: 1px solid var(--linie); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
+  .handbuch summary { font-weight: 700; cursor: pointer; }
+  .handbuch h3 { font-size: 13px; color: var(--ink-soft); margin: 12px 0 4px; text-transform: uppercase; letter-spacing: .06em; }
+  .handbuch ol, .handbuch ul { margin: 0; padding-left: 20px; }
+  kbd { font-family: inherit; background: var(--sand); border: 1px solid var(--linie); border-radius: 6px; padding: 0 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="/admin/handbook.js?v={{VERSION}}"></script>
+<script src="/admin/app.js?v={{VERSION}}"></script>
+</body>
+</html>
