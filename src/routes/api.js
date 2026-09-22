@@ -17,6 +17,8 @@ import { cache } from '../cache.js';
 import { loadFacts, loadSite } from '../config.js';
 import { Anmeldebremse, basisUrl } from '../oeffentlich.js';
 import { statistik } from '../zugriffe.js';
+import { mitKosten } from '../kosten.js';
+import { protokolliereVerbrauch, verbrauchSummen } from '../verbrauch.js';
 import { mailKonfiguriert } from '../mail.js';
 import { indexiereSeite, entferneSeite, indexiereAlles, assistentStatus } from '../assistent.js';
 import { loadAssistent } from '../config.js';
@@ -191,7 +193,8 @@ apiRouter.post('/generate', async (req, res, next) => {
        VALUES ($1, $2, $3, 'generated', $4, $5, $6, $7, $8)`,
       [id, slug, page_type, ergebnis.title || slug, ergebnis.description, JSON.stringify(ergebnis.content), zeit, zeit]);
     const neu = await queryOne('SELECT * FROM pages WHERE id = $1', [id]);
-    res.status(201).json({ ...neu, content_json: JSON.parse(neu.content_json), hinweise: ergebnis.hinweise, verbrauch: ergebnis.verbrauch });
+    protokolliereVerbrauch('generator', ergebnis.verbrauch).catch((err) => console.error(`[Motor] [WARN] Verbrauchsbuch: ${err.message}`));
+    res.status(201).json({ ...neu, content_json: JSON.parse(neu.content_json), hinweise: ergebnis.hinweise, verbrauch: mitKosten(ergebnis.verbrauch) });
   } catch (err) { next(err); }
 });
 
@@ -215,8 +218,14 @@ apiRouter.post('/pages/:id/generate', async (req, res, next) => {
       [ergebnis.title || alt.title, ergebnis.description || alt.description || '', JSON.stringify(ergebnis.content), jetzt(), alt.id]);
     cache.clear();
     const neu = await queryOne('SELECT * FROM pages WHERE id = $1', [alt.id]);
-    res.json({ ...neu, content_json: JSON.parse(neu.content_json), hinweise: ergebnis.hinweise, verbrauch: ergebnis.verbrauch });
+    protokolliereVerbrauch('generator', ergebnis.verbrauch).catch((err) => console.error(`[Motor] [WARN] Verbrauchsbuch: ${err.message}`));
+    res.json({ ...neu, content_json: JSON.parse(neu.content_json), hinweise: ergebnis.hinweise, verbrauch: mitKosten(ergebnis.verbrauch) });
   } catch (err) { next(err); }
+});
+
+// Verbrauchsbuch fürs Cockpit: Läufe und Antworten in Euro, laufender Monat und gesamt.
+apiRouter.get('/verbrauch', async (_req, res, next) => {
+  try { res.json(await verbrauchSummen()); } catch (err) { next(err); }
 });
 
 // ---- Navigation (3.2) ----------------------------------------------------------

@@ -288,7 +288,7 @@ export async function anthropicChatModell({ system, messages, onDelta }) {
     }
     const antwort = await stream.finalMessage();
     if (antwort.stop_reason === 'refusal') throw new Error('Das Modell hat die Anfrage abgelehnt');
-    return { text, verbrauch: { modell: antwort.model, eingabe: antwort.usage?.input_tokens ?? 0, ausgabe: antwort.usage?.output_tokens ?? 0, cache: antwort.usage?.cache_read_input_tokens ?? 0 } };
+    return { text, verbrauch: { modell: antwort.model, eingabe: antwort.usage?.input_tokens ?? 0, ausgabe: antwort.usage?.output_tokens ?? 0, cache: antwort.usage?.cache_read_input_tokens ?? 0, cacheSchreiben: antwort.usage?.cache_creation_input_tokens ?? 0 } };
   } catch (err) {
     if (err instanceof Anthropic.AuthenticationError) throw new Error('Der Schlüssel wird nicht angenommen: ANTHROPIC_API_KEY in .env prüfen');
     if (err instanceof Anthropic.RateLimitError) throw new Error('Zu viele Anfragen beim Anbieter');

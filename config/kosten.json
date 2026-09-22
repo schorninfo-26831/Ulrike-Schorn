@@ -1,0 +1,16 @@
+{
+  "_hinweis": "Preise des Anbieters in US-Dollar je Million Token (Liste console.anthropic.com). Zwischenspeicher: Schreiben kostet das 1,25-Fache der Eingabe, Lesen ein Zehntel. usdEur ist der Wechselkurs, gelegentlich anpassen. Nach einer Änderung den Motor neu starten.",
+  "stand": "2026-09-22",
+  "usdEur": 0.86,
+  "cacheSchreiben": 1.25,
+  "cacheLesen": 0.1,
+  "preise": {
+    "claude-opus-5": { "eingabe": 5, "ausgabe": 25 },
+    "claude-sonnet-5": { "eingabe": 2, "ausgabe": 10 },
+    "claude-opus-4-8": { "eingabe": 5, "ausgabe": 25 },
+    "claude-opus-4-7": { "eingabe": 5, "ausgabe": 25 },
+    "claude-opus-4-6": { "eingabe": 5, "ausgabe": 25 },
+    "claude-sonnet-4-6": { "eingabe": 3, "ausgabe": 15 },
+    "claude-haiku-4-5": { "eingabe": 1, "ausgabe": 5 }
+  }
+}

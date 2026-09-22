@@ -32,6 +32,7 @@ npm run golden -- <typ>                  # Goldreferenz eines Seitentyps aus sei
 - Wasserhygiene-Texte folgen den geprüften Compliance-Daten (Skill `schorn-biozid-compliance`): Pflichtsatz nach Biozid-VO Art. 72, Silber-Regel, Stopp-Wörter.
 - **Stufe 7** Der Assistent antwortet nur aus Wissensstücken (veröffentlichte Seiten ohne `chat_excluded` + `knowledge/produkte.md`), nie aus dem Modellgedächtnis; Sperrliste, Preise und Pflichthinweis prüft der Motor. Rechtstexte sind ausgeschlossen.
 - **Stufe 4** Der Generator liest `knowledge/` (Stimme, Compliance, Shop-Ziele) und `page-types/<typ>/prompt.md`, liefert JSON gegen den Vertrag, Status immer `generated`. Schlüssel nur in `.env` (`ANTHROPIC_API_KEY`), nie im Repo, nie im Chat. Das Modell ist eine Funktion; Tests laufen ohne Netz.
+- **Kosten sichtbar:** Jeder Generator-Lauf und jede Assistent-Antwort landet ohne Inhalt im Verbrauchsbuch (`ki_verbrauch`); das Cockpit zeigt Euro je Lauf und je Monat. Preise je Million Token und Wechselkurs nur in `config/kosten.json`, nie im Code.
 - Prüfen am laufenden System, nicht am Quelltext: `node -e "fetch('http://localhost:3000/').then(r=>console.log(r.status))"`
 - Windows und Mac gleich: Pfade mit Schrägstrich, Ordner vor Gebrauch anlegen, keine Shell-Skripte in `package.json`.
 

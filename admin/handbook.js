@@ -139,6 +139,23 @@ window.HANDBUCH = [
     fallstricke: ['Zugangsdaten gehören nur in .env — nie ins Repository, nie in einen Chat.', 'Bei Weg B (Hoster) stehen diese Werte in der Oberfläche des Hosters, nicht in einer Datei im Projekt.'],
   },
   {
+    titel: 'Was die KI kostet (Euro im Cockpit)',
+    wann: 'Du willst wissen, was ein Generator-Lauf oder die Fragen an Schorni kosten.',
+    schritte: [
+      'Nach jedem Generator-Lauf steht im Ergebnisfenster der Verbrauch: Token hinein, Token heraus, Modell und der Betrag in Euro, etwa „etwa 0,10 €".',
+      'Links „Generieren": unter dem Status stehen die Summe des laufenden Monats und die Summe aller Läufe. Links „Assistent": dasselbe für die Antworten von Schorni.',
+      'Die Preise je Million Token und der Wechselkurs stehen in config/kosten.json. Ändert der Anbieter die Preise oder schwankt der Kurs: dort anpassen und den Motor neu starten.',
+    ],
+    automatisch: [
+      'Der Motor rechnet aus vier Token-Sorten: Eingabe, Ausgabe, Zwischenspeicher schreiben (1,25-fache Eingabe) und lesen (ein Zehntel).',
+      'Jeder Lauf und jede Antwort wird ohne Inhalt und ohne IP-Adresse in der Tabelle ki_verbrauch gezählt.',
+    ],
+    fallstricke: [
+      'Die Euro-Zahl ist eine Rechnung nach Preisliste, keine Rechnung des Anbieters. Verbindlich ist die Abrechnung unter console.anthropic.com.',
+      'Ein Modell, das nicht in config/kosten.json steht, bekommt keine Zahl statt einer falschen: Dann fehlt der Betrag, die Token stehen trotzdem da.',
+    ],
+  },
+  {
     titel: 'Zugriffe lesen',
     wann: 'Du willst wissen, was gelesen wird.',
     schritte: ['„Zugriffe" öffnen: oben die letzten 30 Tage, darunter die Aufrufe je Seite.'],

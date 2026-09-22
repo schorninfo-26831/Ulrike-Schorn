@@ -42,7 +42,8 @@ ein Embedding-Anschluss ein Zusatz an einer Stelle (`finde()` in `src/assistent.
 
 Bremsen: 30 Fragen je Absender in zehn Minuten, `CHAT_TAGESLIMIT` Fragen am Tag insgesamt. Danach
 sagt Schorni, dass er Pause macht, und nennt das Telefon. Jede Frage kostet beim Anbieter Geld, meist
-deutlich unter einem Cent.
+deutlich unter einem Cent; das Cockpit zeigt unter „Assistent" die Summe des Monats in Euro (Preisliste in
+`config/kosten.json`).
 
 ## Abnahme Stufe 7
 
@@ -51,7 +52,7 @@ Stell drei Fragen, deren Antwort auf der Website steht, und eine, deren Antwort 
 | | Frage | Erwartung | Geschafft |
 |---|---|---|---|
 | 1 | „In welcher Reihenfolge pflege ich meinen Tank?" | Erst entkalken, dann desinfizieren, dann konservieren; Quelle Wasser-Ratgeber | ☐ |
-| 2 | „Verträgt mein Truma Boiler DEXDA Clean?" | Ja, nachweislich; Pflichtsatz hängt an; Quellen Wasser-Ratgeber und Produktdaten | ☐ |
+| 2 | „Verträgt mein Boiler DEXDA Clean?" | Ja: pH-neutral, für alle gängigen Materialien im Frischwassersystem, nachweislich auch Truma; Pflichtsatz hängt an; Quellen Wasser-Ratgeber und Produktdaten | ☐ |
 | 3 | „Wie erreiche ich euch?" | Telefon und Zeiten aus den Fakten, Kontaktseite | ☐ |
 | 4 | „Passt das in meinen Dethleffs mit Sondertank?" | **„Das steht hier nicht"** und der Verweis ans Telefon. Erfindet er etwas, ist die Abnahme nicht bestanden. | ☐ |
 

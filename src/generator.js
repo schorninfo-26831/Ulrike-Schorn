@@ -341,6 +341,7 @@ export async function anthropicModell({ system, user }) {
         eingabe: antwort.usage?.input_tokens ?? 0,
         ausgabe: antwort.usage?.output_tokens ?? 0,
         cache: antwort.usage?.cache_read_input_tokens ?? 0,
+        cacheSchreiben: antwort.usage?.cache_creation_input_tokens ?? 0,
       },
     };
   } catch (err) {

@@ -499,11 +499,22 @@
   }
 
   // ---- Generieren (Stufe 4) -----------------------------------------------------------------
+  const zahl = (n) => Number(n || 0).toLocaleString('de-DE');
+  /** „Verbrauch: 6.235 Token hinein (5.800 davon über den Zwischenspeicher), 2.296 heraus · claude-opus-5 · etwa 0,10 €." */
+  function verbrauchText(v) {
+    const cache = Number(v.cache || 0) + Number(v.cacheSchreiben || 0);
+    const hinein = Number(v.eingabe || 0) + cache;
+    return `Verbrauch: ${zahl(hinein)} Token hinein${cache ? ` (${zahl(cache)} davon über den Zwischenspeicher)` : ''}, ${zahl(v.ausgabe)} heraus${v.modell ? ` · ${v.modell}` : ''}${v.kosten ? ` · ${v.kosten.text}` : ''}.`;
+  }
+  /** Summenzeile aus dem Verbrauchsbuch für eine Art (generator, assistent). */
+  function kostenZeile(k, art, einheit) {
+    const m = k.monat[art]; const g = k.gesamt[art];
+    return `Kosten: diesen Monat ${m.anzahl} ${einheit}, ${m.text} · insgesamt ${g.anzahl} ${einheit}, ${g.text} · Preise und Kurs: config/kosten.json (Stand ${k.stand || '?'})`;
+  }
   /** Ergebnis eines Laufs: Hinweise aus der Prüfung und der Verbrauch. „Seite öffnen" führt in den Editor. */
   function zeigeGeneratorErgebnis(s) {
     const hinweise = s.hinweise || [];
-    const v = s.verbrauch;
-    const verbrauch = v ? `Verbrauch: ${v.eingabe ?? '?'} Token hinein, ${v.ausgabe ?? '?'} heraus${v.modell ? ` (${v.modell})` : ''}.` : '';
+    const verbrauch = s.verbrauch ? verbrauchText(s.verbrauch) : '';
     const box = el('div', { class: 'modal__box', role: 'dialog', 'aria-modal': 'true', id: 'generator-ergebnis' },
       el('h2', {}, `Fertig: „${s.title}"`),
       el('p', {}, 'Die Seite liegt als ', el('span', { class: 'status status--generated' }, 'generiert'), ' im Cockpit. Lies sie, ändere, was nicht passt, und veröffentliche erst dann.'),
@@ -524,6 +535,7 @@
 
   async function ansichtGenerieren() {
     const status = await api('/generate/status');
+    const kosten = await api('/verbrauch').catch(() => null);
     const typ = el('select', { id: 'gen-typ' }, stamm.types.map((t) => el('option', { value: t.name, selected: t.name === 'ratgeber' }, `${t.label} — ${t.beschreibung || ''}`)));
     const titel = el('input', { type: 'text', id: 'gen-titel', placeholder: 'z. B. Winterfest machen' });
     const slug = el('input', { type: 'text', id: 'gen-slug', placeholder: 'entsteht aus dem Titel' });
@@ -547,6 +559,7 @@
       status.bereit
         ? el('p', { class: 'hinweis', id: 'generator-status' }, `Bereit · Modell: ${status.modell}`)
         : el('div', { class: 'warn', id: 'generator-status' }, 'ANTHROPIC_API_KEY ist nicht gesetzt. Trag den Schlüssel in die Datei .env ein (Vorlage: .env.example, Anleitung: docs/lokal-starten.md) und starte den Motor neu. Der Schlüssel bleibt auf deinem Rechner: nie ins Repository, nie in einen Chat.'),
+      kosten ? el('p', { class: 'hinweis', id: 'generator-kosten' }, kostenZeile(kosten, 'generator', 'Läufe')) : null,
       el('div', { class: 'karte' },
         el('div', { class: 'zeile', style: 'align-items:flex-start' },
           el('label', { class: 'feld', style: 'flex:1 1 220px' }, el('span', {}, 'Seitentyp'), typ),
@@ -608,13 +621,14 @@
   // ---- Assistent (Stufe 7) ----------------------------------------------------------------------
   async function ansichtAssistent() {
     const s = await api('/assistent/status');
+    const kosten = await api('/verbrauch').catch(() => null);
     const neu = el('button', { class: 'knopf knopf--leise', type: 'button', id: 'index-neu', onclick: async () => {
       neu.disabled = true;
       try { const r = await api('/assistent/index', { method: 'POST' }); toast(`Index neu aufgebaut: ${r.chunks} Wissensstücke`); ansichtAssistent(); }
       catch (err) { toast(err.message, true); neu.disabled = false; }
     } }, 'Index neu aufbauen');
     const statusZeile = s.bereit
-      ? el('p', { class: 'hinweis', id: 'assistent-status' }, `Bereit · Modell: ${s.modell} · ${s.chunks} Wissensstücke (davon ${s.wissen} geprüfte Produktdaten) · heute ${s.heute} Fragen`)
+      ? el('p', { class: 'hinweis', id: 'assistent-status' }, `Bereit · Modell: ${s.modell} · ${s.chunks} Wissensstücke (davon ${s.wissen} geprüfte Produktdaten) · heute ${s.heute} Fragen${kosten ? ` · Kosten diesen Monat ${kosten.monat.assistent.text} (${kosten.monat.assistent.anzahl} Antworten), insgesamt ${kosten.gesamt.assistent.text}` : ''}`)
       : el('div', { class: 'warn', id: 'assistent-status' }, s.aktiv
         ? 'ANTHROPIC_API_KEY ist nicht gesetzt: Der Knopf auf der Website bleibt aus, bis der Schlüssel in .env steht und der Motor neu gestartet ist.'
         : 'Der Assistent ist ausgeschaltet (config/assistent.json, aktiv: false).');

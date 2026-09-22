@@ -97,6 +97,12 @@ die Datei nur beim Start.
 Im Cockpit steht links jetzt **Generieren**. Solange der Schlüssel fehlt, zeigt die Seite einen
 Hinweis und der Knopf bleibt aus.
 
+**Was ein Lauf kostet:** Nach jedem Lauf steht im Ergebnis der Verbrauch mit Betrag in Euro, etwa
+„6.235 Token hinein, 2.296 heraus · claude-opus-5 · etwa 0,10 €". Unter „Generieren" stehen die Summen
+des Monats und insgesamt, unter „Assistent" dieselben für Schorni. Gerechnet wird nach der Preisliste in
+`config/kosten.json` (Dollar je Million Token, Wechselkurs); verbindlich ist die Abrechnung in der
+Anthropic-Konsole.
+
 ### Die Abnahme Stufe 4: das Ergebnis gegen die Goldreferenz (P4)
 
 Nimm ein Thema, zu dem du etwas zu sagen hast, zum Beispiel „Winterfest machen". Schreib unter

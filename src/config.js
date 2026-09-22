@@ -12,6 +12,7 @@ export const loadSite = () => lies('config/site.json');
 export const loadFacts = () => lies('config/facts.json');
 export const loadTheme = () => lies('config/theme.json');
 export const loadAssistent = () => (existsSync('config/assistent.json') ? lies('config/assistent.json') : { aktiv: false });
+export const loadKosten = () => (existsSync('config/kosten.json') ? lies('config/kosten.json') : { usdEur: 1, preise: {} });
 export const version = () => lies('package.json').version;
 
 /** Tiefes Zusammenführen: Override über Datei, verschachtelte Objekte werden gemischt. */

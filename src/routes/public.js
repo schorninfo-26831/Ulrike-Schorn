@@ -15,6 +15,7 @@ import { escapeHtml } from '../blocks/_util.js';
 import { basisUrl, Anmeldebremse } from '../oeffentlich.js';
 import { loadAssistent } from '../config.js';
 import { antworte, ladeChatModell, assistentStatus, quellenChips, protokolliere, fragenHeute } from '../assistent.js';
+import { protokolliereVerbrauch } from '../verbrauch.js';
 import { zaehle } from '../zugriffe.js';
 import { benachrichtige } from '../mail.js';
 
@@ -113,6 +114,7 @@ publicRouter.post('/api/chat', async (req, res, next) => {
       const ergebnis = await antworte({ frage, verlauf, modell, config: cfg, facts, onDelta: (t) => sende({ typ: 'delta', text: t }) });
       const quellen = await quellenChips(ergebnis.quellen);
       await protokolliere({ frage, antwort: ergebnis.antwort, quellen: ergebnis.quellen, gewusst: ergebnis.gewusst }).catch((err) => console.error(`[Motor] [WARN] Chat-Protokoll: ${err.message}`));
+      protokolliereVerbrauch('assistent', ergebnis.verbrauch).catch((err) => console.error(`[Motor] [WARN] Verbrauchsbuch: ${err.message}`));
       sende({ typ: 'fertig', antwort: ergebnis.antwort, quellen, hinweis: ergebnis.hinweis, pflichtsatz: ergebnis.hinweis ? facts.biozidPflichthinweis || '' : '', gewusst: ergebnis.gewusst });
     } catch (err) {
       // P6: eine ehrliche Meldung, die Seite bleibt bedienbar. Die Ursache steht im Log.
