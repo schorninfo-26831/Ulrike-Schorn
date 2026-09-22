@@ -265,6 +265,13 @@
       if (def.type === 'bool') return el('label', { class: 'feld feld--inline' }, el('input', { type: 'checkbox', 'data-feld': name, checked: Boolean(wert), onchange: merke }), el('span', {}, def.label || key));
       if (def.type === 'image') { const f = bildFeld({ wert, onchange: merke, altSchwester: () => null }); f.node.dataset.feld = name; f.node.dataset.bild = '1'; return el('div', { class: 'feld' }, el('span', {}, def.label || key), f.node); }
       if (def.type === 'list') return listenFeld(name, def, Array.isArray(wert) ? wert : [], merke);
+      if (def.type === 'select') {
+        const optionen = def.optionen === 'seitentypen'
+          ? stamm.types.map((t) => ({ value: t.name, label: t.label }))
+          : (def.optionen || []).map((o) => (typeof o === 'string' ? { value: o, label: o } : o));
+        return el('label', { class: 'feld' }, el('span', {}, def.label || key),
+          el('select', { 'data-feld': name, onchange: merke }, optionen.map((o) => el('option', { value: o.value, selected: o.value === wert }, o.label))));
+      }
       return el('label', { class: 'feld' }, el('span', {}, def.label || key), el('input', { type: 'text', 'data-feld': name, value: wert, oninput: merke }));
     });
   }

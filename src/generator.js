@@ -17,7 +17,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { jsonrepair } from 'jsonrepair';
-import { getType, validateContent } from './archetypes.js';
+import { getType, listTypes, validateContent } from './archetypes.js';
 import { blocks, pruefeBloecke } from './blocks/index.js';
 import { loadFacts } from './config.js';
 
@@ -62,7 +62,9 @@ export function beschreibeBausteine(typ) {
       else if (f.default) vorgabe = ` [Vorgabe: ${JSON.stringify(f.default)}]`;
       const liste = f.type === 'list' && f.felder
         ? ` — Liste von Objekten mit ${Object.entries(f.felder).map(([n, t]) => `${n} (${t})`).join(', ')}` : '';
-      return `    ${k} · ${f.type}${liste}: ${f.label}${vorgabe}`;
+      const wahl = f.type === 'select'
+        ? ` — genau einer von: ${(f.optionen === 'seitentypen' ? listTypes().map((t) => t.name) : (f.optionen || []).map((o) => (typeof o === 'string' ? o : o.value))).join(' | ')}` : '';
+      return `    ${k} · ${f.type}${liste}${wahl}: ${f.label}${vorgabe}`;
     }).join('\n');
     return `- "${name}" (${b.label})${pflicht.has(name) ? ' — Pflicht' : ''}\n${felder}`;
   }).join('\n');

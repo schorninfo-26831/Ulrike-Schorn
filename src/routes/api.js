@@ -84,7 +84,8 @@ apiRouter.post('/pages', async (req, res, next) => {
       `INSERT INTO pages (id, slug, page_type, status, title, description, content_json, created_at, updated_at)
        VALUES ($1, $2, $3, 'draft', $4, '', $5, $6, $7)`,
       [id, slug, page_type, String(title || slug), JSON.stringify(neuerInhalt(typ)), zeit, zeit]);
-    res.status(201).json(await queryOne('SELECT * FROM pages WHERE id = $1', [id]));
+    const neu = await queryOne('SELECT * FROM pages WHERE id = $1', [id]);
+    res.status(201).json({ ...neu, content_json: JSON.parse(neu.content_json) });
   } catch (err) { next(err); }
 });
 

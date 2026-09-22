@@ -91,8 +91,8 @@ window.HANDBUCH = [
       'Reihenfolge mit ↑ ↓. „Unterpunkt" hängt einen zweiten Punkt unter einen Hauptpunkt. ✕ entfernt.',
       '„Menü speichern".',
     ],
-    automatisch: ['Kopf- und Fußzeile jeder Seite lesen das Menü bei jedem Aufruf aus der Datenbank (P3). Nichts ist im Baustein fest verdrahtet.', 'Punkte, deren Ziel nicht veröffentlicht ist, werden versteckt statt ins Leere zu führen.'],
-    fallstricke: ['Die Reihenfolge ist Redaktion, keine Technik: nie alphabetisch, nie nach Datum.', 'Zwei Ebenen reichen. Eine dritte gibt es bewusst nicht.'],
+    automatisch: ['Kopf- und Fußzeile jeder Seite lesen das Menü bei jedem Aufruf aus der Datenbank (P3). Nichts ist im Baustein fest verdrahtet.', 'Punkte, deren Ziel nicht veröffentlicht ist, werden versteckt statt ins Leere zu führen.', 'Unterpunkte erscheinen am Desktop als Aufklappmenü unter dem Hauptpunkt. Auf dem Telefon führt der Hauptpunkt zur Seite.'],
+    fallstricke: ['Die Reihenfolge ist Redaktion, keine Technik: nie alphabetisch, nie nach Datum.', 'Zwei Ebenen reichen. Eine dritte gibt es bewusst nicht.', 'Ein Hauptpunkt mit Unterpunkten sollte eine Übersichtsseite sein (Ablauf „Eine Übersichtsseite anlegen"), sonst sind die Unterpunkte auf dem Telefon nicht erreichbar.'],
   },
   {
     titel: 'Anfragen lesen',
@@ -114,6 +114,17 @@ window.HANDBUCH = [
     schritte: ['„Umleitungen" öffnen, „von" und „nach" eintragen (z. B. /alte-seite/ → /wasser-ratgeber/), „Umleitung anlegen".'],
     automatisch: ['Umleitungen durch Umbenennen und Löschen stehen hier von allein.'],
     fallstricke: ['„von" ist immer ein Pfad dieser Website. „nach" darf auch eine volle https-Adresse sein, z. B. in den Shop.'],
+  },
+  {
+    titel: 'Eine Übersichtsseite anlegen',
+    wann: 'Mehrere Seiten eines Typs sollen an einem Ort aufgelistet werden, zum Beispiel alle Ratgeber-Kapitel. /ratgeber/ ist so eine Seite.',
+    schritte: [
+      '„Seiten" → „Neue Seite", Seitentyp „Übersicht", Titel eingeben, „Anlegen".',
+      'Im Baustein „Übersicht" den Seitentyp wählen, der gelistet werden soll (Auswahlfeld), die Reihenfolge und den Text für den Fall, dass noch nichts da ist.',
+      '„Speichern", „Vorschau", „Veröffentlichen". Dann die Seite ins Menü hängen und die einzelnen Seiten als Unterpunkte darunter.',
+    ],
+    automatisch: ['Die Liste füllt sich von allein: Jede veröffentlichte Seite des gewählten Typs erscheint, Entwürfe nie, die Übersicht selbst nie (P3).', 'Vorschaubild, Titel und Beschreibung der Karten kommen aus den jeweiligen Seiten.'],
+    fallstricke: ['Die Übersicht listet nur Veröffentlichtes. Fehlt eine Seite, ist sie ein Entwurf.', 'Die Beschreibung einer Seite ist ihr Text auf der Karte. Leer heißt: nur Titel und Link.'],
   },
   {
     titel: 'Mailversand einrichten (Anfragen per E-Mail)',

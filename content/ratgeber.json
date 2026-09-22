@@ -1,0 +1,49 @@
+{
+  "slug": "ratgeber",
+  "page_type": "uebersicht",
+  "status": "published",
+  "title": "Ratgeber: Wasser im Wohnmobil, Kapitel für Kapitel",
+  "description": "Alle Ratgeber von Camping Schorni auf einen Blick: Konservieren, Entkalken, Desinfizieren, Filtern und was sonst am Tank anfällt. Neue Kapitel erscheinen hier von allein.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber",
+          "titel": "Wasser im Wohnmobil, Kapitel für Kapitel.",
+          "sub": "Jedes Kapitel erklärt einen Handgriff so, wie Schorni ihn am Telefon erklären würde: was im Tank passiert, was hilft und in welcher Reihenfolge. Neue Kapitel erscheinen hier von allein.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "liste",
+        "data": {
+          "eyebrow": "Alle Kapitel",
+          "titel": "Was du hier findest",
+          "typ": "ratgeber",
+          "sortierung": "neueste",
+          "linkText": "Kapitel lesen",
+          "leer": "Das erste Kapitel ist in Arbeit. Schau bald wieder vorbei."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Die Reihenfolge macht den Unterschied: **erst entkalken, dann desinfizieren, dann konservieren.** Wer sie einhält, spart sich die zweite Runde."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Lieber kurz fragen?",
+          "text": "Ruf an: {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}. Oder schreib uns über die Kontaktseite. Alles, was in den Kapiteln vorkommt, findest du im Shop.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

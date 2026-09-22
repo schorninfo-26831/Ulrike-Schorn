@@ -8,6 +8,7 @@ import { query, queryOne } from '../db.js';
 import { renderPage } from '../renderer.js';
 import { ladeFakten } from '../fakten.js';
 import { ladeBaum } from '../navigation.js';
+import { ladeBestand } from '../bestand.js';
 import { cache } from '../cache.js';
 import { loadSite } from '../config.js';
 import { escapeHtml } from '../blocks/_util.js';
@@ -98,5 +99,7 @@ publicRouter.get(/^\/(.*)$/, async (req, res, next) => {
 /** Was der Renderer von außen braucht: Menübaum und Seitenbezug fürs Formular (P3). */
 export async function dynamik(page) {
   const baum = await ladeBaum();
-  return { nav: { baum }, footer: { baum }, form: { seite: page.slug } };
+  // Übersichten (Stufe 6) lesen den Bestand bei jedem Aufruf — die Seite speichert keine Liste.
+  const seiten = await ladeBestand();
+  return { nav: { baum }, footer: { baum }, form: { seite: page.slug }, liste: { seiten, eigenerSlug: page.slug } };
 }

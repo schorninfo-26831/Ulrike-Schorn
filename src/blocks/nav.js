@@ -31,6 +31,16 @@ export default {
       font-size: 12px; color: var(--text-muted); letter-spacing: 0; margin-top: 2px; }
     .nav__menue { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
     .nav__menue a { color: var(--text); text-decoration: none; font-weight: 500; }
+    /* Zweite Ebene (3.2): am Desktop ein Aufklappmenü unter dem Hauptpunkt; auf dem Telefon führt
+       der Hauptpunkt zur Seite, die die Unterpunkte auflistet (Übersicht, Stufe 6). */
+    .nav__punkt { position: relative; }
+    .nav__punkt--unter > a::after { content: " ▾"; font-size: .75em; color: var(--text-muted); }
+    .nav__unter { display: none; position: absolute; left: -14px; top: 100%; z-index: 5; margin: 0; padding: 8px 0;
+      list-style: none; min-width: 220px; background: var(--grund-2); border: 1px solid var(--grund-3);
+      border-radius: var(--radius); box-shadow: 0 12px 28px rgba(0, 0, 0, .08); }
+    .nav__unter a { display: block; padding: 8px 16px; white-space: nowrap; }
+    .nav__punkt:hover > .nav__unter, .nav__punkt:focus-within > .nav__unter { display: block; }
+    @media (max-width: 799px) { .nav__unter { display: none !important; } .nav__punkt--unter > a::after { content: ""; } }
     .nav__rechts { margin-left: auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .nav__telefon { color: var(--text-muted); text-decoration: none; font-size: 15px; white-space: nowrap; }
     .nav__shop { display: inline-block; padding: 10px 18px; border-radius: 999px;
@@ -39,8 +49,11 @@ export default {
   `,
   render(data) {
     const baum = Array.isArray(data.baum) ? data.baum : [];
-    const punkte = baum.map((p) =>
-      html`<li><a href="${raw(escapeAttr(ziel(p.href)))}">${p.label}</a></li>`);
+    const punkte = baum.map((p) => {
+      const kinder = (Array.isArray(p.kinder) ? p.kinder : []).filter((k) => ziel(k.href));
+      const unter = kinder.map((k) => html`<li><a href="${raw(escapeAttr(ziel(k.href)))}">${k.label}</a></li>`);
+      return html`<li class="${kinder.length ? 'nav__punkt nav__punkt--unter' : 'nav__punkt'}"><a href="${raw(escapeAttr(ziel(p.href)))}">${p.label}</a>${kinder.length ? html`<ul class="nav__unter">${reihe(unter, '')}</ul>` : ''}</li>`;
+    });
     const telHref = ziel(`tel:${String(data.telefon || '').replace(/[^\d+]/g, '')}`);
     const logo = ziel(data.logo);
     return html`

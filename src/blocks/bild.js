@@ -11,7 +11,8 @@ export default {
     src:          { type: 'image', default: '', label: 'Bild (aus den Medien wählen)' },
     alt:          { type: 'text',  default: '', label: 'Alternativtext — Pflicht' },
     unterschrift: { type: 'text',  default: '', label: 'Bildunterschrift (optional; bei KI-Bildern: „Bild KI-gestützt erstellt")' },
-    breite:       { type: 'text',  default: 'normal', label: 'Breite: normal oder schmal' },
+    breite:       { type: 'select', default: 'normal', label: 'Breite',
+                    optionen: [{ value: 'normal', label: 'Normal' }, { value: 'schmal', label: 'Schmal' }] },
   },
   css: `
     .bild figure { margin: 0; }

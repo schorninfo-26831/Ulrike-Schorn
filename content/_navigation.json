@@ -1,7 +1,9 @@
 {
-  "_hinweis": "Anfangsmenü. Wird nur eingespielt, wenn die Navigationstabelle leer ist — danach gehört das Menü dem Cockpit (Punkt Navigation). Zwei Ebenen, Reihenfolge ist Redaktion.",
+  "_hinweis": "Anfangsmenü. Wird nur eingespielt, wenn die Navigationstabelle leer ist — danach gehört das Menü dem Cockpit (Punkt Navigation). Zwei Ebenen, Reihenfolge ist Redaktion. Der Hauptpunkt Ratgeber führt zur Übersicht, die Kapitel hängen darunter.",
   "punkte": [
-    { "label": "Wasser-Ratgeber", "href": "/wasser-ratgeber/" },
+    { "label": "Ratgeber", "href": "/ratgeber/", "kinder": [
+      { "label": "Wasser-Ratgeber", "href": "/wasser-ratgeber/" }
+    ] },
     { "label": "Über uns", "href": "/ueber-uns/" },
     { "label": "Kontakt", "href": "/kontakt/" }
   ]
