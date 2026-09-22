@@ -70,7 +70,7 @@ Nichts davon wird geraten. Jede Zeile ist eine Entscheidung oder eine Lieferung 
 |---|---|---|
 | ☐ | **Domain:** Inhalte auf der Hauptdomain und Shop auf einer Subdomain, oder umgekehrt? Das ist eine SEO-Entscheidung mit Umleitungsliste (docs/vorlage.md, Punkt 6) | Ulrike, ggf. mit Leo |
 | ☐ | **Hoster für Weg B** (Coolify auf einem VPS, Hetzner, Railway …) | Ulrike |
-| ◐ | **Rechtstexte prüfen:** Justus hat am 22.09.2026 geprüft und überarbeitet (docs/rechtspruefung.md). Offen: Rechtsform (e. K. oder nicht), Hoster und Standort im Datenschutz, Anthropic-DPA in der Konsole akzeptieren | Ulrike, Justus |
+| ◐ | **Rechtstexte prüfen:** Justus hat am 22.09.2026 geprüft und überarbeitet (docs/rechtspruefung.md). Rechtsform geklärt (kein Handelsregister). Offen: Hoster und Standort im Datenschutz, Anthropic-DPA in der Konsole akzeptieren | Ulrike, Justus |
 | ✔ | **E-Mail-Adresse:** info@caravan-reiniger.de, bestätigt durch die Team-Basis des KI-Teams (Marken-Fakten, Stand Juni 2026) | erledigt |
 | ☐ | **Über uns:** dein Originaltext ersetzt den Platzhalter | Ulrike |
 | ✔ | **Kontakt:** UV-Einbauservice und Beratung sind in der Team-Basis als Service-USP festgehalten | erledigt |

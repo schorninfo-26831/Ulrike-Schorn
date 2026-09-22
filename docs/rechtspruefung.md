@@ -15,7 +15,7 @@ Anthropic-Konsole.
 | Punkt | Befund | Risiko |
 |---|---|---|
 | Name, Anschrift, Kontakt, USt-IdNr. | vorhanden, aus den Fakten | niedrig |
-| Rechtsform | **offen:** Ist Camping Schorni im Handelsregister (e. K.)? Dann gehören Registergericht und HRA-Nummer ins Impressum. Ohne Eintrag ist der Text vollständig. | mittel, wenn e. K. und Angabe fehlt |
+| Rechtsform | Einzelunternehmen ohne Handelsregister-Eintrag (Ulrike, 22.09.2026). Registerangaben entfallen, das Impressum ist vollständig. | niedrig |
 | Verantwortlich nach § 18 Abs. 2 MStV | genannt; für die Ratgeber-Inhalte sinnvoll | niedrig |
 | Streitbeilegung (§ 36 VSBG) | Satz vorhanden. Ein Link zur EU-Plattform ist seit Juli 2025 entbehrlich; die Plattform wurde eingestellt. | niedrig |
 | Verweis auf Shop-AGB | vorhanden; Kaufrecht bleibt im Shop | niedrig |
@@ -34,7 +34,7 @@ Anthropic-Konsole.
 
 ## Was Ulrike noch liefert
 
-1. **Rechtsform:** e. K. mit Registergericht und HRA-Nummer, oder Einzelunternehmen ohne Eintrag.
+1. ~~Rechtsform~~ geklärt: kein Handelsregister.
 2. **Hoster und Standort** für die Datenschutzerklärung, sobald der Hoster (Weg B) feststeht.
 3. **Anthropic-Konsole:** Commercial Terms und Data Processing Addendum akzeptieren, bevor der
    Assistent öffentlich läuft. Ohne das stimmt der Satz zur Auftragsverarbeitung nicht.
