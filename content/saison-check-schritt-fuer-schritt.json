@@ -1,0 +1,143 @@
+{
+  "slug": "saison-check-schritt-fuer-schritt",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Der Saison-Check Schritt für Schritt: entkalken, desinfizieren, konservieren",
+  "description": "Einmal im Jahr, am besten vor der Saison: KXpress und DEXDA Clean in einem Durchgang, danach Silbernetz Flex oder Silvertex einlegen. Die Schritte aus den Gebrauchsanweisungen, in Ruhe erklärt. Von Camping Schorni.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Anwendung",
+          "titel": "Der Saison-Check, Schritt für Schritt.",
+          "sub": "Entkalken, desinfizieren, konservieren: einmal im Jahr, am besten bevor die Saison losgeht. Hier steht die Reihenfolge aus den Gebrauchsanweisungen von WM aquatec, in Ruhe erklärt. Das Etikett an deiner Packung bleibt die Vorgabe.",
+          "ctaLabel": "Alles für den Saison-Check",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Bevor du anfängst",
+          "text": "Du brauchst **KXpress** zum Entkalken, **DEXDA Clean** zum Desinfizieren und **Silbernetz Flex** oder **Silvertex** zum Konservieren, jeweils in der Größe für deinen Tank. DEXDA Clean gibt es als 100 ml bis 60 Liter, 250 ml bis 160 Liter und 1 Liter bis 500 Liter. Rechne mit einem halben Tag plus Einwirkzeit, und such dir einen Platz, an dem du Wasser ablassen darfst.\n\nZahlen und Zeiten auf dieser Seite stammen aus den beiliegenden Gebrauchsanweisungen; die Beispiele gelten für die 250-ml-Packung DEXDA Clean mit 250 ml KXpress. Handschuhe und Augenschutz gehören dazu, so steht es auf dem Etikett, und das gilt."
+        }
+      },
+      { "type": "hinweis", "data": {} },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Entkalken und Desinfizieren",
+          "titel": "Beides in einem Durchgang",
+          "items": [
+            {
+              "titel": "1 · DEXDA Clean aktivieren",
+              "text": "Das Pulver aus dem Beutel (Komponente B) in die Flasche (Komponente A) geben, Flasche zu, 10 Sekunden schütteln. Dann 90 Minuten bei Zimmertemperatur stehen lassen, vor Sonne geschützt. Der Inhalt wird gelb, dann ist er fertig. Bei der 1-Liter-Flasche sind es Tabletten und 3 Stunden.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "2 · Fahrzeug vorbereiten",
+              "text": "Boiler ausschalten, oder auf höchstens 35 °C stellen, wenn das nicht geht. UV-C-Gerät und Filter ausschalten oder ausbauen. Tank, Boiler und Leitungen leeren. Perlatoren und Duschkopf abschrauben, die kommen gleich in den Eimer.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "3 · Anmischen",
+              "text": "Das aktivierte DEXDA Clean mit 20 Litern kaltem bis handwarmem Wasser in den Tank geben, dazu die Flasche **KXpress**, und für Durchmischung sorgen. Ohne Entkalken wären es 40 Liter Wasser.",
+              "label": "KXpress im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "4 · Durch alle Leitungen",
+              "text": "Alle Entnahmestellen öffnen, auch Außendusche, Toilette und Warmwasser, bis die Lösung überall austritt. Dann schließen. Etwa einen Liter davon in einen kleinen Eimer, Perlatoren und Duschkopf hineinlegen.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "5 · Tank auffüllen",
+              "text": "Jetzt Wasser nachfüllen, aber höchstens 60 Liter. Den Rest des Tanks übernimmt das Gas, das aus der Lösung aufsteigt. Bei der 1-Liter-Packung sind es höchstens 350 Liter.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "6 · Einwirken lassen",
+              "text": "Vier Stunden, wenn KXpress dabei ist. Ohne Entkalker darf die Lösung zwischen vier und 24 Stunden im System bleiben. In der Zeit fließt nichts, das Fahrzeug steht.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "7 · Leer spülen",
+              "text": "Jede Armatur einzeln öffnen und laufen lassen, bis der Tank leer ist. So kommt der gelöste Schmutz aus den Leitungen. Wer mag, lässt die Lösung noch ein paar Stunden im Grauwassertank stehen, der wird dabei gleich mit sauber.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "8 · Nachspülen",
+              "text": "Perlatoren und Duschkopf wieder anschrauben. Tank komplett mit Trinkwasser füllen, alle Hähne öffnen, bis nur noch klares Wasser kommt, Warmwasser eingeschlossen. Mit KXpress ein- bis zweimal komplett durchspülen. Dann kommt die Konservierung in den Tank.",
+              "label": "",
+              "href": ""
+            }
+          ]
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Konservieren",
+          "titel": "Silbernetz Flex oder Silvertex einlegen",
+          "items": [
+            {
+              "titel": "1 · Nur in ein sauberes System",
+              "text": "Die Konservierung kommt nach dem Saison-Check, nie stattdessen. In einem Tank mit Biofilm und Kalk hat sie kaum eine Chance, das sagt auch die Gebrauchsanweisung: mindestens einmal im Jahr reinigen und desinfizieren, am besten zu Saisonbeginn.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "2 · Abspülen und einlegen",
+              "text": "Das Netz kurz mit lauwarmem Wasser abspülen. Dann durch die Reinigungsöffnung in den Tank legen und den Deckel wieder dicht zuschrauben. Kniff aus der Anleitung: eine Nylonschnur anbinden und zwischen Deckel und Gewinde klemmen, dann bekommst du es zum Wechsel und zum Überwintern wieder heraus.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "3 · Befüllen und verteilen",
+              "text": "Tank füllen und für mindestens zehn Minuten Wasserbewegung sorgen, eine kurze Fahrt reicht. Dann alle Armaturen öffnen, bis das Wasser mit den Silberionen in allen Leitungen und im Boiler angekommen ist.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "4 · Was danach gilt",
+              "text": "Bis zu sechs Monate frisches Wasser. Steht das Fahrzeug länger, spätestens nach sechs Monaten das Wasser wechseln und das Netz unter handwarmem Wasser abspülen. Produktwechsel nach zwölf Monaten ab dem ersten Wasserkontakt. Geeignet für Kunststoff- und Edelstahltanks, Wasser bis 50 °C, Härte bis 25 °dH. Hat sich Kalk auf dem Netz abgesetzt, ein Bad in KXpress-Lösung hilft.",
+              "label": "",
+              "href": ""
+            }
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Zwischendurch und flüssig",
+          "text": "**DEXDA Clean active** ist die schnelle Tankreinigung zwischen den Saison-Checks: einen Messlöffel je 10 Liter in den leeren Tank, Tank komplett füllen, alle Verbraucher kalt und warm öffnen, bis Wasser kommt, zwei Stunden einwirken lassen und in den Grauwassertank ablassen. Dort darf die Lösung noch zwei Stunden bleiben. Danach direkt frisch tanken, ohne Nachspülen.\n\n**DEXDA Complete** dosierst du flüssig: 1 ml je 10 Liter Wasser, das sind 25 Tropfen, 30 Minuten einwirken lassen, bei Wassertemperaturen unter 10 °C mindestens zwei Stunden. Nur in klarem Wasser und gut durchmischen. Es desinfiziert dein Wasser, indem es vorhandene Keime reduziert, und konserviert es gleichzeitig gegen erneute Verkeimung.\n\n**Der Befüllfilter** gehört ebenfalls in den Jahresrhythmus: Das Aktivkohle-Element wird nach sechs Monaten ab dem ersten Wasserkontakt gewechselt, dafür liegt ein Aufkleber zum Beschriften bei. Vor dem Tanken fünf Liter ablaufen lassen, nach mehr als zwei Tagen Pause zehn. Nach dem Tanken das Element herausnehmen und trocknen lassen, dann bleibt es sauber."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Perlatoren und Duschkopf abschrauben und im Eimer mitbaden lassen. Da sitzt der Biofilm am liebsten, und nur so erwischst du ihn wirklich."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Alles für den Saison-Check.",
+          "text": "KXpress, DEXDA Clean und Silbernetz Flex gibt es einzeln oder als Set für deine Tankgröße. Unsicher, welche Größe? {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}
