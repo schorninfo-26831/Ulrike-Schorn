@@ -20,7 +20,7 @@ cloudflared tunnel --url http://localhost:3000
 
 Nach ein paar Sekunden steht dort eine Adresse wie `https://irgendwas.trycloudflare.com`. Die
 schickst du weiter: an Justus zur Prüfung der Rechtstexte, an jemanden aus der Schulung, an einen
-Kunden. `Ctrl + C` beendet den Tunnel, die Adresse ist danach tot. Beim nächsten Mal gibt es eine neue.
+Kunden. `strg + C` (auf Mac-Tastaturen „ctrl") beendet den Tunnel, die Adresse ist danach tot. Beim nächsten Mal gibt es eine neue.
 
 Was dabei von allein stimmt: Sitemap, robots.txt und die Vorschaubilder fürs Teilen nehmen die
 Adresse des Tunnels. Das Cockpit ist mit erreichbar, geschützt durch dein Passwort und die Bremse

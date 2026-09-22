@@ -45,7 +45,7 @@ Wenn `[Motor] v0.7.0 läuft auf http://localhost:3000 · Cockpit: /admin/` ersch
 - Website: http://localhost:3000
 - Cockpit: http://localhost:3000/admin/
 
-Beenden mit `Ctrl + C` im Terminal. Später wieder starten: `cd ~/Documents/camping-schorni-website && npm start`.
+Beenden mit `strg + C` im Terminal (die Taste ganz links unten; auf Mac-Tastaturen heißt sie „ctrl". ⌘ + C kopiert nur). Später wieder starten: `cd ~/Documents/camping-schorni-website && npm start`.
 
 ## Die Abnahme — neun Handgriffe, ohne Hilfe
 
@@ -89,6 +89,10 @@ grep -q '^ANTHROPIC_API_KEY=' .env || echo 'ANTHROPIC_API_KEY=' >> .env
 sed -i '' 's/^ANTHROPIC_API_KEY=.*/ANTHROPIC_API_KEY=DeinSchluessel/' .env
 npm start
 ```
+
+Trägst du den Schlüssel lieber in TextEdit ein (`open -e .env`): sichern mit ⌘ + S, bis „Bearbeitet" im
+Fenstertitel verschwindet. Dann den Motor mit strg + C beenden und mit `npm start` neu starten, er liest
+die Datei nur beim Start.
 
 Im Cockpit steht links jetzt **Generieren**. Solange der Schlüssel fehlt, zeigt die Seite einen
 Hinweis und der Knopf bleibt aus.

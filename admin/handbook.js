@@ -151,7 +151,7 @@ window.HANDBUCH = [
     schritte: [
       'Motor starten (npm start). In einem zweiten Terminal-Fenster: cloudflared tunnel --url http://localhost:3000 (einmalige Einrichtung steht in docs/veroeffentlichen.md).',
       'Im Terminal erscheint eine Adresse wie https://irgendwas.trycloudflare.com. Die schickst du weiter.',
-      'Zum Beenden Ctrl + C im Tunnel-Fenster. Die Adresse ist danach tot.',
+      'Zum Beenden strg + C (ctrl) im Tunnel-Fenster. Die Adresse ist danach tot.',
     ],
     automatisch: ['Sitemap, robots.txt und die Vorschaubilder fürs Teilen nehmen von allein die Adresse des Tunnels.', 'Das Cockpit ist über den Tunnel mit erreichbar, geschützt durch dein Passwort und die Bremse gegen Passwort-Raten.'],
     fallstricke: ['Ein Tunnel ist zum Zeigen, nicht zum Dauerbetrieb: Läuft der Mac nicht, ist die Seite weg.', 'Für den echten Betrieb ist Weg B da (docs/veroeffentlichen.md).'],
