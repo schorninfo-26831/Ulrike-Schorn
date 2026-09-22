@@ -15,5 +15,5 @@ nie mit einer ausgeschriebenen Adresse. Kategorien sind stabil, Produktadressen 
 | {{facts.shopUrl}} | Der Shop insgesamt |
 
 Seiten dieser Website (intern, mit Schrägstrichen): /ratgeber/ (Übersicht) · /wasser-ratgeber/ · /wasser-lexikon/ ·
-/wasserhygiene-europa/ · /wasserhygiene-suedeuropa-weltweit/ · /wasser-auf-expedition/ · /ueber-uns/ · /kontakt/ ·
+/wasserhygiene-europa/ · /wasserhygiene-suedeuropa-weltweit/ · /wasser-auf-expedition/ · /uv-c-am-auslass/ · /ueber-uns/ · /kontakt/ ·
 /impressum/ · /datenschutz/ · / (Startseite).

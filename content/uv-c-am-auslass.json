@@ -1,0 +1,85 @@
+{
+  "slug": "uv-c-am-auslass",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "UV-C am Auslass: Licht, das im Durchfluss arbeitet",
+  "description": "Ein UV-C-Gerät sitzt in der Leitung, direkt vor dem Hahn. Was das Licht mit Mikroorganismen macht, warum LED statt Lampe, wann sich der Einbau lohnt und wo die Grenzen liegen. Von Camping Schorni.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Technik",
+          "titel": "UV-C am Auslass: Licht, das im Durchfluss arbeitet.",
+          "sub": "Ein UV-C-Gerät sitzt in der Leitung, direkt vor dem Hahn. Hier steht, was das Licht mit Mikroorganismen macht, warum LED statt Lampe, wann sich der Einbau lohnt und wo die Grenzen liegen.",
+          "ctaLabel": "Zu den UV-C-Geräten",
+          "ctaHref": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was UV-C ist",
+          "text": "UV-C ist der kurzwellige Teil des ultravioletten Lichts. Er kommt am Boden praktisch nicht vor, weil die Ozonschicht ihn schluckt, und er ist für das Auge unsichtbar. Dass dieses Licht Mikroorganismen zusetzt, ist seit dem 19. Jahrhundert bekannt; Wasserwerke nutzen es seit über hundert Jahren.\n\nDas Prinzip ist rein physikalisch: Das Erbgut von Bakterien, Viren und Parasiten nimmt das Licht auf und wird dabei so verändert, dass sich die Zelle nicht mehr vermehren kann. Es kommt kein Stoff ins Wasser, Geschmack und Geruch bleiben, wie sie sind. Was das Licht nicht trifft, bleibt allerdings, wie es ist, und das ist der Punkt, an dem Filter und Konservierung ins Spiel kommen."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "UV-C im Wohnmobil",
+          "titel": "Wie ein UV-C-Gerät arbeitet",
+          "items": [
+            {
+              "titel": "1 · Im Durchfluss",
+              "text": "Das Gerät wird in die Wasserleitung eingebaut, möglichst nah am Hahn. Die Bestrahlung passiert im Durchfluss: Wasser fließt durch die Kammer, das Licht wirkt genau in diesem Moment. Wie viel es ausrichtet, hängt von der Lichtmenge und der Zeit ab, also vom Durchfluss. Die UV-8 Serie von WM aquatec ist für die Entnahmestellen im Wohnmobil, Caravan und auf der Yacht ausgelegt.",
+              "label": "UV-C-Geräte im Shop",
+              "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+            },
+            {
+              "titel": "2 · LED statt Quecksilberlampe",
+              "text": "Klassische UV-Lampen enthalten Quecksilber, brauchen Aufwärmzeit und vertragen Erschütterungen schlecht. UV-C-LEDs sind sofort bereit, kompakt und robust, sie arbeiten ohne Aufwärmphase und ohne Lampenwechsel und nur dann, wenn Wasser fließt. Für ein Fahrzeug, das rüttelt und mal wochenlang steht, ist das die passende Bauart. WM aquatec hat für seine UV-C-LED-Einheit den German Innovation Award 2020 bekommen.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "3 · Was UV-C nicht kann",
+              "text": "Es wirkt nur im Moment der Bestrahlung, im Tank danach nicht mehr; dafür ist die Konservierung da. Trübes Wasser schluckt das Licht, Schwebstoffe werfen Schatten, darum gehört ein Filter davor. Chemische Stoffe, Geruch und Geschmack ändert es nicht, das ist Sache der Aktivkohle. Biofilm an Tankwand und Leitung erreicht es nicht, den holt nur die Reinigung heraus. Und es braucht Strom.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "4 · Wann es sich lohnt",
+              "text": "Wenn du in Südeuropa oder außerhalb Europas tankst, an Brunnen und Zisternen, auf langen Reisen, oder wenn du das Wasser aus dem Hahn einfach ohne Nachdenken nutzen willst. Für Mittel- und Nordeuropa mit Leitungswasser reichen meist Filter, Konservierung und der Saison-Check. Welche Ausführung zu Fahrzeug, Strom und Verbrauch passt, klären wir am Telefon, und auf Wunsch bauen wir ein.",
+              "label": "",
+              "href": ""
+            }
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Die Kombination, die sich bewährt hat",
+          "text": "UV-C ist die dritte Stufe, nie die einzige. Erst der [Befüllfilter beim Tanken](/wasserhygiene-europa/), dann die Konservierung im Tank, dann das Licht am Auslass. Jede Stufe hat ihre Aufgabe, und keine übernimmt die der anderen. Wie die Stufen für den Süden und für Fernreisen zusammenspielen, steht im Kapitel [Südeuropa und weltweit](/wasserhygiene-suedeuropa-weltweit/), für Fluss, See und Brunnen im Kapitel [Wasser auf Expedition](/wasser-auf-expedition/)."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Trübes Wasser schluckt UV-Licht. Erst filtern, dann bestrahlen: Der Befüllfilter vor dem Tank und der Aktivkohle-Vorfilter vor dem Gerät gehören zusammen, sonst arbeitet das Licht mit angezogener Handbremse."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Welche Ausführung passt zu dir?",
+          "text": "UV-C-Geräte gibt es für verschiedene Durchflüsse und Stromversorgungen. Schau ins Sortiment, und wenn du unsicher bist: {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zu den UV-C-Geräten",
+          "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}
