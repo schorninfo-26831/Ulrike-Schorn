@@ -4,7 +4,7 @@
   "status": "published",
   "title": "Datenschutzerklärung",
   "description": "Datenschutzerklärung der Inhaltsseite von Camping Schorni.",
-  "_hinweis": "Erste Fassung für den aktuellen Stand der Seite (lokal, ohne Cookies, ohne Tracking, ohne fremde Dienste). Vor der Veröffentlichung (Stufe 5) um Hoster und Speicherdauer ergänzen; bei Kontaktformular (Stufe 3) und Assistent (Stufe 7) erweitern. Stufe 5: Absatz Zugriffszählung ergänzt (aggregiert, ohne personenbezogene Daten). Prüfung durch Dr. Justus Klar vor Veröffentlichung — auch dieser Absatz. Stufe 7: Absatz „Der Assistent (Chat)\" ergänzt (Anbieter, Rechtsgrundlage, Speicherung ohne IP) — Rechtsgrundlage und Auftragsverarbeitung mit dem Anbieter durch Justus prüfen.",
+  "_hinweis": "Von Justus (KI, Business-Recht) am 22.09.2026 geprüft und überarbeitet: Chat auf Einwilligung umgestellt, Anbieter benannt, Speicherfristen ergänzt, Aufsichtsbehörde genannt. Vor der Veröffentlichung: Hoster und Standort eintragen (Platzhalter in eckigen Klammern); Ulrike akzeptiert in der Anthropic-Konsole die Commercial Terms und das Data Processing Addendum (enthält die Standardvertragsklauseln) — sonst stimmt der Satz dazu nicht. Kein Rechtsrat im Sinne des RDG; bei Abmahnung oder Streit externer Anwalt.",
   "content": {
     "blocks": [
       {
@@ -16,7 +16,7 @@
         "data": {
           "pill": "Rechtliches",
           "titel": "Datenschutz",
-          "sub": "Diese Seite verzichtet auf Cookies, Tracking und Werbenetzwerke. Was beim Aufruf und bei einer Kontaktaufnahme verarbeitet wird, steht hier."
+          "sub": "Diese Seite verzichtet auf Cookies, Tracking und Werbenetzwerke. Was beim Aufruf, bei einer Kontaktaufnahme und im Chat mit Schorni verarbeitet wird, steht hier."
         }
       },
       {
@@ -30,7 +30,7 @@
         "type": "richtext",
         "data": {
           "titel": "Aufruf der Seite (Server-Logdaten)",
-          "text": "Beim Aufruf dieser Seite verarbeitet der Webserver technisch notwendige Daten: die IP-Adresse deines Geräts, Datum und Uhrzeit, die aufgerufene Seite und die Browserkennung. Das ist nötig, um die Seite auszuliefern und ihre Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden ausschließlich dafür verwendet.\n\n**Zugriffszählung:** Wir zählen, wie oft eine Seite an einem Tag aufgerufen wird. Dabei speichern wir keine IP-Adresse und keine Browserkennung und setzen kein Cookie. Ein Rückschluss auf dich ist damit nicht möglich.\n\n**Hinweis zum Stand:** Diese Seite wird derzeit lokal betrieben und ist noch nicht öffentlich erreichbar. Vor der Veröffentlichung wird dieser Abschnitt um den Hoster und die Speicherdauer der Logdaten ergänzt."
+          "text": "Beim Aufruf dieser Seite verarbeitet der Webserver technisch notwendige Daten: die IP-Adresse deines Geräts, Datum und Uhrzeit, die aufgerufene Seite und die Browserkennung. Das ist nötig, um die Seite auszuliefern und ihre Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden ausschließlich dafür verwendet und nach spätestens sieben Tagen gelöscht.\n\n**Zugriffszählung:** Wir zählen, wie oft eine Seite an einem Tag aufgerufen wird. Dabei speichern wir keine IP-Adresse und keine Browserkennung und setzen kein Cookie. Ein Rückschluss auf dich ist damit nicht möglich.\n\n**Hoster:** [Hoster und Standort werden vor der Veröffentlichung ergänzt.]"
         }
       },
       {
@@ -51,14 +51,14 @@
         "type": "richtext",
         "data": {
           "titel": "Kontaktformular",
-          "text": "Wenn du das Formular auf der Kontaktseite nutzt, speichern wir die Angaben, die du dort machst (Name, E-Mail, deine Nachricht), um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b DSGVO). Die Anfrage liegt auf unserem eigenen Server; sie wird an keinen Dritten weitergegeben. Wir löschen sie, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
+          "text": "Wenn du das Formular auf der Kontaktseite nutzt, speichern wir die Angaben, die du dort machst (Name, E-Mail, deine Nachricht), um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b DSGVO). Die Anfrage liegt auf unserem eigenen Server; die Benachrichtigung an uns läuft über unseren E-Mail-Anbieter. An andere Dritte geben wir sie nicht weiter. Wir löschen sie, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
         }
       },
       {
         "type": "richtext",
         "data": {
           "titel": "Der Assistent (Chat)",
-          "text": "Auf der Website kannst du Fragen an unseren Assistenten „Schorni\" stellen. Deine Frage wird zusammen mit Auszügen dieser Website an den Anbieter des Sprachmodells (Anthropic) übermittelt, um die Antwort zu erzeugen (Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist eine schnelle, sachliche Beratung). Bitte gib in den Chat keine personenbezogenen Daten ein. Wir speichern Frage und Antwort ohne IP-Adresse und ohne Bezug zu dir, um die Inhalte der Website zu verbessern. Der Assistent antwortet nur aus dem, was auf dieser Website steht; Fehler sind möglich."
+          "text": "Auf der Website kannst du Fragen an unseren KI-Assistenten „Schorni\" stellen. Er ist ein Computerprogramm; das steht auch im Chat-Fenster. Wenn du den Chat nutzt, wird deine Frage zusammen mit Auszügen dieser Website an den Anbieter des Sprachmodells übermittelt: Anthropic PBC, San Francisco, USA. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung mit den Standardvertragsklauseln der EU-Kommission; er verwendet die Daten nicht zum Training seiner Modelle.\n\nRechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du beim ersten Öffnen des Chats erteilst. Du kannst sie jederzeit mit Wirkung für die Zukunft zurücknehmen, über „Einwilligung zurücknehmen\" im Chat-Fenster. Deine Einwilligung merkt sich nur dein Browser; ein Cookie setzen wir dafür nicht.\n\nBitte gib in den Chat keine persönlichen Daten ein. Wir speichern Frage und Antwort ohne IP-Adresse und ohne Bezug zu dir für höchstens zwölf Monate, um die Inhalte der Website zu verbessern (Art. 6 Abs. 1 lit. f DSGVO). Der Assistent antwortet nur aus dem, was auf dieser Website steht; Fehler sind möglich, und er ersetzt keine Beratung am Telefon."
         }
       },
       {
@@ -72,14 +72,14 @@
         "type": "richtext",
         "data": {
           "titel": "Deine Rechte",
-          "text": "Du hast das Recht auf Auskunft über deine gespeicherten Daten, auf Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit sowie das Recht, einer Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO zu widersprechen. Wende dich dafür an die oben genannte Adresse. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren."
+          "text": "Du hast das Recht auf Auskunft über deine gespeicherten Daten, auf Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit sowie das Recht, einer Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO zu widersprechen. Eine erteilte Einwilligung kannst du jederzeit widerrufen. Wende dich dafür an die oben genannte Adresse. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, für uns zuständig ist die Landesbeauftragte für den Datenschutz Niedersachsen."
         }
       },
       {
         "type": "richtext",
         "data": {
           "titel": "Stand",
-          "text": "September 2026. Diese Erklärung wird ergänzt, sobald die Seite einen Assistenten bekommt oder öffentlich gehostet wird."
+          "text": "September 2026. Vor der Veröffentlichung im Netz werden Hoster und Standort ergänzt."
         }
       },
       {

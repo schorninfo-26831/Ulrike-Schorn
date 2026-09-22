@@ -70,10 +70,10 @@ Nichts davon wird geraten. Jede Zeile ist eine Entscheidung oder eine Lieferung 
 |---|---|---|
 | ☐ | **Domain:** Inhalte auf der Hauptdomain und Shop auf einer Subdomain, oder umgekehrt? Das ist eine SEO-Entscheidung mit Umleitungsliste (docs/vorlage.md, Punkt 6) | Ulrike, ggf. mit Leo |
 | ☐ | **Hoster für Weg B** (Coolify auf einem VPS, Hetzner, Railway …) | Ulrike |
-| ☐ | **Rechtstexte prüfen:** Impressum und Datenschutz (Du-Form, Absatz Hoster und Speicherdauer der Logdaten, Absatz Zugriffszählung, Kontaktformular) | Justus |
-| ☐ | **E-Mail-Adresse** für camping-schorni.de bestätigen (derzeit info@caravan-reiniger.de) | Ulrike |
+| ◐ | **Rechtstexte prüfen:** Justus hat am 22.09.2026 geprüft und überarbeitet (docs/rechtspruefung.md). Offen: Rechtsform (e. K. oder nicht), Hoster und Standort im Datenschutz, Anthropic-DPA in der Konsole akzeptieren | Ulrike, Justus |
+| ✔ | **E-Mail-Adresse:** info@caravan-reiniger.de, bestätigt durch die Team-Basis des KI-Teams (Marken-Fakten, Stand Juni 2026) | erledigt |
 | ☐ | **Über uns:** dein Originaltext ersetzt den Platzhalter | Ulrike |
-| ☐ | **Kontakt:** die genannten Leistungen (Trinkwassersystem-Planung, UV-Einbau auf Anfrage) bestätigen | Ulrike |
+| ✔ | **Kontakt:** UV-Einbauservice und Beratung sind in der Team-Basis als Service-USP festgehalten | erledigt |
 | ☐ | **SMTP-Zugang** für den Mailversand der Anfragen | Ulrike |
 | ☐ | **Zweig nach `main`** bringen (Pull Request) | Ulrike, mit mir |
 

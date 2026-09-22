@@ -49,7 +49,11 @@
 .sa-senden[disabled]{opacity:.5;cursor:default}\
 .sa-fuss{padding:7px 14px 9px;font-size:11.5px;color:var(--text-muted,#5B6B77);background:#fff;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}\
 .sa-fuss a{color:var(--handlung,#0B3B5C)}\
-.sa-fehler{border-color:#E4A79E;background:#FDEEEC}';
+.sa-fehler{border-color:#E4A79E;background:#FDEEEC}\
+.sa-einwilligung{margin:16px 14px;padding:14px;border-radius:12px;background:#fff;border:1px solid var(--grund-3,#E3DCCF);font-size:14px;line-height:1.5}\
+.sa-einwilligung p{margin:0 0 10px}.sa-einwilligung .sa-ok{font:700 14px var(--font-body,sans-serif);border:0;border-radius:999px;padding:10px 18px;background:var(--handlung,#0B3B5C);color:#fff;cursor:pointer}\
+.sa-einwilligung .sa-ok:focus-visible{outline:3px solid var(--signal,#00C2A8);outline-offset:2px}\
+.sa-fuss button{background:none;border:0;padding:0;font:inherit;color:var(--handlung,#0B3B5C);text-decoration:underline;cursor:pointer}';
 
   var BASIS = '/api/chat';
   var config = null, verlauf = [], laeuft = false;
@@ -140,7 +144,7 @@
     var kimg = el('img'); kimg.src = '/img/schorni-logo.png'; kimg.alt = ''; knopf.appendChild(kimg); knopf.appendChild(el('span', null, 'Frag ' + config.name));
     fenster = el('div', 'sa-fenster'); fenster.hidden = true; fenster.setAttribute('role', 'dialog'); fenster.setAttribute('aria-modal', 'false'); fenster.setAttribute('aria-label', config.name + ', der Assistent');
     var kopf = el('div', 'sa-kopf'); var himg = el('img'); himg.src = '/img/schorni-logo.png'; himg.alt = '';
-    var wer = el('div'); wer.appendChild(el('b', null, config.name)); var st = el('small'); st.appendChild(el('span', 'sa-punkt')); st.appendChild(document.createTextNode('Antwortet aus dem Ratgeber und geprüften Produktdaten')); wer.appendChild(st);
+    var wer = el('div'); wer.appendChild(el('b', null, config.name)); var st = el('small'); st.appendChild(el('span', 'sa-punkt')); st.appendChild(document.createTextNode('KI-Assistent · antwortet nur aus dieser Website')); wer.appendChild(st);
     var zu = el('button', 'sa-zu', '×'); zu.type = 'button'; zu.setAttribute('aria-label', 'Schließen');
     kopf.appendChild(himg); kopf.appendChild(wer); kopf.appendChild(zu);
     strom = el('div', 'sa-strom'); strom.setAttribute('role', 'log'); strom.setAttribute('aria-live', 'polite');
@@ -153,10 +157,28 @@
     eingabe.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); frage(eingabe.value); } });
     var fuss = el('div', 'sa-fuss'); fuss.appendChild(el('span', null, config.fusszeile || '')); fuss.appendChild(el('span', null, '·'));
     var ds = el('a', null, 'Datenschutz'); ds.href = config.datenschutzHref || '/datenschutz/'; fuss.appendChild(ds);
+    var widerruf = el('button', 'sa-widerruf', 'Einwilligung zurücknehmen'); widerruf.type = 'button'; widerruf.hidden = true;
+    widerruf.addEventListener('click', function () { setzeEinwilligung(false); strom.innerHTML = ''; chips.innerHTML = ''; verlauf = []; zeigeStart(); });
+    fuss.appendChild(el('span', null, '·')); fuss.appendChild(widerruf);
     fenster.appendChild(kopf); fenster.appendChild(strom); fenster.appendChild(chips); fenster.appendChild(form); fenster.appendChild(fuss);
     wurzel.appendChild(knopf); wurzel.appendChild(fenster); document.body.appendChild(wurzel);
 
-    function oeffne() { fenster.hidden = false; knopf.hidden = true; if (!strom.childElementCount) { nachricht('bot', markdown(config.begruessung + '\n\n' + (config.kennt || ''))); zeigeChips(); } eingabe.focus(); }
+    /** Einwilligung (Art. 6 Abs. 1 lit. a DSGVO): die Frage geht an den KI-Anbieter. Gemerkt nur im eigenen Browser. */
+    function hatEinwilligung() { try { return localStorage.getItem('sa-einwilligung') === '1'; } catch (e) { return false; } }
+    function setzeEinwilligung(ja) { try { if (ja) localStorage.setItem('sa-einwilligung', '1'); else localStorage.removeItem('sa-einwilligung'); } catch (e) { /* ohne Speicher gilt sie nur für dieses Fenster */ } widerruf.hidden = !ja; }
+    var einwilligungOffen = false;
+    function zeigeStart() {
+      strom.innerHTML = '';
+      nachricht('bot', markdown(config.begruessung + '\n\n' + (config.kennt || '')));
+      if (hatEinwilligung() || einwilligungOffen) { widerruf.hidden = false; zeigeChips(); bereit(true); return; }
+      bereit(false); chips.innerHTML = '';
+      var box = el('div', 'sa-einwilligung'); box.id = 'sa-einwilligung';
+      box.appendChild(el('p', null, 'Deine Fragen werden zur Beantwortung an unseren KI-Anbieter (Anthropic, USA) übermittelt. Bitte gib keine persönlichen Daten ein. Wir speichern Frage und Antwort ohne Bezug zu dir. Mehr dazu unter Datenschutz.'));
+      var okKnopf = el('button', 'sa-ok', 'Einverstanden, los geht\'s'); okKnopf.type = 'button';
+      okKnopf.addEventListener('click', function () { einwilligungOffen = true; setzeEinwilligung(true); box.remove(); zeigeChips(); bereit(true); eingabe.focus(); });
+      box.appendChild(okKnopf); strom.appendChild(box); scrolle();
+    }
+    function oeffne() { fenster.hidden = false; knopf.hidden = true; if (!strom.childElementCount) zeigeStart(); if (!eingabe.disabled) eingabe.focus(); }
     function schliesse() { fenster.hidden = true; knopf.hidden = false; knopf.focus(); }
     knopf.addEventListener('click', oeffne); zu.addEventListener('click', schliesse);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !fenster.hidden) schliesse(); });

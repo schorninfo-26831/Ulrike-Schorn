@@ -59,7 +59,14 @@ Dazu: Unter „Assistent" stehen alle vier Fragen, die vierte mit Kreuz.
 
 ## Datenschutz
 
-Die Datenschutzerklärung hat jetzt einen Absatz „Der Assistent (Chat)": Anbieter, Rechtsgrundlage,
-Speicherung ohne IP, Bitte um Zurückhaltung bei persönlichen Daten. Rechtsgrundlage und die
-Vertragsgrundlage mit dem Anbieter (Auftragsverarbeitung) gehören vor der Veröffentlichung zu Justus.
+Beim ersten Öffnen des Chats erscheint ein kurzer Hinweis mit Einwilligung: Die Frage geht an den
+KI-Anbieter (Anthropic, USA), bitte keine persönlichen Daten. Erst nach „Einverstanden" sind Chips und
+Eingabe frei. Die Einwilligung merkt sich nur der Browser, ohne Cookie; „Einwilligung zurücknehmen" in
+der Fußzeile löscht sie. Das Chat-Fenster ist als KI-Assistent gekennzeichnet (EU AI Act, Art. 50).
+Das Protokoll wird nach zwölf Monaten gelöscht (Motor, täglich).
+
+Die Datenschutzerklärung hat einen Absatz „Der Assistent (Chat)": Anbieter mit Sitz, Einwilligung als
+Rechtsgrundlage, Speicherung ohne IP für höchstens zwölf Monate, Bitte um Zurückhaltung bei
+persönlichen Daten. Justus hat ihn am 22.09.2026 geprüft (docs/rechtspruefung.md). Offen bleibt das
+Data Processing Addendum in der Anthropic-Konsole, das Ulrike akzeptiert.
 Wie beim Generator gilt: Der Schlüssel bleibt in `.env`, nie im Repository, nie in einem Chat.

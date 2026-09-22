@@ -29,8 +29,9 @@ einzige Schrift — ohne Ausnahmen. *(bestätigt von Ulrike, 21.09.2026)*
 *(weitere CI-Werte: Mittelblau `#1A5A8A`, Mint `#E6F8F5`, Gelb `#FFD23F`)*
 **Schriften:** Poppins / Poppins *(eine Hausschrift, Gewichte 400 bis 800)*
 **Anmutung:** *(Vorschlag)* nah · ehrlich · aufgeräumt
-**Offene Fakten:** E-Mail-Adresse für camping-schorni.de bestätigen · Rechtsform · Social-Links ·
-Verhältnis der Zweit-Domain caravan-reiniger.de zu camping-schorni.de
+**Offene Fakten:** Rechtsform (Einzelunternehmen ohne Registereintrag oder e. K. mit Registerangaben) · Social-Links.
+*Geklärt am 22.09.2026 aus der Team-Basis des KI-Teams: E-Mail info@caravan-reiniger.de gilt für Camping Schorni;
+caravan-reiniger.de ist der eBay-Kanal und keine eigene Marke; UV-Einbauservice und Beratung sind bestätigte Leistungen.*
 
 ---
 

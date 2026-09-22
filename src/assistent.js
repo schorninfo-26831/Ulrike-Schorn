@@ -345,6 +345,12 @@ export async function protokolliere({ frage, antwort, quellen, gewusst }) {
     [randomUUID(), String(frage).slice(0, 500), String(antwort).slice(0, 2000), JSON.stringify(quellen), gewusst ? 1 : 0, jetzt()]);
 }
 
+/** Speicherfrist (Datenschutz): Protokolleinträge älter als zwölf Monate werden gelöscht. */
+export async function raeumeProtokollAuf(tage = 365) {
+  const grenze = new Date(Date.now() - tage * 86400000).toISOString();
+  await query('DELETE FROM chat_log WHERE created_at < $1', [grenze]);
+}
+
 export async function fragenHeute() {
   const heute = jetzt().slice(0, 10);
   const z = await queryOne('SELECT COUNT(*) AS n FROM chat_log WHERE created_at >= $1', [heute]);

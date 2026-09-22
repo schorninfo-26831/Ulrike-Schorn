@@ -5,11 +5,15 @@ import { runMigrations } from './src/db.js';
 import { apiRouter } from './src/routes/api.js';
 import { publicRouter } from './src/routes/public.js';
 import { sicherheitsKopfzeilen, trustProxy } from './src/oeffentlich.js';
-import { indexiereWennLeer } from './src/assistent.js';
+import { indexiereWennLeer, raeumeProtokollAuf } from './src/assistent.js';
 
 await runMigrations();
 // Stufe 7: ist der Index leer (erster Start nach dem Update), wird er einmal gefüllt. Scheitert das, startet der Motor trotzdem (P6).
 await indexiereWennLeer().then((n) => { if (n) console.log(`[Motor] Assistent: ${n} Wissensstücke indexiert`); }).catch((err) => console.error(`[Motor] [ERROR] Index: ${err.message}`));
+// Speicherfrist des Chat-Protokolls: beim Start und dann täglich (zwölf Monate, siehe Datenschutzerklärung).
+const aufraeumen = () => raeumeProtokollAuf().catch((err) => console.error(`[Motor] [WARN] Protokoll aufräumen: ${err.message}`));
+await aufraeumen();
+setInterval(aufraeumen, 24 * 60 * 60 * 1000).unref();
 const VERSION = JSON.parse(readFileSync('package.json', 'utf8')).version;
 const app = express();
 app.disable('x-powered-by');
