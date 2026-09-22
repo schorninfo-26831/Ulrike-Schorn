@@ -1,0 +1,92 @@
+{
+  "slug": "filtern-beim-tanken",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Filtern beim Tanken: was ein Filter kann und was nicht",
+  "description": "Ein Filter ist ein Sieb, nicht mehr und nicht weniger. Was der Befüllfilter beim Tanken zurückhält, was die Aktivkohle bindet und was beides nicht schafft. Von Camping Schorni.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Technik",
+          "titel": "Filtern beim Tanken: ein Sieb, ehrlich erklärt.",
+          "sub": "Der Befüllfilter ist die erste Stufe jeder Wasserhygiene im Fahrzeug. Hier steht, wie ein Filter arbeitet, was Porengröße bedeutet, was die Aktivkohle dazutut, und was kein Filter der Welt kann.",
+          "ctaLabel": "Filter im Shop",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Wie ein Filter arbeitet",
+          "text": "Ein Filter ist ein Sieb. Wasser fließt hindurch, und alles, was größer ist als die Poren, bleibt hängen: Sand, Rost, Schwebstoffe, bei feinen Poren auch Bakterien. Es kommt kein Stoff ins Wasser, es wird nur etwas herausgehalten. Wie fein das Sieb ist, sagt die Porengröße in Mikrometern. Zur Einordnung: Ein Haar ist ungefähr 70 Mikrometer dick, ein Bakterium ein bis drei, ein Virus noch einmal deutlich kleiner.\n\nDavon gibt es Stufen: Grobe Filter halten Partikel zurück, Membranfilter mit sehr feinen Poren auch Bakterien und Parasiten, Umkehrosmose sogar gelöste Salze, dann aber mit hohem Druck und viel Abwasser. Beim Tanken im Wohnmobil arbeitet der Befüllfilter am groben Ende, und genau das ist seine Aufgabe."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Der Befüllfilter",
+          "titel": "Was er tut, Stufe für Stufe",
+          "items": [
+            {
+              "titel": "1 · Sieb",
+              "text": "Der Befüllfilter hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe, bevor sie in den Tank kommen. Was nicht drin ist, muss keiner herausholen, und die Konservierung hat leichtes Spiel.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "2 · Aktivkohle",
+              "text": "Das Aktivkohle-Element bindet Stoffe, die Geruch und Geschmack beeinflussen, Chlor zum Beispiel. Das ist kein Sieb, sondern Anlagerung: Die riesige innere Oberfläche der Kohle hält solche Stoffe fest. Für die Hygiene im Tank bleibt die Konservierung zuständig.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "3 · Absolut oder nominal",
+              "text": "Bei Filterangaben gibt es zwei Arten. Absolut heißt: Alles oberhalb der Porengröße bleibt hängen. Nominal heißt: das meiste. Für einen Befüllfilter reicht nominal, für eine Sterilfiltration vor dem Hahn zählt absolut. Steht keins von beidem dabei, frag nach.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "4 · Wechseln",
+              "text": "Ein Filter arbeitet, solange er durchlässig ist. Setzt er sich zu, sinkt der Durchfluss, und das ist das Zeichen, das Element zu wechseln. Wer trübes Wasser tankt, wechselt öfter. Rückspülbare Filter lassen sich zwischendurch freispülen.",
+              "label": "",
+              "href": ""
+            }
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was kein Filter kann",
+          "text": "Gelöste Stoffe gehen durch jedes Sieb: Salze, Nitrat, Medikamentenrückstände, Schwermetalle. Ein Teil davon bleibt an Aktivkohle hängen, der Rest nicht. Viren sind kleiner als die Poren der meisten Filter. Hinter dem Filter endet seine Wirkung: Im Tank und in den Leitungen kann Wasser wieder verkeimen, dafür ist die Konservierung da. Und trübes Wasser setzt jeden Filter schnell zu.\n\nDeshalb steht bei jedem Filter derselbe Satz: Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle. Ein Filter macht gutes Wasser besser und schlechtes Wasser nicht gut. Für Fluss, See und Brunnen braucht es eine [mehrstufige Anlage](/wasser-auf-expedition/)."
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Die Reihenfolge der Barrieren",
+          "text": "Das Prinzip, mit dem Wasserwerke arbeiten, passt auch ins Fahrzeug: erst grob filtern, dann Aktivkohle, dann feine Filtration, dann Konservierung im Tank und UV-C am Auslass. Jede Stufe hat ihre Verunreinigung, keine ersetzt die andere. Wie das für Europa-Reisen aussieht, steht im Kapitel [Zwei Stufen](/wasserhygiene-europa/), für den Süden bei [UV-C am Auslass](/uv-c-am-auslass/), und die Begriffe erklärt das [Wasser-Lexikon](/wasser-lexikon/)."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Den Befüllfilter ans Schlauchende vor dem Tank hängen, nicht an den Hahn der Zapfstelle. Dann läuft auch das Wasser aus dem eigenen Schlauch durch das Sieb, und der bleibt sauberer."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Sauber rein, das ist der Anfang.",
+          "text": "Befüllfilter und Aktivkohle-Elemente findest du im Sortiment Wasser. Unsicher, welches Element passt? {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Filter im Shop",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

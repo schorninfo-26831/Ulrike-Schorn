@@ -6,7 +6,10 @@
   "description": "Von Aerosol bis Wasserkonservierung: die wichtigsten Begriffe rund um sauberes Wasser im Wohnmobil, kurz erklärt und ohne Fachchinesisch. Von Camping Schorni.",
   "content": {
     "blocks": [
-      { "type": "nav", "data": {} },
+      {
+        "type": "nav",
+        "data": {}
+      },
       {
         "type": "hero",
         "data": {
@@ -30,40 +33,163 @@
           "eyebrow": "Begriffe A bis D",
           "titel": "Von Aerosol bis Durchflussrate",
           "items": [
-            { "titel": "4-Barrieren-System", "text": "Unser Rahmen für die Wasserhygiene im Fahrzeug, angelehnt an die DVGW-Empfehlung W 1001: vier Barrieren, Zulauf, Speicher, Verteilung und Nutzung. Beim Zulauf filtert der Befüllfilter, im Speicher arbeitet die Konservierung, in der Verteilung sorgen Reinigung und Desinfektion für saubere Leitungen, und an der Nutzung kann ein UV-C-Gerät am Auslass ergänzen. Fällt eine Barriere aus, hält die nächste.", "label": "", "href": "" },
-            { "titel": "Aerosol", "text": "Fein verteilte Tröpfchen in der Luft, zum Beispiel beim Duschen. Sie können Legionellen aus dem Warmwasser in die Atemluft tragen. Darum gehört der Boiler bei der Systemreinigung immer dazu.", "label": "", "href": "" },
-            { "titel": "Aktivkohle", "text": "Hochporöser Kohlenstoff mit riesiger innerer Oberfläche. Aktivkohle bindet Stoffe, die Geruch und Geschmack beeinflussen, Chlor gehört dazu. In einem Befüllfilter sitzt sie hinter der mechanischen Stufe. Für die Hygiene im Tank bleibt die Konservierung zuständig.", "label": "Filter im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Bakterien", "text": "Einzellige Mikroorganismen, die sich durch Teilung vermehren, im warmen Wasser schneller als im kalten. Viele Arten im Frischwassersystem sind harmlos, auf Art und Anzahl kommt es an. Was du dagegen tust: reinigen, desinfizieren, konservieren, in dieser Reihenfolge.", "label": "", "href": "" },
-            { "titel": "Biofilm", "text": "Eine schleimige Schicht aus Mikroorganismen an feuchten Oberflächen: Tankwand, Leitung, Armatur. Sie bietet Bakterien einen Rückzugsort, an den Desinfektionsmittel schlecht herankommen. Deshalb erst reinigen, dann desinfizieren. **DEXDA Clean** löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System.", "label": "DEXDA Clean im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Bioverfügbare Nährstoffe", "text": "Organische Stoffe im Wasser, von denen Mikroorganismen leben: Algenreste, Blätter, Schmutz beim Befüllen. Je mehr davon im Tank landet, desto schneller wächst Biofilm. Darum sauber befüllen und beim Tanken filtern.", "label": "", "href": "" },
-            { "titel": "Chlor", "text": "Ein weit verbreitetes Desinfektionsmittel für Trinkwasser, das man oft riecht und schmeckt. Aktivkohle bindet Stoffe, die Geruch und Geschmack beeinflussen, auch Chlor.", "label": "", "href": "" },
-            { "titel": "Chlordioxid", "text": "Eine Verbindung aus Chlor und Sauerstoff, chemisch etwas anderes als Chlor. Sie ist der Wirkstoff in **DEXDA Clean**: löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System, pH-neutral und für alle gängigen Materialien im Frischwassersystem geeignet.", "label": "", "href": "" },
-            { "titel": "Coliforme Keime", "text": "Eine Gruppe von Bakterien, die als Anzeiger für hygienische Mängel dient; E. coli gehört dazu. Ihr Nachweis deutet auf eine Verunreinigung oder eine unzureichende Aufbereitung hin. Die Trinkwasserverordnung erlaubt 0 KBE in 100 ml.", "label": "", "href": "" },
-            { "titel": "Cryptosporidium", "text": "Ein einzelliger Parasit, dessen Dauerformen Chlor gut überstehen. Er kann Durchfall auslösen und kommt über verunreinigtes Oberflächenwasser ins System. Feine Filtration und UV-C sind die Verfahren, die dagegen eingesetzt werden. Und: nur Wasser tanken, dessen Quelle du kennst.", "label": "", "href": "" },
-            { "titel": "Depotwirkung", "text": "Ein Wirkstoff wirkt über Wochen oder Monate weiter, statt nur im Moment der Anwendung. So arbeitet die Konservierung im Tank: **Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, bis zu 6 Monate frisches Wasser. UV-C dagegen wirkt nur im Moment der Bestrahlung.", "label": "Silbernetz Flex im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Desinfektion", "text": "Das gezielte Abtöten oder Inaktivieren von Keimen im Wasser, chemisch mit Chlordioxid oder physikalisch mit UV-C-Licht. Sie kommt nach der Reinigung, denn unter Biofilm und Ablagerungen erreicht kein Mittel die Keime.", "label": "", "href": "" },
-            { "titel": "Desinfektionsmittel", "text": "Stoffe, die Mikroorganismen abtöten. Im Fahrzeug gebräuchlich ist Chlordioxid. Silberionen sind etwas anderes: Sie konservieren, hemmen also die Vermehrung über lange Zeit, statt Keime sofort abzutöten.", "label": "", "href": "" },
-            { "titel": "Desinfektionsverfahren", "text": "Es gibt physikalische Verfahren wie UV-C-Bestrahlung oder Erhitzen und chemische Verfahren wie Chlorung oder Chlordioxid. Im Wohnmobil bewährt: chemisch im Tank und in den Leitungen, UV-C als Ergänzung am Auslass.", "label": "", "href": "" },
-            { "titel": "Durchflussrate", "text": "Wie viel Wasser pro Minute durch ein Gerät fließt. Filter und UV-C-Geräte sind für einen Bereich ausgelegt; fließt mehr hindurch, sinkt die Wirkung. Darum beim Kauf auf die Angabe in Litern pro Minute achten.", "label": "", "href": "" }
+            {
+              "titel": "4-Barrieren-System",
+              "text": "Unser Rahmen für die Wasserhygiene im Fahrzeug, angelehnt an die DVGW-Empfehlung W 1001: vier Barrieren, Zulauf, Speicher, Verteilung und Nutzung. Beim Zulauf filtert der Befüllfilter, im Speicher arbeitet die Konservierung, in der Verteilung sorgen Reinigung und Desinfektion für saubere Leitungen, und an der Nutzung kann ein UV-C-Gerät am Auslass ergänzen. Fällt eine Barriere aus, hält die nächste.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Aerosol",
+              "text": "Fein verteilte Tröpfchen in der Luft, zum Beispiel beim Duschen. Sie können Legionellen aus dem Warmwasser in die Atemluft tragen. Darum gehört der Boiler bei der Systemreinigung immer dazu.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Aktivkohle",
+              "text": "Hochporöser Kohlenstoff mit riesiger innerer Oberfläche. Aktivkohle bindet Stoffe, die Geruch und Geschmack beeinflussen, Chlor gehört dazu. In einem Befüllfilter sitzt sie hinter der mechanischen Stufe. Für die Hygiene im Tank bleibt die Konservierung zuständig.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Bakterien",
+              "text": "Einzellige Mikroorganismen, die sich durch Teilung vermehren, im warmen Wasser schneller als im kalten. Viele Arten im Frischwassersystem sind harmlos, auf Art und Anzahl kommt es an. Was du dagegen tust: reinigen, desinfizieren, konservieren, in dieser Reihenfolge.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Biofilm",
+              "text": "Eine schleimige Schicht aus Mikroorganismen an feuchten Oberflächen: Tankwand, Leitung, Armatur. Sie bietet Bakterien einen Rückzugsort, an den Desinfektionsmittel schlecht herankommen. Deshalb erst reinigen, dann desinfizieren. **DEXDA Clean** löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Bioverfügbare Nährstoffe",
+              "text": "Organische Stoffe im Wasser, von denen Mikroorganismen leben: Algenreste, Blätter, Schmutz beim Befüllen. Je mehr davon im Tank landet, desto schneller wächst Biofilm. Darum sauber befüllen und beim Tanken filtern.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Chlor",
+              "text": "Ein weit verbreitetes Desinfektionsmittel für Trinkwasser, das man oft riecht und schmeckt. Aktivkohle bindet Stoffe, die Geruch und Geschmack beeinflussen, auch Chlor.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Chlordioxid",
+              "text": "Eine Verbindung aus Chlor und Sauerstoff, chemisch etwas anderes als Chlor. Sie ist der Wirkstoff in **DEXDA Clean**: löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System, pH-neutral und für alle gängigen Materialien im Frischwassersystem geeignet.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Coliforme Keime",
+              "text": "Eine Gruppe von Bakterien, die als Anzeiger für hygienische Mängel dient; E. coli gehört dazu. Ihr Nachweis deutet auf eine Verunreinigung oder eine unzureichende Aufbereitung hin. Die Trinkwasserverordnung erlaubt 0 KBE in 100 ml.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Cryptosporidium",
+              "text": "Ein einzelliger Parasit, dessen Dauerformen Chlor gut überstehen. Er kann Durchfall auslösen und kommt über verunreinigtes Oberflächenwasser ins System. Feine Filtration und UV-C sind die Verfahren, die dagegen eingesetzt werden. Und: nur Wasser tanken, dessen Quelle du kennst.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Depotwirkung",
+              "text": "Ein Wirkstoff wirkt über Wochen oder Monate weiter, statt nur im Moment der Anwendung. So arbeitet die Konservierung im Tank: **Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, bis zu 6 Monate frisches Wasser. UV-C dagegen wirkt nur im Moment der Bestrahlung.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Desinfektion",
+              "text": "Das gezielte Abtöten oder Inaktivieren von Keimen im Wasser, chemisch mit Chlordioxid oder physikalisch mit UV-C-Licht. Sie kommt nach der Reinigung, denn unter Biofilm und Ablagerungen erreicht kein Mittel die Keime.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Desinfektionsmittel",
+              "text": "Stoffe, die Mikroorganismen abtöten. Im Fahrzeug gebräuchlich ist Chlordioxid. Silberionen sind etwas anderes: Sie konservieren, hemmen also die Vermehrung über lange Zeit, statt Keime sofort abzutöten.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Desinfektionsverfahren",
+              "text": "Es gibt physikalische Verfahren wie UV-C-Bestrahlung oder Erhitzen und chemische Verfahren wie Chlorung oder Chlordioxid. Im Wohnmobil bewährt: chemisch im Tank und in den Leitungen, UV-C als Ergänzung am Auslass.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Durchflussrate",
+              "text": "Wie viel Wasser pro Minute durch ein Gerät fließt. Filter und UV-C-Geräte sind für einen Bereich ausgelegt; fließt mehr hindurch, sinkt die Wirkung. Darum beim Kauf auf die Angabe in Litern pro Minute achten.",
+              "label": "",
+              "href": ""
+            }
           ]
         }
       },
-      { "type": "hinweis", "data": {} },
+      {
+        "type": "hinweis",
+        "data": {}
+      },
       {
         "type": "cards",
         "data": {
           "eyebrow": "Begriffe E bis K",
           "titel": "Von E. coli bis Konservierungsmittel",
           "items": [
-            { "titel": "E. coli", "text": "Escherichia coli, ein Darmbakterium und der wichtigste Anzeiger für fäkale Verunreinigung. Die meisten Stämme sind harmlos, einzelne machen krank. Im Trinkwasser gilt: 0 KBE in 100 ml.", "label": "", "href": "" },
-            { "titel": "Entkalken", "text": "Kalk aus Boiler, Leitungen und Armaturen holen. Kalk bremst die Wärmeübertragung im Boiler und bietet Biofilm einen Untergrund. **KXpress** entkalkt rückstandsfrei und setzt auf den Wirkstoff der Zitrone. Immer der erste Schritt, vor dem Desinfizieren.", "label": "KXpress im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Filtration", "text": "Ein mechanisches Verfahren: Ein Filtermedium hält Partikel zurück. Je feiner die Poren, desto mehr bleibt hängen, von Sand bis zu Bakterien. Ein Befüllfilter hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe. Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle.", "label": "Filter im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Frischwasser", "text": "Wasser zum Trinken, Kochen und Waschen. Im Wohnmobil steht es im Tank, und dort verändert es sich mit Wärme, Licht und Zeit. Konservierung und Filtration halten es länger frisch.", "label": "", "href": "" },
-            { "titel": "Giardia lamblia", "text": "Ein Darmparasit, dessen Zysten Chlor gut überstehen und in kaltem Wasser lange überleben. Übertragung meist über verunreinigtes Oberflächenwasser. Feine Filtration und UV-C sind die Verfahren dagegen.", "label": "", "href": "" },
-            { "titel": "Härtegrad", "text": "Ein Maß für Calcium und Magnesium im Wasser, in Grad deutscher Härte: weich unter 8,4 °dH, mittel bis 14 °dH, hart darüber. Hartes Wasser heißt mehr Kalk in Boiler und Leitungen, also öfter entkalken.", "label": "", "href": "" },
-            { "titel": "KBE", "text": "Kolonie bildende Einheit, die Maßeinheit für vermehrungsfähige Mikroorganismen in einer Probe. Eine KBE ist eine Zelle oder Zellgruppe, die auf einem Nährboden eine sichtbare Kolonie bildet. Grenzwerte werden meist in KBE je 100 ml angegeben.", "label": "", "href": "" },
-            { "titel": "Kolloidales Silber", "text": "Winzige feste Silberteilchen, die im Wasser schweben, oft als Nanosilber bezeichnet. Silberionen sind etwas anderes: einzeln gelöste, geladene Atome. **Silbernetz Flex** und **Silvertex** geben reine Silberionen ab, ohne Nanosilber.", "label": "", "href": "" },
-            { "titel": "Konservierungsmittel", "text": "Stoffe, die die Vermehrung von Mikroorganismen im gespeicherten Wasser hemmen. Im Tank übernehmen das Silberionen aus Silbernetz Flex oder Silvertex, flüssig dosiert DEXDA One. Konservieren ersetzt das Reinigen nicht, es kommt danach.", "label": "", "href": "" }
+            {
+              "titel": "E. coli",
+              "text": "Escherichia coli, ein Darmbakterium und der wichtigste Anzeiger für fäkale Verunreinigung. Die meisten Stämme sind harmlos, einzelne machen krank. Im Trinkwasser gilt: 0 KBE in 100 ml.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Entkalken",
+              "text": "Kalk aus Boiler, Leitungen und Armaturen holen. Kalk bremst die Wärmeübertragung im Boiler und bietet Biofilm einen Untergrund. **KXpress** entkalkt rückstandsfrei und setzt auf den Wirkstoff der Zitrone. Immer der erste Schritt, vor dem Desinfizieren.",
+              "label": "KXpress im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Filtration",
+              "text": "Ein mechanisches Verfahren: Ein Filtermedium hält Partikel zurück. Je feiner die Poren, desto mehr bleibt hängen, von Sand bis zu Bakterien. Ein Befüllfilter hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe. Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Frischwasser",
+              "text": "Wasser zum Trinken, Kochen und Waschen. Im Wohnmobil steht es im Tank, und dort verändert es sich mit Wärme, Licht und Zeit. Konservierung und Filtration halten es länger frisch.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Giardia lamblia",
+              "text": "Ein Darmparasit, dessen Zysten Chlor gut überstehen und in kaltem Wasser lange überleben. Übertragung meist über verunreinigtes Oberflächenwasser. Feine Filtration und UV-C sind die Verfahren dagegen.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Härtegrad",
+              "text": "Ein Maß für Calcium und Magnesium im Wasser, in Grad deutscher Härte: weich unter 8,4 °dH, mittel bis 14 °dH, hart darüber. Hartes Wasser heißt mehr Kalk in Boiler und Leitungen, also öfter entkalken.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "KBE",
+              "text": "Kolonie bildende Einheit, die Maßeinheit für vermehrungsfähige Mikroorganismen in einer Probe. Eine KBE ist eine Zelle oder Zellgruppe, die auf einem Nährboden eine sichtbare Kolonie bildet. Grenzwerte werden meist in KBE je 100 ml angegeben.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Kolloidales Silber",
+              "text": "Winzige feste Silberteilchen, die im Wasser schweben, oft als Nanosilber bezeichnet. Silberionen sind etwas anderes: einzeln gelöste, geladene Atome. **Silbernetz Flex** und **Silvertex** geben reine Silberionen ab, ohne Nanosilber.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Konservierungsmittel",
+              "text": "Stoffe, die die Vermehrung von Mikroorganismen im gespeicherten Wasser hemmen. Im Tank übernehmen das Silberionen aus Silbernetz Flex oder Silvertex, flüssig dosiert DEXDA One. Konservieren ersetzt das Reinigen nicht, es kommt danach.",
+              "label": "",
+              "href": ""
+            }
           ]
         }
       },
@@ -73,17 +199,72 @@
           "eyebrow": "Begriffe L bis R",
           "titel": "Von Legionellen bis Rückspülung",
           "items": [
-            { "titel": "Legionellen", "text": "Bakterien, die in warmem Wasser zwischen 25 und 45 °C gedeihen, gern in stehendem Wasser und im Biofilm. Ab 55 °C stoppt die Vermehrung, ab 60 °C sterben sie ab. Eingeatmet mit feinen Tröpfchen können sie eine schwere Lungenentzündung auslösen. Die Konservierung mit **Silbernetz Flex** oder **Silvertex** ist eine wichtige Grundlage der Legionellen-Prophylaxe, dazu den Boiler regelmäßig heiß fahren und reinigen.", "label": "Silbernetz Flex im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Membranfiltration", "text": "Filtern durch eine feine Membran. Nach Porengröße unterscheidet man Mikrofiltration, Ultrafiltration, Nanofiltration und Umkehrosmose. Je feiner, desto mehr bleibt zurück, von Partikeln über Bakterien bis, je nach Typ, zu Viren. Fürs Tanken im Wohnmobil reicht meist der Befüllfilter.", "label": "", "href": "" },
-            { "titel": "Mikroorganismen", "text": "Sammelbegriff für alles Kleine, das lebt: Bakterien, Viren, Pilze, Hefen, Algen. Im Trinkwasser können sie Geruch, Geschmack und Aussehen verändern, manche machen krank.", "label": "", "href": "" },
-            { "titel": "Mikroplastik", "text": "Kunststoffteilchen unter 5 mm, die inzwischen in fast jedem Wasser nachweisbar sind. Sehr feine Membranfilter können sie zurückhalten. Ein Befüllfilter hält beim Tanken grobe Partikel zurück.", "label": "", "href": "" },
-            { "titel": "Nitrat", "text": "Eine Stickstoffverbindung, die durch Düngung ins Grundwasser gelangt. Die Trinkwasserverordnung erlaubt 50 mg je Liter. Ein Filter im Wohnmobil hält Nitrat nicht auf; das können nur Verfahren wie Umkehrosmose. Woher das Wasser kommt, entscheidet.", "label": "", "href": "" },
-            { "titel": "Organische Stoffe", "text": "Kohlenstoffverbindungen im Wasser, aus der Natur wie Huminstoffe und Algen oder vom Menschen wie Pestizide. Mikroorganismen leben davon. Sauber befüllen, beim Tanken filtern, Tank regelmäßig reinigen.", "label": "", "href": "" },
-            { "titel": "Osmose und Umkehrosmose", "text": "Bei der Umkehrosmose wird Wasser unter Druck durch eine sehr feine Membran gepresst. Salze, Schwermetalle und Nitrat bleiben zurück, Mineralien allerdings auch, und viel Wasser geht als Konzentrat verloren. Für die Hausinstallation ein Thema, im Wohnmobil selten.", "label": "", "href": "" },
-            { "titel": "pH-Wert", "text": "Ein Maß für Säure oder Base auf einer Skala von 0 bis 14. Trinkwasser liegt zwischen 6,5 und 9,5. Der pH-Wert beeinflusst, wie gut Mittel wirken und ob Wasser Material angreift. **DEXDA Clean** ist pH-neutral und damit für alle gängigen Materialien im Frischwassersystem geeignet.", "label": "", "href": "" },
-            { "titel": "Pseudomonas aeruginosa", "text": "Ein Bakterium, das feuchte Nischen liebt: Leitungen, Duschköpfe, Biofilm. Für Menschen mit schwachem Immunsystem kann es ein Problem werden. Gegen viele Mittel ist es hart im Nehmen, im Biofilm noch mehr. Deshalb lohnt sich die regelmäßige Systemreinigung.", "label": "", "href": "" },
-            { "titel": "Reinigung", "text": "Schmutz, Ablagerungen und organische Rückstände aus dem System holen. Sie ist die Voraussetzung für jede Desinfektion, denn unter Biofilm und Kalk erreicht kein Mittel die Keime. Reihenfolge: erst entkalken, dann desinfizieren, dann konservieren.", "label": "", "href": "" },
-            { "titel": "Rückspülung", "text": "Bei rückspülbaren Filtern fließt Wasser gegen die normale Richtung durch das Filtermedium und löst angesammelte Partikel. Regelmäßiges Rückspülen verlängert die Standzeit des Filters.", "label": "", "href": "" }
+            {
+              "titel": "Legionellen",
+              "text": "Bakterien, die in warmem Wasser zwischen 25 und 45 °C gedeihen, gern in stehendem Wasser und im Biofilm. Ab 55 °C stoppt die Vermehrung, ab 60 °C sterben sie ab. Eingeatmet mit feinen Tröpfchen können sie eine schwere Lungenentzündung auslösen. Die Konservierung mit **Silbernetz Flex** oder **Silvertex** ist eine wichtige Grundlage der Legionellen-Prophylaxe, dazu den Boiler regelmäßig heiß fahren und reinigen.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Membranfiltration",
+              "text": "Filtern durch eine feine Membran. Nach Porengröße unterscheidet man Mikrofiltration, Ultrafiltration, Nanofiltration und Umkehrosmose. Je feiner, desto mehr bleibt zurück, von Partikeln über Bakterien bis, je nach Typ, zu Viren. Fürs Tanken im Wohnmobil reicht meist der Befüllfilter.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Mikroorganismen",
+              "text": "Sammelbegriff für alles Kleine, das lebt: Bakterien, Viren, Pilze, Hefen, Algen. Im Trinkwasser können sie Geruch, Geschmack und Aussehen verändern, manche machen krank.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Mikroplastik",
+              "text": "Kunststoffteilchen unter 5 mm, die inzwischen in fast jedem Wasser nachweisbar sind. Sehr feine Membranfilter können sie zurückhalten. Ein Befüllfilter hält beim Tanken grobe Partikel zurück.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Nitrat",
+              "text": "Eine Stickstoffverbindung, die durch Düngung ins Grundwasser gelangt. Die Trinkwasserverordnung erlaubt 50 mg je Liter. Ein Filter im Wohnmobil hält Nitrat nicht auf; das können nur Verfahren wie Umkehrosmose. Woher das Wasser kommt, entscheidet.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Organische Stoffe",
+              "text": "Kohlenstoffverbindungen im Wasser, aus der Natur wie Huminstoffe und Algen oder vom Menschen wie Pestizide. Mikroorganismen leben davon. Sauber befüllen, beim Tanken filtern, Tank regelmäßig reinigen.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Osmose und Umkehrosmose",
+              "text": "Bei der Umkehrosmose wird Wasser unter Druck durch eine sehr feine Membran gepresst. Salze, Schwermetalle und Nitrat bleiben zurück, Mineralien allerdings auch, und viel Wasser geht als Konzentrat verloren. Für die Hausinstallation ein Thema, im Wohnmobil selten.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "pH-Wert",
+              "text": "Ein Maß für Säure oder Base auf einer Skala von 0 bis 14. Trinkwasser liegt zwischen 6,5 und 9,5. Der pH-Wert beeinflusst, wie gut Mittel wirken und ob Wasser Material angreift. **DEXDA Clean** ist pH-neutral und damit für alle gängigen Materialien im Frischwassersystem geeignet.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Pseudomonas aeruginosa",
+              "text": "Ein Bakterium, das feuchte Nischen liebt: Leitungen, Duschköpfe, Biofilm. Für Menschen mit schwachem Immunsystem kann es ein Problem werden. Gegen viele Mittel ist es hart im Nehmen, im Biofilm noch mehr. Deshalb lohnt sich die regelmäßige Systemreinigung.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Reinigung",
+              "text": "Schmutz, Ablagerungen und organische Rückstände aus dem System holen. Sie ist die Voraussetzung für jede Desinfektion, denn unter Biofilm und Kalk erreicht kein Mittel die Keime. Reihenfolge: erst entkalken, dann desinfizieren, dann konservieren.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Rückspülung",
+              "text": "Bei rückspülbaren Filtern fließt Wasser gegen die normale Richtung durch das Filtermedium und löst angesammelte Partikel. Regelmäßiges Rückspülen verlängert die Standzeit des Filters.",
+              "label": "",
+              "href": ""
+            }
           ]
         }
       },
@@ -93,19 +274,90 @@
           "eyebrow": "Begriffe S bis W",
           "titel": "Von Schwermetallen bis Wasserkonservierung",
           "items": [
-            { "titel": "Schwermetalle", "text": "Blei, Kupfer, Quecksilber, Cadmium: Metalle, die aus alten Leitungen oder Einträgen ins Wasser gelangen können. Ein Filter im Wohnmobil hält sie nicht auf. Bei Zweifel an der Quelle lieber anderes Wasser tanken.", "label": "", "href": "" },
-            { "titel": "Sediment", "text": "Sand, Rost, Schwebstoffe. Ein Befüllfilter hält solche Partikel beim Tanken zurück, das schont Pumpe, Armaturen und ein UV-C-Gerät dahinter.", "label": "Filter im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Silberionen", "text": "Positiv geladene Silberteilchen, gelöst im Wasser. Sie hemmen die Vermehrung von Bakterien. In **Silbernetz Flex** und **Silvertex** sind sie der Wirkstoff, selbstregulierend abgegeben und ohne Nanosilber.", "label": "", "href": "" },
-            { "titel": "Stagnation", "text": "Stillstand des Wassers in den Leitungen, wenn das Fahrzeug steht. Dabei wachsen Bakterien und Biofilm, und Leitungswerkstoffe können Stoffe abgeben. Nach längerer Standzeit erst ablaufen lassen, dann trinken.", "label": "", "href": "" },
-            { "titel": "Systemdesinfektion", "text": "Die Desinfektion des ganzen Systems: Tank, Leitungen, Armaturen, Boiler. Sinnvoll bei der ersten Inbetriebnahme, nach längeren Standzeiten und vor und nach der Saison. **DEXDA Clean** reinigt und desinfiziert in einem Schritt, zusammen mit KXpress sogar mit dem Entkalken.", "label": "DEXDA Clean im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "Systemreinigung", "text": "Alle wasserführenden Teile gründlich reinigen: Biofilm, Kalk und Schmutz raus. Sie geht der Desinfektion voraus und gehört mindestens einmal im Jahr auf den Plan. KXpress gegen Kalk, **DEXDA Clean** gegen Biofilm, beides in einem Arbeitsschritt.", "label": "", "href": "" },
-            { "titel": "Trinkwasser", "text": "Wasser, das den Anforderungen der Trinkwasserverordnung entspricht: frei von Keimen, die krank machen, ohne schädliche Stoffe und einwandfrei in Geschmack, Geruch und Farbe.", "label": "", "href": "" },
-            { "titel": "Trinkwasserschlauch", "text": "Ein Schlauch aus lebensmittelgeeignetem Material ohne Weichmacher, geprüft nach KTW oder DVGW, mit glatter Innenwand. Der Gartenschlauch aus Weich-PVC kann im stehenden Wasser Stoffe abgeben, und seine raue Innenwand lädt Biofilm ein. Fürs Tanken also immer den Trinkwasserschlauch.", "label": "", "href": "" },
-            { "titel": "Trinkwasserverordnung", "text": "Die deutsche Verordnung, die festlegt, was Trinkwasser sein muss: Grenzwerte für Keime und Stoffe, Untersuchungspflichten, Maßnahmen bei Überschreitung. Für Fahrzeuge gilt sie bei gewerblicher Nutzung, als Maßstab taugt sie immer.", "label": "", "href": "" },
-            { "titel": "Unterhaltsreinigung", "text": "Die Routine: vor und nach jeder Saison den Frischwassertank reinigen, damit leichte Verschmutzungen und Biofilm gar nicht erst Fuß fassen. Dafür gibt es **DEXDA Clean** und, mit Aktivsauerstoff, ohne Chlor und ohne Nachspülen, **DEXDA Clean active**.", "label": "DEXDA Clean im Shop", "href": "{{facts.shopUrl}}/collections/wasser" },
-            { "titel": "UV-C-Desinfektion", "text": "Ein rein physikalisches Verfahren mit Licht im UV-C-Bereich. Bei der UV-8 Serie von WM aquatec passiert die Bestrahlung im Durchfluss, ohne Aufwärmphase und ohne Lampenwechsel. Eingebaut in die Leitung ergänzt sie die Konservierung im Tank; welche Ausführung passt, klären wir am Telefon.", "label": "UV-C-Geräte im Shop", "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion" },
-            { "titel": "Viren", "text": "Winzige infektiöse Partikel, viel kleiner als Bakterien, die sich nur in lebenden Zellen vermehren. Feine Filter halten sie nur teilweise zurück. Auch hier zählt die Quelle: Trinkwasser aus dem Netz, kein Oberflächenwasser.", "label": "", "href": "" },
-            { "titel": "Wasserkonservierung", "text": "Alles, was gespeichertes Wasser länger frisch hält. Im Tank: **Silbernetz Flex** oder **Silvertex**, sie geben reine Silberionen ab, die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm reduziert. Flüssig dosiert: DEXDA One, hält Wasser bis zu 6 Monate frisch. Konservieren ersetzt das Reinigen nicht.", "label": "Silbernetz Flex im Shop", "href": "{{facts.shopUrl}}/collections/wasser" }
+            {
+              "titel": "Schwermetalle",
+              "text": "Blei, Kupfer, Quecksilber, Cadmium: Metalle, die aus alten Leitungen oder Einträgen ins Wasser gelangen können. Ein Filter im Wohnmobil hält sie nicht auf. Bei Zweifel an der Quelle lieber anderes Wasser tanken.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Sediment",
+              "text": "Sand, Rost, Schwebstoffe. Ein Befüllfilter hält solche Partikel beim Tanken zurück, das schont Pumpe, Armaturen und ein UV-C-Gerät dahinter.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Silberionen",
+              "text": "Positiv geladene Silberteilchen, gelöst im Wasser. Sie hemmen die Vermehrung von Bakterien. In **Silbernetz Flex** und **Silvertex** sind sie der Wirkstoff, selbstregulierend abgegeben und ohne Nanosilber.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Stagnation",
+              "text": "Stillstand des Wassers in den Leitungen, wenn das Fahrzeug steht. Dabei wachsen Bakterien und Biofilm, und Leitungswerkstoffe können Stoffe abgeben. Nach längerer Standzeit erst ablaufen lassen, dann trinken.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Sterilfiltration",
+              "text": "Membranfiltration mit sehr feinen Poren, feiner als ein Bakterium. Sie hält Bakterien, Parasiten und Mikroplastik zurück, Viren nur teilweise, gelöste Stoffe gar nicht. Im Wohnmobil kommt sie in Expeditionsanlagen als letzte Stufe vor dem Hahn vor. Beim Tanken reicht der Befüllfilter.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Systemdesinfektion",
+              "text": "Die Desinfektion des ganzen Systems: Tank, Leitungen, Armaturen, Boiler. Sinnvoll bei der ersten Inbetriebnahme, nach längeren Standzeiten und vor und nach der Saison. **DEXDA Clean** reinigt und desinfiziert in einem Schritt, zusammen mit KXpress sogar mit dem Entkalken.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Systemreinigung",
+              "text": "Alle wasserführenden Teile gründlich reinigen: Biofilm, Kalk und Schmutz raus. Sie geht der Desinfektion voraus und gehört mindestens einmal im Jahr auf den Plan. KXpress gegen Kalk, **DEXDA Clean** gegen Biofilm, beides in einem Arbeitsschritt.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Trinkwasser",
+              "text": "Wasser, das den Anforderungen der Trinkwasserverordnung entspricht: frei von Keimen, die krank machen, ohne schädliche Stoffe und einwandfrei in Geschmack, Geruch und Farbe.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Trinkwasserschlauch",
+              "text": "Ein Schlauch aus lebensmittelgeeignetem Material ohne Weichmacher, geprüft nach KTW oder DVGW, mit glatter Innenwand. Der Gartenschlauch aus Weich-PVC kann im stehenden Wasser Stoffe abgeben, und seine raue Innenwand lädt Biofilm ein. Fürs Tanken also immer den Trinkwasserschlauch.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Trinkwasserverordnung",
+              "text": "Die deutsche Verordnung, die festlegt, was Trinkwasser sein muss: Grenzwerte für Keime und Stoffe, Untersuchungspflichten, Maßnahmen bei Überschreitung. Für Fahrzeuge gilt sie bei gewerblicher Nutzung, als Maßstab taugt sie immer.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Unterhaltsreinigung",
+              "text": "Die Routine: vor und nach jeder Saison den Frischwassertank reinigen, damit leichte Verschmutzungen und Biofilm gar nicht erst Fuß fassen. Dafür gibt es **DEXDA Clean** und, mit Aktivsauerstoff, ohne Chlor und ohne Nachspülen, **DEXDA Clean active**.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "UV-C-Desinfektion",
+              "text": "Ein rein physikalisches Verfahren mit Licht im UV-C-Bereich. Bei der UV-8 Serie von WM aquatec passiert die Bestrahlung im Durchfluss, ohne Aufwärmphase und ohne Lampenwechsel. Eingebaut in die Leitung ergänzt sie die Konservierung im Tank; welche Ausführung passt, klären wir am Telefon.",
+              "label": "UV-C-Geräte im Shop",
+              "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+            },
+            {
+              "titel": "Viren",
+              "text": "Winzige infektiöse Partikel, viel kleiner als Bakterien, die sich nur in lebenden Zellen vermehren. Feine Filter halten sie nur teilweise zurück. Auch hier zählt die Quelle: Trinkwasser aus dem Netz, kein Oberflächenwasser.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "Wasserkonservierung",
+              "text": "Alles, was gespeichertes Wasser länger frisch hält. Im Tank: **Silbernetz Flex** oder **Silvertex**, sie geben reine Silberionen ab, die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm reduziert. Flüssig dosiert: DEXDA One, hält Wasser bis zu 6 Monate frisch. Konservieren ersetzt das Reinigen nicht.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            }
           ]
         }
       },
@@ -124,7 +376,10 @@
           "href": "{{facts.shopUrl}}/collections/wasser"
         }
       },
-      { "type": "footer", "data": {} }
+      {
+        "type": "footer",
+        "data": {}
+      }
     ]
   }
 }
