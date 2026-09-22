@@ -1,0 +1,131 @@
+{
+  "slug": "wasserhygiene-auch-ohne-trinken",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Wasserhygiene im Wohnmobil: wichtig, auch wenn du nur damit duschst",
+  "description": "Tankwasser kommt an Haut, Geschirr und Zahnbürste und wird beim Duschen eingeatmet. Warum die Qualität im Tank zählt, woran du Probleme erkennst und welche drei Handgriffe helfen. Von Camping Schorni.",
+  "content": {
+    "blocks": [
+      {
+        "type": "nav",
+        "data": {}
+      },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Grundlagen",
+          "titel": "Sauberes Wasser, auch wenn du es nur zum Duschen nimmst.",
+          "sub": "„Ich trinke das Wasser im Wohnmobil ja nicht.“ Den Satz hören wir oft, und er ist verständlich. Trotzdem lohnt sich der Blick in den Tank: Das Wasser kommt an Haut, Geschirr und Zahnbürste, beim Duschen atmest du es als feinen Nebel ein, und es läuft durch Pumpe, Boiler und Armaturen. Hier steht, warum die Qualität im Tank zählt und was drei Handgriffe daran ändern.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Ein bisschen Leben ist normal",
+          "text": "Trinkwasser ist auch zu Hause kein steriles Wasser. Eine kleine Zahl an Mikroorganismen gehört dazu und ist erlaubt, solange sie klein bleibt. Dafür sorgt im Haus das Netz: Das Wasser bleibt in Bewegung, kühl und wird laufend nachgeliefert.\n\nIm Fahrzeug ändern sich die Regeln. Das Wasser steht im Tank und in den Leitungen, oft tagelang. Es wird warm. Heute kommt es vom Campingplatz, morgen vom Stellplatz, übermorgen aus einem Hahn irgendwo. Schläuche, Tankkunststoff und Dichtungen bieten Oberflächen zum Andocken, und in Pumpe, Duschschlauch, Perlatoren und Boiler gibt es viele Ecken mit wenig Strömung. Genau dort entsteht Biofilm: ein zäher Belag aus Mikroorganismen, der laufend Nachschub ins Wasser abgibt. Der Tank kann dabei völlig in Ordnung wirken, während in Leitungen und Armaturen längst etwas wohnt."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Vier Wege",
+          "titel": "Wo das Wasser hinkommt, ohne dass du es trinkst",
+          "items": [
+            {
+              "titel": "Duschen: die Atemluft",
+              "text": "Beim Duschen entsteht feiner Wassernebel, und den atmest du ein. Das ist der Weg, auf dem Legionellen in die Lunge gelangen. Sie gedeihen in warmem, stehendem Wasser zwischen 25 und 45 °C und sitzen gern im Biofilm. Ein Boiler, der lauwarm läuft, und ein Duschschlauch, der zwei Wochen stand, sind für sie beste Bedingungen.",
+              "label": "Legionellen im Lexikon",
+              "href": "/wasser-lexikon/"
+            },
+            {
+              "titel": "Spülen und Abwaschen",
+              "text": "Was im Spülwasser ist, bleibt zum Teil am Geschirr, beim Abwasch mit lauwarmem Wasser erst recht. Schneidebretter und Spülschwämme halten es fest. Und beim Zähneputzen, beim Nudelwasser und beim Kaffee nehmen viele dann doch das Wasser aus dem Tank."
+            },
+            {
+              "titel": "Hände und Haut",
+              "text": "Hände waschen, Gesicht, die Katzenwäsche am Morgen: Alles hat Kontakt mit dem Tankwasser. Bei empfindlicher Haut und kleinen Kratzern merkt man die Wasserqualität schneller, als einem lieb ist."
+            },
+            {
+              "titel": "Die Technik",
+              "text": "Biofilm verengt Leitungen, setzt Ventile zu und lässt Perlatoren verschleimen. Kalk kommt dazu: Kalkablagerungen bremsen die Wärmeübertragung im Boiler und bieten Biofilm einen Untergrund. Entkalken ist deshalb ein Hygiene-Baustein und kein Schönheitsprogramm.",
+              "label": "Zum Saison-Check",
+              "href": "/saison-check-schritt-fuer-schritt/"
+            }
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Woran du es merkst",
+          "text": "Meist zuerst an der Nase: Das Wasser riecht muffig, modrig, manchmal süßlich. Dann am Geschmack und an einem schleimigen Gefühl am Hahn oder im Duschschlauch. Perlatoren setzen sich zu, die Pumpe arbeitet lauter, der Boiler braucht länger. Wenn du das bemerkst, ist der Belag schon da. Deshalb lohnt sich ein System, das vorbeugt: sauber rein, frisch halten, einmal im Jahr durchputzen."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Befüllen, lagern, entnehmen",
+          "titel": "Drei Handgriffe und ein Termin",
+          "items": [
+            {
+              "titel": "Beim Befüllen filtern",
+              "text": "Der Befüllfilter ist die Einlasskontrolle am Tank: Er hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe. Mit Aktivkohle-Element bindet er zusätzlich Stoffe, die Geruch und Geschmack beeinflussen. Was draußen bleibt, muss die Technik dahinter nie verkraften.",
+              "label": "Filtern beim Tanken",
+              "href": "/filtern-beim-tanken/"
+            },
+            {
+              "titel": "Im Tank konservieren",
+              "text": "Konservieren heißt frisch halten. **Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, ohne Nanosilber: Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert, eine wichtige Grundlage für die Legionellen-Prophylaxe. Bis zu 6 Monate frisches Wasser im Tank, dosiert wird bei jeder Tankfüllung von selbst.",
+              "label": "Konservieren oder desinfizieren?",
+              "href": "/konservieren-oder-desinfizieren/"
+            },
+            {
+              "titel": "Am Auslass desinfizieren",
+              "text": "Bei Wasser aus unsicheren Quellen und bei Hitze kommt eine Desinfektionsstufe dazu. UV-C am Auslass arbeitet rein physikalisch: Die Bestrahlung passiert im Durchfluss, ohne Aufwärmphase und ohne Lampenwechsel, genau dort, wo das Wasser gezapft wird.",
+              "label": "UV-C am Auslass",
+              "href": "/uv-c-am-auslass/"
+            },
+            {
+              "titel": "Einmal im Jahr der Saison-Check",
+              "text": "Entkalken mit **KXpress**, desinfizieren mit **DEXDA Clean**, beides in einem Arbeitsschritt, dazu Spülen und frisches Wasser. Vor und nach der Saison sowie nach längeren Standzeiten. Für die schnelle Tankreinigung zwischendurch gibt es **DEXDA Clean active** mit Aktivsauerstoff, ohne Chlor, ohne Nachspülen.",
+              "label": "Saison-Check Schritt für Schritt",
+              "href": "/saison-check-schritt-fuer-schritt/"
+            }
+          ]
+        }
+      },
+      {
+        "type": "hinweis",
+        "data": {}
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Vor der Reise, nach der Reise, in der Standzeit",
+          "text": "Vor der Reise frisch füllen und alle Leitungen durchspülen, Warmwasser eingeschlossen. Nach der Reise das System restlos leeren und trocknen lassen, oder komplett gefüllt lassen, mit Konservierung im Tank und gefluteten Leitungen. Steht das Fahrzeug länger, wechselst du das Wasser spätestens nach sechs Monaten. Und zwischendurch der Blick auf die üblichen Verdächtigen: Duschkopf, Duschschlauch, Perlatoren, Einfüllstutzen, Tankentlüftung und Filterelemente.\n\nBesonders sorgfältig lohnt sich das, wenn kleine Kinder, ältere Menschen oder Menschen mit Lungen- oder Immunproblemen mitreisen, und bei Hitze, wenn viel geduscht wird."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Fahr den Boiler regelmäßig einmal richtig heiß und lass danach alle Warmwasserhähne kurz laufen, auch die Außendusche. Legionellen mögen es lauwarm. Richtig heiß mögen sie gar nicht."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Sauber rein, frisch halten, einmal im Jahr durchputzen.",
+          "text": "Befüllfilter, Silbernetz Flex und der Saison-Check: alles im Sortiment Wasser, sortiert nach Tankgröße. Unsicher, wo du anfangen sollst? {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "footer",
+        "data": {}
+      }
+    ]
+  }
+}

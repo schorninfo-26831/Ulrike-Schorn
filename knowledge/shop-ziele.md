@@ -15,5 +15,5 @@ nie mit einer ausgeschriebenen Adresse. Kategorien sind stabil, Produktadressen 
 | {{facts.shopUrl}} | Der Shop insgesamt |
 
 Seiten dieser Website (intern, mit Schrägstrichen): /ratgeber/ (Übersicht) · /wasser-ratgeber/ · /wasser-lexikon/ ·
-/wasserhygiene-europa/ · /wasserhygiene-suedeuropa-weltweit/ · /wasser-auf-expedition/ · /uv-c-am-auslass/ · /filtern-beim-tanken/ · /saison-check-schritt-fuer-schritt/ · /ueber-uns/ · /kontakt/ ·
+/wasserhygiene-europa/ · /wasserhygiene-suedeuropa-weltweit/ · /wasser-auf-expedition/ · /uv-c-am-auslass/ · /filtern-beim-tanken/ · /saison-check-schritt-fuer-schritt/ · /wasserhygiene-auch-ohne-trinken/ · /konservieren-oder-desinfizieren/ · /ueber-uns/ · /kontakt/ ·
 /impressum/ · /datenschutz/ · / (Startseite).

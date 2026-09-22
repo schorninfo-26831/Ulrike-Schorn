@@ -1,0 +1,150 @@
+{
+  "slug": "konservieren-oder-desinfizieren",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Konservieren oder desinfizieren? Was Wasser im Wohnmobil frisch hält",
+  "description": "Konservieren hält getanktes Wasser frisch, Desinfizieren räumt auf. Was beides im Wohnmobil leistet, wo die Grenzen liegen und wann welches dran ist. Der Ratgeber von Camping Schorni.",
+  "content": {
+    "blocks": [
+      {
+        "type": "nav",
+        "data": {}
+      },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Grundlagen",
+          "titel": "Konservieren heißt frisch halten. Desinfizieren heißt aufräumen.",
+          "sub": "Zwei Wörter, die gern durcheinandergehen, und ein Tank, dem das egal ist. Hier steht, was Konservierung im Wohnmobil leistet, wo sie an ihre Grenze kommt und wann eine Desinfektion dazugehört.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Warum das Wasser im Fahrzeug anders ist als zu Hause",
+          "text": "Stellplatz am Nachmittag, der Tank ist halb leer, und die Zapfsäule sieht aus, als hätte sie schon ein paar Sommer hinter sich. Schlauch dran, laufen lassen, weiter. Wasser ist Wasser, denkt man.\n\nZu Hause hält das Netz das Wasser in Bewegung und kühl. Im Fahrzeug steht es: im Tank, in den Leitungen, im Boiler, manchmal wochenlang. Es wird warm, es kommt aus wechselnden Quellen, und es trifft auf Schläuche, Dichtungen und Kunststoff mit vielen Ecken ohne Strömung. Dort siedeln sich Mikroorganismen an und bilden Biofilm, der laufend Nachschub ins Wasser abgibt. Was beim Tanken gut war, ist es nach ein paar warmen Tagen im Tank oft nicht mehr. Genau hier setzt die Konservierung an."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Zwei Begriffe, eine Reihenfolge",
+          "titel": "Was welches Wort bedeutet",
+          "items": [
+            {
+              "titel": "Konservieren: frisch halten",
+              "text": "Konservierung stabilisiert das Wasser, das du getankt hast: Eingetragene Mikroorganismen vermehren sich nicht weiter, das Wasser bleibt, was es beim Tanken war. Im Tank übernimmt das **Silbernetz Flex**: gibt selbstregulierend reine Silberionen ab, ohne Nanosilber. Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert. Bis zu 6 Monate frisches Wasser im Tank, dosiert wird bei jeder Tankfüllung von selbst. **Silvertex** arbeitet mit demselben Wirkstoff und wird einmal jährlich gewechselt. Wer lieber flüssig dosiert, nimmt **DEXDA One**, hält Wasser bis zu 6 Monate frisch.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Desinfizieren: aufräumen",
+              "text": "Desinfektion reduziert Keime, die schon im Wasser oder im System sind, gezielt und in kurzer Zeit. Im Wohnmobil passiert das beim Saison-Check mit **DEXDA Clean**: Die Chlordioxid-Technologie löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System. Unterwegs im Wasser selbst arbeitet **DEXDA Complete**: Es desinfiziert dein Wasser, indem es vorhandene Keime reduziert, und konserviert es gleichzeitig gegen erneute Verkeimung. Rein physikalisch geht es mit UV-C am Auslass, die Bestrahlung passiert im Durchfluss.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Pflegen: der Rahmen für beides",
+              "text": "Konservierung kommt in ein sauberes System, sonst hat sie kaum eine Chance. Deshalb steht am Anfang jeder Saison der Saison-Check: entkalken mit **KXpress**, desinfizieren mit **DEXDA Clean**, spülen, dann erst das Netz in den Tank. Danach hält die Konservierung, was beim Tanken gut war, und die Desinfektion bleibt für den Sonderfall reserviert.",
+              "label": "Saison-Check Schritt für Schritt",
+              "href": "/saison-check-schritt-fuer-schritt/"
+            }
+          ]
+        }
+      },
+      {
+        "type": "hinweis",
+        "data": {}
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Ehrlich eingeordnet",
+          "titel": "Was Konservieren kann und was nicht",
+          "items": [
+            {
+              "titel": "Kann: frisch halten, ohne Dosieraufwand",
+              "text": "Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert, bis zu 6 Monate. Die Dosierung regelt sich bei jeder Tankfüllung selbst, ohne Messen und Wiegen. Damit ist die Konservierung eine wichtige Grundlage für die Legionellen-Prophylaxe, gerade bei Standzeiten und Wärme."
+            },
+            {
+              "titel": "Kann nicht: sofort desinfizieren",
+              "text": "Konservierung wirkt auf die Vermehrung, und das braucht Zeit. Was schon verkeimt in den Tank kommt, räumt sie nicht auf. Dafür ist die Desinfektion da: beim Saison-Check im System, unterwegs im Wasser oder am Auslass."
+            },
+            {
+              "titel": "Kann nicht: schlechtes Wasser gut machen",
+              "text": "Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle. Wasser aus Brunnen, Zisterne, See oder Fluss braucht Filtration und Desinfektion in mehreren Stufen. Die Konservierung ist darin eine Stufe von mehreren.",
+              "label": "Wasser auf Expedition",
+              "href": "/wasser-auf-expedition/"
+            },
+            {
+              "titel": "Kann nicht: einen verschmutzten Tank reinigen",
+              "text": "In einem Tank mit Biofilm und Kalk läuft die Konservierung ins Leere: Der Belag bleibt, das Netz hängt daneben. Erst reinigen, entkalken, desinfizieren, dann konservieren. Wer die Reihenfolge einhält, spart sich die zweite Runde."
+            }
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Der Denkfehler: konservieren statt pflegen",
+          "text": "Konservierung bremst die Vermehrung, die Grundregeln sauberer Systeme bleiben. Auch konserviertes Wasser erreicht feuchte Ecken mit wenig Strömung kaum: Duschschlauch, Perlatoren, Toträume, den Boiler. Dort kann sich trotz Netz im Tank ein Belag bilden. Konservierung ist am stärksten, wenn das System sauber ist, der Tank ein Trinkwassertank bleibt und die Pflege regelmäßig passiert.\n\nUnd sie gewinnt gegen jede gute Absicht, wenn sie von selbst passiert. Wer täglich dosieren soll, dosiert am dritten Tag zu viel und am siebten gar nicht. Ein Netz im Tank dosiert bei jeder Füllung selbst, und die einzige Erinnerung, die es braucht, ist der Wechsel."
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Wann reicht Konservieren, wann braucht es mehr?",
+          "text": "In Mittel- und Nordeuropa mit Leitungswasser ist die Konservierung das Herzstück, mit Befüllfilter beim Tanken sehr komfortabel: das [2-Stufen-System](/wasserhygiene-europa/). In Südeuropa und bei Hitze wird sie wichtiger und bekommt am Auslass eine Desinfektion dazu: [UV-C am Auslass](/uv-c-am-auslass/) und die [erweiterte Lösung](/wasserhygiene-suedeuropa-weltweit/). Außerhalb Europas und bei Wasser aus unbekannten Quellen bleibt die Konservierung die Basis, als eine von mehreren Stufen: [Wasser auf Expedition](/wasser-auf-expedition/).\n\nWarum das alles auch zählt, wenn du das Wasser nur zum Duschen nimmst, steht in [Wasserhygiene, auch ohne Trinken](/wasserhygiene-auch-ohne-trinken/). Und die Begriffe erklärt das [Wasser-Lexikon](/wasser-lexikon/)."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Kurz gefragt",
+          "titel": "Vier Fragen, vier Antworten",
+          "items": [
+            {
+              "titel": "Brauche ich zusätzlich eine Desinfektion?",
+              "text": "Das entscheiden Reiseziel und Wasserquelle. Die Konservierung hält den Zustand, den das Wasser beim Tanken hatte. Die Desinfektion ist die Sicherheitsstufe bei unbekannter Qualität, beim Saison-Check und nach langen Standzeiten."
+            },
+            {
+              "titel": "Wie lange hält konserviertes Wasser?",
+              "text": "Bis zu 6 Monate frisches Wasser im Tank. Steht das Fahrzeug länger, wechselst du das Wasser spätestens nach sechs Monaten. Das Netz selbst wird nach der Gebrauchsanweisung gewechselt, Silvertex einmal jährlich."
+            },
+            {
+              "titel": "Wenn ich konserviere, muss ich dann noch reinigen?",
+              "text": "Ja. Konservierung bremst Vermehrung und Biofilmbildung, die Pflege bleibt: einmal im Jahr der Saison-Check mit Entkalken und Desinfizieren, dazu der Blick auf Duschkopf, Perlatoren und Filterelemente.",
+              "label": "Zum Saison-Check",
+              "href": "/saison-check-schritt-fuer-schritt/"
+            },
+            {
+              "titel": "Was ist der Wirkstoff, und warum der Hinweis?",
+              "text": "In Silbernetz Flex, Silvertex und DEXDA One sind es Silberionen, ohne Nanosilber, der Wirkstoff entspricht der DIN EN 15030. DEXDA Complete kombiniert Natriumhypochlorit mit Silber. Alle vier sind Biozidprodukte und bei der BAuA registriert, die Registriernummer steht auf Etikett und Gebrauchsanweisung. Deshalb steht auf jeder Seite, die sie nennt, der Pflichtsatz: vorsichtig verwenden, Etikett lesen. Das gilt für jedes Biozidprodukt."
+            }
+          ]
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Lass den Hahn an der Zapfstelle erst ein paar Sekunden laufen, bevor der Schlauch drankommt. Was über Nacht in der Säule stand, darf in den Gully. Dein Tank bekommt den Rest."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Frisch halten, ohne jeden Tag daran zu denken.",
+          "text": "Silbernetz Flex und Silvertex nach Tankgröße, DEXDA One zum Dosieren, DEXDA Clean für den Saison-Check: alles im Sortiment Wasser. Unsicher, was zu deinem Tank passt? {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "footer",
+        "data": {}
+      }
+    ]
+  }
+}

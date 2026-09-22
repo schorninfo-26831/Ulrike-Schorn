@@ -6,7 +6,10 @@
   "description": "Ein Filter ist ein Sieb, nicht mehr und nicht weniger. Was der Befüllfilter beim Tanken zurückhält, was die Aktivkohle bindet und was beides nicht schafft. Von Camping Schorni.",
   "content": {
     "blocks": [
-      { "type": "nav", "data": {} },
+      {
+        "type": "nav",
+        "data": {}
+      },
       {
         "type": "hero",
         "data": {
@@ -21,7 +24,7 @@
         "type": "richtext",
         "data": {
           "titel": "Wie ein Filter arbeitet",
-          "text": "Ein Filter ist ein Sieb. Wasser fließt hindurch, und alles, was größer ist als die Poren, bleibt hängen: Sand, Rost, Schwebstoffe, bei feinen Poren auch Bakterien. Es kommt kein Stoff ins Wasser, es wird nur etwas herausgehalten. Wie fein das Sieb ist, sagt die Porengröße in Mikrometern. Zur Einordnung: Ein Haar ist ungefähr 70 Mikrometer dick, ein Bakterium ein bis drei, ein Virus noch einmal deutlich kleiner.\n\nDavon gibt es Stufen: Grobe Filter halten Partikel zurück, Membranfilter mit sehr feinen Poren auch Bakterien und Parasiten, Umkehrosmose sogar gelöste Salze, dann aber mit hohem Druck und viel Abwasser. Beim Tanken im Wohnmobil arbeitet der Befüllfilter am groben Ende, und genau das ist seine Aufgabe."
+          "text": "Ein Filter ist ein Sieb. Wasser fließt hindurch, und alles, was größer ist als die Poren, bleibt hängen: Sand, Rost, Schwebstoffe, bei feinen Poren auch Bakterien. Es kommt kein Stoff ins Wasser, es wird nur etwas herausgehalten. Wie fein das Sieb ist, sagt die Porengröße in Mikrometern. Zur Einordnung: Ein Haar ist ungefähr 70 Mikrometer dick, ein Bakterium ein bis drei, ein Virus noch einmal deutlich kleiner.\n\nDavon gibt es Stufen: Grobe Filter halten Partikel zurück, Membranfilter mit sehr feinen Poren auch Bakterien und Parasiten, Umkehrosmose sogar gelöste Salze, dann aber mit hohem Druck und viel Abwasser. Beim Tanken im Wohnmobil arbeitet der Befüllfilter am groben Ende, und genau das ist seine Aufgabe. Sein Aktivkohle-Element hat 10 Mikrometer Porengröße: fein genug für Schwebstoffe, grob genug, damit der Tank in Minuten voll ist."
         }
       },
       {
@@ -38,7 +41,7 @@
             },
             {
               "titel": "2 · Aktivkohle",
-              "text": "Das Aktivkohle-Element bindet Stoffe, die Geruch und Geschmack beeinflussen, Chlor zum Beispiel. Das ist kein Sieb, sondern Anlagerung: Die riesige innere Oberfläche der Kohle hält solche Stoffe fest. Für die Hygiene im Tank bleibt die Konservierung zuständig.",
+              "text": "Das Aktivkohle-Element bindet Stoffe, die Geruch und Geschmack beeinflussen, Chlor zum Beispiel. Das ist kein Sieb, sondern Anlagerung: Die riesige innere Oberfläche der Kohle hält solche Stoffe fest. Für die Hygiene im Tank bleibt die Konservierung zuständig. Drei Dinge entscheiden, wie viel sie bindet: die Menge an Kohle, die Kontaktzeit und die Geschwindigkeit, mit der das Wasser durchläuft. Je mehr Kohle und je ruhiger der Durchfluss, desto mehr bleibt hängen. Im Befüllfilter ist die Kohle zu einem festen Element gepresst: Sie bleibt an Ort und Stelle, und ihre Poren halten zugleich Schmutz zurück.",
               "label": "Filter im Shop",
               "href": "{{facts.shopUrl}}/collections/wasser"
             },
@@ -50,7 +53,7 @@
             },
             {
               "titel": "4 · Wechseln",
-              "text": "Ein Filter arbeitet, solange er durchlässig ist. Setzt er sich zu, sinkt der Durchfluss, und das ist das Zeichen, das Element zu wechseln. Wer trübes Wasser tankt, wechselt öfter. Rückspülbare Filter lassen sich zwischendurch freispülen.",
+              "text": "Ein Filter arbeitet, solange er durchlässig ist. Setzt er sich zu, sinkt der Durchfluss, und das ist das Zeichen, das Element zu wechseln. Wer trübes Wasser tankt, wechselt öfter. Rückspülbare Filter lassen sich zwischendurch freispülen. Aktivkohle sättigt sich unsichtbar: Irgendwann sind ihre Bindungsplätze belegt, und dann läuft alles durch. Deshalb steht in der Gebrauchsanweisung: Element nach sechs Monaten ab dem ersten Wasserkontakt wechseln, auch wenn der Durchfluss noch stimmt.",
               "label": "",
               "href": ""
             }
@@ -61,14 +64,41 @@
         "type": "richtext",
         "data": {
           "titel": "Was kein Filter kann",
-          "text": "Gelöste Stoffe gehen durch jedes Sieb: Salze, Nitrat, Medikamentenrückstände, Schwermetalle. Ein Teil davon bleibt an Aktivkohle hängen, der Rest nicht. Viren sind kleiner als die Poren der meisten Filter. Hinter dem Filter endet seine Wirkung: Im Tank und in den Leitungen kann Wasser wieder verkeimen, dafür ist die Konservierung da. Und trübes Wasser setzt jeden Filter schnell zu.\n\nDeshalb steht bei jedem Filter derselbe Satz: Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle. Ein Filter macht gutes Wasser besser und schlechtes Wasser nicht gut. Für Fluss, See und Brunnen braucht es eine [mehrstufige Anlage](/wasser-auf-expedition/)."
+          "text": "Gelöste Stoffe gehen durch jedes Sieb: Salze, Nitrat, Medikamentenrückstände, Schwermetalle. Ein Teil davon bleibt an Aktivkohle hängen, der Rest nicht. Viren sind kleiner als die Poren der meisten Filter, selbst eine Sterilfiltration hält Bakterien zurück und Viren nur zum Teil. Und je feiner die Poren, desto langsamer läuft das Wasser und desto schneller ist das Element dicht. Hinter dem Filter endet seine Wirkung: Im Tank und in den Leitungen kann Wasser wieder verkeimen, dafür ist die Konservierung da. Und trübes Wasser setzt jeden Filter schnell zu.\n\nDeshalb steht bei jedem Filter derselbe Satz: Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle. Ein Filter macht gutes Wasser besser und schlechtes Wasser nicht gut. Für Fluss, See und Brunnen braucht es eine [mehrstufige Anlage](/wasser-auf-expedition/)."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Nordsee, Südeuropa, weiter weg",
+          "titel": "Was der Filter je Etappe leisten soll",
+          "items": [
+            {
+              "titel": "Etappe 1: Nordsee im Frühjahr",
+              "text": "Gute Infrastruktur, Trinkwasser an der Zapfstelle. Der Filter soll bequem befüllen, Sand und Rost draußen halten und die Technik dahinter schonen. Mehr braucht es hier kaum: Befüllfilter beim Tanken, Konservierung im Tank.",
+              "label": "Das 2-Stufen-System",
+              "href": "/wasserhygiene-europa/"
+            },
+            {
+              "titel": "Etappe 2: Südeuropa im Hochsommer",
+              "text": "Hitze, häufige Tankstopps, schwankende Qualität, oft Chlorgeruch. Jetzt zählt die Aktivkohle für Geruch und Geschmack, die Konservierung im Tank wird wichtiger, und am Auslass kommt eine Desinfektion dazu.",
+              "label": "UV-C am Auslass",
+              "href": "/uv-c-am-auslass/"
+            },
+            {
+              "titel": "Etappe 3: außerhalb Europas",
+              "text": "Die Wasserqualität ist schwer einzuschätzen. Der Befüllfilter bleibt die erste Stufe, entscheidend sind jetzt die Stufen dahinter: feine Filtration, Konservierung, Desinfektion. Und ein Aufbau, bei dem das Befüllen zügig bleibt.",
+              "label": "Wasser auf Expedition",
+              "href": "/wasser-auf-expedition/"
+            }
+          ]
         }
       },
       {
         "type": "richtext",
         "data": {
           "titel": "Die Reihenfolge der Barrieren",
-          "text": "Das Prinzip, mit dem Wasserwerke arbeiten, passt auch ins Fahrzeug: erst grob filtern, dann Aktivkohle, dann feine Filtration, dann Konservierung im Tank und UV-C am Auslass. Jede Stufe hat ihre Verunreinigung, keine ersetzt die andere. Wie das für Europa-Reisen aussieht, steht im Kapitel [Zwei Stufen](/wasserhygiene-europa/), für den Süden bei [UV-C am Auslass](/uv-c-am-auslass/), und die Begriffe erklärt das [Wasser-Lexikon](/wasser-lexikon/)."
+          "text": "Das Prinzip, mit dem Wasserwerke arbeiten, passt auch ins Fahrzeug: erst grob filtern, dann Aktivkohle, dann feine Filtration, dann Konservierung im Tank und UV-C am Auslass. Jede Stufe hat ihre Verunreinigung, keine ersetzt die andere. Die Arbeitsteilung ist einfach: Vor dem Tank kommen Schmutz und Geschmacksstoffe raus, im Tank hält die Konservierung das Wasser frisch, und nach dem Tank werden Keime dort reduziert, wo das Wasser gezapft wird. Wie das für Europa-Reisen aussieht, steht im Kapitel [Zwei Stufen](/wasserhygiene-europa/), für den Süden bei [UV-C am Auslass](/uv-c-am-auslass/), und die Begriffe erklärt das [Wasser-Lexikon](/wasser-lexikon/)."
         }
       },
       {
@@ -86,7 +116,10 @@
           "href": "{{facts.shopUrl}}/collections/wasser"
         }
       },
-      { "type": "footer", "data": {} }
+      {
+        "type": "footer",
+        "data": {}
+      }
     ]
   }
 }
