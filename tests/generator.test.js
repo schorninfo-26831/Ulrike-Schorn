@@ -44,6 +44,7 @@ test('Auftrag: Schema, Fakten-Pfade ohne Werte, Stimme, Compliance, Goldreferenz
   assert.ok(system.includes('"page_type"') === false && system.includes('Vier Handgriffe'), 'Goldreferenz als JSON, ohne Verwaltungsfelder');
   assert.ok(user.includes('Frostschutz, Tank leeren') && user.includes('Winterfest'));
   assert.deepEqual(ladeGoldreferenz('gibtEsNicht'), null);
+  assert.match(ladeGoldreferenz('ratgeber').title, /Wasser-Ratgeber/, 'die veröffentlichte Seite ist die Goldreferenz, nicht der alphabetisch erste Entwurf');
   assert.ok(faktenPfade({ a: { b: '' }, _x: 1, c: [] }).join() === 'a.b,c');
 });
 

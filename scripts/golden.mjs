@@ -1,6 +1,6 @@
 /**
  * Goldreferenz erzeugen (P4): node scripts/golden.mjs <typ>
- * Nimmt die erste Seite aus content/*.json dieses Typs — dieselbe Regel wie der Generator —,
+ * Nimmt die erste veröffentlichte Seite aus content/*.json dieses Typs — dieselbe Regel wie der Generator —,
  * rendert sie mit Menü, Fakten und Bestand aus der Datenbank und schreibt
  * page-types/<typ>/golden.html. Ein neuer Seitentyp ist damit: Ordner, schema.json, eine
  * Seite in content/, dieser Befehl.
@@ -20,8 +20,9 @@ if (!typ) {
   process.exit(1);
 }
 await runMigrations();
-const datei = readdirSync('content').filter((f) => f.endsWith('.json') && !f.startsWith('_')).sort()
-  .find((f) => JSON.parse(readFileSync(`content/${f}`, 'utf8')).page_type === typ.name);
+const kandidaten = readdirSync('content').filter((f) => f.endsWith('.json') && !f.startsWith('_')).sort()
+  .map((f) => [f, JSON.parse(readFileSync(`content/${f}`, 'utf8'))]).filter(([, s]) => s.page_type === typ.name);
+const [datei] = kandidaten.find(([, s]) => s.status === 'published') || kandidaten[0] || [];
 if (!datei) { console.error(`Keine Seite vom Typ ${typ.name} in content/`); process.exit(1); }
 const seite = JSON.parse(readFileSync(`content/${datei}`, 'utf8'));
 const page = { ...seite, status: 'published', content_json: seite.content };

@@ -14,7 +14,7 @@ Jetzt ist Erweitern billig. Das ist der Satz aus der Bauanleitung, und er lässt
   Unterpunkten eine Übersichtsseite sein.
 - **Auswahlfelder** im Cockpit: ein Baustein kann ein Feld mit festen Werten anbieten (Seitentyp,
   Reihenfolge, Bildbreite). Kein Tippen von „schmal" mehr.
-- **`npm run golden -- <typ>`** erzeugt die Goldreferenz eines Seitentyps aus seiner ersten Seite in
+- **`npm run golden -- <typ>`** erzeugt die Goldreferenz eines Seitentyps aus seiner ersten veröffentlichten Seite in
   `content/`. Vorher war das Handarbeit.
 
 ## Ein neuer Seitentyp kostet einen Ordner
@@ -27,7 +27,7 @@ page-types/<typ>/
   schema.json    { "allowedBlocks": […], "requiredBlocks": […] }
   prompt.md      Anweisung für den Generator (Aufbau, Ton, was nicht hinein darf)
   golden.html    die Goldreferenz — erzeugt mit: npm run golden -- <typ>
-content/<seite>.json   die erste Seite dieses Typs; sie ist die Goldreferenz und das Beispiel für den Generator
+content/<seite>.json   die erste veröffentlichte Seite dieses Typs; sie ist die Goldreferenz und das Beispiel für den Generator
 ```
 
 Danach `npm run seed` (spielt die neue Seite ein, lässt vorhandene in Ruhe) und den Motor neu starten:

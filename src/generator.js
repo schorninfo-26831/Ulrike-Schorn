@@ -70,18 +70,22 @@ export function beschreibeBausteine(typ) {
   }).join('\n');
 }
 
-/** Die Goldreferenz als JSON: die erste Seite aus content/, die diesen Typ zeigt. */
+/**
+ * Die Goldreferenz als JSON: die erste veröffentlichte Seite aus content/, die diesen Typ zeigt (P4: der
+ * abgenommene Maßstab). Gibt es keine veröffentlichte, die alphabetisch erste. Dieselbe Regel gilt in
+ * scripts/golden.mjs — neue Entwürfe in content/ verschieben die Referenz nicht.
+ */
 export function ladeGoldreferenz(typName, ordner = 'content') {
   if (!existsSync(ordner)) return null;
+  const seiten = [];
   for (const datei of readdirSync(ordner).filter((d) => d.endsWith('.json') && !d.startsWith('_')).sort()) {
     try {
       const seite = JSON.parse(readFileSync(`${ordner}/${datei}`, 'utf8'));
-      if (seite.page_type === typName) {
-        return { title: seite.title, description: seite.description, blocks: seite.content?.blocks || [] };
-      }
+      if (seite.page_type === typName) seiten.push(seite);
     } catch { /* eine kaputte Datei ist kein Grund, nicht zu generieren */ }
   }
-  return null;
+  const seite = seiten.find((s) => s.status === 'published') || seiten[0];
+  return seite ? { title: seite.title, description: seite.description, blocks: seite.content?.blocks || [] } : null;
 }
 
 /** Der Auftrag: Systemteil (stabil, cachebar) und Nutzerteil (die Quelle). Reine Funktion. */
