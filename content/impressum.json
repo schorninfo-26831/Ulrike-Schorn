@@ -6,8 +6,17 @@
   "description": "Impressum von Camping Schorni, Inhaberin Ulrike Schorn, Bunde.",
   "content": {
     "blocks": [
-      { "type": "nav", "data": {} },
-      { "type": "hero", "data": { "pill": "Rechtliches", "titel": "Impressum" } },
+      {
+        "type": "nav",
+        "data": {}
+      },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Rechtliches",
+          "titel": "Impressum"
+        }
+      },
       {
         "type": "richtext",
         "data": {
@@ -50,7 +59,11 @@
           "text": "Produkte, Preise und Bestellungen laufen über unseren Shop: [{{facts.shopUrl}}]({{facts.shopUrl}}). Dort gelten die dort veröffentlichten AGB, die Widerrufsbelehrung und die Datenschutzerklärung des Shops."
         }
       },
-      { "type": "footer", "data": {} }
+      {
+        "type": "footer",
+        "data": {}
+      }
     ]
-  }
+  },
+  "chat_excluded": true
 }

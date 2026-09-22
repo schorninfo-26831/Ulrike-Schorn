@@ -39,46 +39,8 @@ Alles darüber hinaus bleibt weg.
 
 ## 5. Freigegebene Formulierungen je Produkt
 
-**Silbernetz Flex** (Konservierung im Frischwassertank): „gibt selbstregulierend reine Silberionen
-ab, ohne Nanosilber" · „die Vermehrung von Bakterien wird verhindert" · „die Bildung von Biofilm in
-Tank, Kanister und Leitungen wird reduziert" · „wichtige Grundlage für die Legionellen-Prophylaxe" ·
-„der Wirkstoff entspricht der DIN EN 15030" · „bis zu 6 Monate frisches Wasser im Tank" · „flexibles
-Material für fast alle Tanköffnungen" · Dosierung selbstregulierend bei jeder Tankfüllung.
-
-**Silvertex** (Konservierung in Tanks und Kanistern): „gibt kontrolliert reine Silberionen ab,
-garantiert ohne Nanosilber" · „die Vermehrung von Bakterien wird gestoppt" · „minimiert die Bildung
-von Biofilm im gesamten System" · „bildet eine entscheidende Barriere gegen Legionellen und
-allgemeines Keimwachstum" · Schutz bis zu einem halben Jahr, Wechsel einmal jährlich. Silvertex und
-Silbernetz Flex werden nie als austauschbar dargestellt.
-
-**KXpress** (Entkalker, kein Biozid): „entkalkt Tank, Leitungen, Armaturen und Boiler rückstandsfrei"
-· „setzt auf den Wirkstoff der Zitrone" · „passt zu nahezu allen Tankmaterialien und Tankgrößen" ·
-„räumt mit unangenehmen Gerüchen auf" · „Kalkablagerungen bremsen die Wärmeübertragung im Boiler und
-bieten Biofilm einen Untergrund" · „lässt sich mit DEXDA Clean zur gleichzeitigen Desinfektion
-kombinieren". KXpress entkalkt, er desinfiziert nicht.
-
-**DEXDA Clean** (Desinfektionsreiniger, silberfrei): „die Chlordioxid-Technologie löst Biofilm,
-entfernt organische Verschmutzungen und desinfiziert das gesamte System nachhaltig" · „pH-neutral und
-damit besonders materialverträglich" · „nachweislich auch für Truma Boiler" · „zusammen mit dem
-Entkalker KXpress in einem Arbeitsschritt nutzbar" · Einsatz vor und nach der Saison sowie nach
-längeren Standzeiten.
-
-**DEXDA Clean active** (Aktivsauerstoff, silberfrei, ohne Chlor): „reinigt Trinkwassertank und
-Frischwassersystem mit Aktivsauerstoff" · „ohne Chlor" · „ohne Nachspülen" · „kompakt, langlebig und
-einfach in der Anwendung".
-
-**DEXDA One** (Konservierung, Silber-Ionen, ohne Chlor): bis zu 6 Monate. Keine Reichweite in Litern
-nennen, der Wert ist noch offen.
-
-**DEXDA Complete** (Desinfektion und Konservierung in einem): „desinfiziert Dein Wasser, indem es
-vorhandene Keime reduziert, und konserviert es gleichzeitig gegen erneute Verkeimung" · „hält Dein
-Tankwasser bis zu sechs Monate frisch" · „passt zu allen Tank- und Behältergrößen" · „genau dosiert:
-Messbecher und Tröpfcheneinsatz sind gleich dabei" · Erklärung: „Die Desinfektion reduziert Keime,
-die schon im Wasser sind. Die Konservierung verhindert danach eine erneute Verkeimung. DEXDA Complete
-macht beides gleichzeitig."
-
-**Silbernetz** (für Luftbefeuchter und Luftwäscher): nur für solche Geräte, nie für Fahrzeugtanks.
-Nicht mit Silbernetz Flex verwechseln.
+Stehen in `knowledge/produkte.md`, ein Absatz je Produkt. Nur diese Formulierungen, wörtlich oder
+sinngleich ohne Verschärfung. Für Biozidprodukte gilt Abschnitt 4.
 
 ## 6. UV-C-Geräte
 

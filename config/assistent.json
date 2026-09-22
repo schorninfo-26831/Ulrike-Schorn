@@ -1,0 +1,16 @@
+{
+  "_hinweis": "Der Assistent (Stufe 7). aktiv schaltet den Knopf auf jeder Seite; ohne ANTHROPIC_API_KEY bleibt er trotzdem aus. Texte hier sind Ulrikes Worte, keine Fakten — Fakten kommen aus den Seiten.",
+  "aktiv": true,
+  "name": "Schorni",
+  "begruessung": "Moin, ich bin Schorni. Ich kenne den Wasser-Ratgeber, die geprüften Produktdaten zur Wasserhygiene und weiß, wie du uns erreichst.",
+  "kennt": "Ich antworte nur aus dem, was auf dieser Website steht. Fehlt mir etwas, sage ich das und gebe dich an die Beratung weiter.",
+  "vorschlaege": [
+    "In welcher Reihenfolge pflege ich meinen Tank?",
+    "Was ist der Unterschied zwischen Silbernetz Flex und Silvertex?",
+    "Verträgt mein Truma Boiler DEXDA Clean?",
+    "Wie erreiche ich euch?"
+  ],
+  "platzhalter": "Deine Frage zum Wasser im Wohnmobil …",
+  "fusszeile": "Schorni lernt noch – Fehler sind möglich",
+  "datenschutzHref": "/datenschutz/"
+}

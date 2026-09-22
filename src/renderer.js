@@ -1,7 +1,7 @@
 import { blocks } from './blocks/index.js';
 import { themeCss } from './blocks/_theme.js';
 import { escapeHtml } from './blocks/_util.js';
-import { loadSite, loadFacts } from './config.js';
+import { loadSite, loadFacts, loadAssistent, version } from './config.js';
 
 /**
  * Das Fakten-Tor (P2): {{facts.pfad}} → Wert. Fehlt der Wert, erscheint sichtbar […]
@@ -59,6 +59,8 @@ export function renderPage(page, { dynamicData = {}, facts = loadFacts(), basis 
     return out?.__raw ? out.value : String(out);
   }).join('\n');
 
+  // Stufe 7: der Assistent kommt als ein Skript dazu. Fehlt es oder meldet der Motor „nicht bereit", bleibt die Seite, wie sie ist.
+  const assistent = loadAssistent().aktiv ? `\n<script src="/assistent.js?v=${escapeHtml(version())}" defer></script>` : '';
   const titel = escapeHtml(page.title || site.name) + escapeHtml(site.titleSuffix || '');
   const beschreibung = escapeHtml(page.description || site.beschreibung || '');
   // Fürs Teilen (3.5, P6): Vorschaubild je Seite, sonst das Standardbild; absolut, sobald eine Basis bekannt ist.
@@ -87,6 +89,6 @@ ${ogImage}
 ${page.status === 'published' ? '' : '<meta name="robots" content="noindex">'}
 <style>${themeCss()}${css}</style>
 </head>
-<body>${koerper}</body>
+<body>${koerper}${assistent}</body>
 </html>`, facts, { escape: true });
 }

@@ -156,4 +156,22 @@ window.HANDBUCH = [
     automatisch: ['Sitemap, robots.txt und die Vorschaubilder fürs Teilen nehmen von allein die Adresse des Tunnels.', 'Das Cockpit ist über den Tunnel mit erreichbar, geschützt durch dein Passwort und die Bremse gegen Passwort-Raten.'],
     fallstricke: ['Ein Tunnel ist zum Zeigen, nicht zum Dauerbetrieb: Läuft der Mac nicht, ist die Seite weg.', 'Für den echten Betrieb ist Weg B da (docs/veroeffentlichen.md).'],
   },
+  {
+    titel: 'Den Assistenten einschalten und abnehmen (Stufe 7)',
+    wann: 'Schorni soll auf der Website Fragen beantworten — nur aus dem, was auf der Website steht.',
+    schritte: [
+      'Der Schlüssel in .env (ANTHROPIC_API_KEY) reicht: Ist er da und steht in config/assistent.json aktiv auf true, erscheint unten links auf jeder Seite der Knopf „Frag Schorni".',
+      'Abnahme: Stell drei Fragen, deren Antwort auf der Website steht, und eine, deren Antwort nicht dort steht. Die vierte ist die wichtige: Sagt er „weiß ich nicht" und verweist ans Telefon, oder erfindet er etwas?',
+      'Unter „Assistent" siehst du jede Frage mit Haken oder Kreuz. Ein Kreuz heißt: Das steht noch nicht auf der Website. Das ist deine Themenliste.',
+    ],
+    automatisch: ['Jede veröffentlichte Seite wird beim Speichern in Wissensstücke zerlegt; Entwürfe und ausgeschlossene Seiten nie. Die geprüften Produktdaten (knowledge/produkte.md) kommen dazu.', 'Nennt eine Antwort ein Biozidprodukt, hängt der Pflichtsatz an. Gesperrte Formulierungen und Preise werden im Motor abgefangen: Statt der Antwort kommt der Verweis ans Telefon.', 'Unter jeder Antwort stehen die Quellen als Links. Ohne Quelle keine Behauptung.', 'Bremse: 30 Fragen je Absender in 10 Minuten, CHAT_TAGESLIMIT Fragen am Tag (Vorgabe 300). Danach sagt Schorni, dass er Pause macht.'],
+    fallstricke: ['Jede Frage kostet beim Anbieter Geld, meist unter einem Cent. Das Tageslimit ist die Bremse.', 'Die Datenschutzerklärung nennt den Assistenten und den Anbieter; dieser Absatz gehört vor der Veröffentlichung zu Justus.', 'Ändert sich die Begrüßung oder die Vorschlagsfragen: config/assistent.json, dann Motor neu starten.'],
+  },
+  {
+    titel: 'Eine Seite vom Assistenten ausschließen',
+    wann: 'Eine Seite soll öffentlich sein, aber Schorni soll nicht daraus antworten — Impressum und Datenschutz sind von Anfang an ausgeschlossen.',
+    schritte: ['Seite öffnen, Häkchen „Vom Assistenten ausschließen" setzen, „Speichern".', 'Unter „Assistent" steht die Seite jetzt mit „ausgeschlossen" und 0 Stücken.'],
+    automatisch: ['Beim Speichern werden die alten Stücke der Seite gelöscht, bevor neue kommen. Nichts antwortet aus einer Fassung, die niemand mehr sieht.', '„Index neu aufbauen" unter „Assistent" zerlegt alles noch einmal, zum Beispiel nach einem Update von knowledge/produkte.md.'],
+    fallstricke: ['Nicht jede Seite gehört in den Index: Rechtstexte, Danke-Seiten und Vorräume verwässern jede Antwort.'],
+  },
 ];

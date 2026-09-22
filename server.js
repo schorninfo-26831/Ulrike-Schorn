@@ -5,8 +5,11 @@ import { runMigrations } from './src/db.js';
 import { apiRouter } from './src/routes/api.js';
 import { publicRouter } from './src/routes/public.js';
 import { sicherheitsKopfzeilen, trustProxy } from './src/oeffentlich.js';
+import { indexiereWennLeer } from './src/assistent.js';
 
 await runMigrations();
+// Stufe 7: ist der Index leer (erster Start nach dem Update), wird er einmal gefüllt. Scheitert das, startet der Motor trotzdem (P6).
+await indexiereWennLeer().then((n) => { if (n) console.log(`[Motor] Assistent: ${n} Wissensstücke indexiert`); }).catch((err) => console.error(`[Motor] [ERROR] Index: ${err.message}`));
 const VERSION = JSON.parse(readFileSync('package.json', 'utf8')).version;
 const app = express();
 app.disable('x-powered-by');

@@ -12,7 +12,9 @@ import { ladeBestand } from '../bestand.js';
 import { cache } from '../cache.js';
 import { loadSite } from '../config.js';
 import { escapeHtml } from '../blocks/_util.js';
-import { basisUrl } from '../oeffentlich.js';
+import { basisUrl, Anmeldebremse } from '../oeffentlich.js';
+import { loadAssistent } from '../config.js';
+import { antworte, ladeChatModell, assistentStatus, quellenChips, protokolliere, fragenHeute } from '../assistent.js';
 import { zaehle } from '../zugriffe.js';
 import { benachrichtige } from '../mail.js';
 
@@ -66,6 +68,58 @@ publicRouter.post('/api/form/:name', async (req, res, next) => {
     catch (err) { console.error(`[Motor] [ERROR] Mail zu ${id}: ${err.message}`); }
 
     danke();
+  } catch (err) { next(err); }
+});
+
+// ---- Der Assistent (Stufe 7) ---------------------------------------------------------------
+// Öffentlich, deshalb gebremst: je Absender 30 Fragen in 10 Minuten, insgesamt CHAT_TAGESLIMIT am Tag.
+const chatBremse = new Anmeldebremse({ versuche: 30, fensterMs: 10 * 60 * 1000 });
+const TAGESLIMIT = () => Math.max(1, Number(process.env.CHAT_TAGESLIMIT) || 300);
+
+publicRouter.get('/api/chat/status', async (_req, res) => {
+  const cfg = loadAssistent();
+  const status = assistentStatus(cfg);
+  if (!status.bereit) return res.json({ bereit: false });
+  const facts = await ladeFakten();
+  res.set('Cache-Control', 'no-store');
+  res.json({
+    bereit: true, name: cfg.name || 'Schorni', begruessung: cfg.begruessung || '', kennt: cfg.kennt || '',
+    vorschlaege: Array.isArray(cfg.vorschlaege) ? cfg.vorschlaege.slice(0, 6) : [], platzhalter: cfg.platzhalter || '',
+    fusszeile: cfg.fusszeile || '', datenschutzHref: cfg.datenschutzHref || '/datenschutz/', telefon: facts.telefon || '',
+  });
+});
+
+publicRouter.post('/api/chat', async (req, res, next) => {
+  try {
+    const cfg = loadAssistent();
+    if (!assistentStatus(cfg).bereit) return res.status(503).json({ error: 'Der Assistent ist gerade nicht erreichbar.' });
+    const frage = String(req.body?.frage || '').trim();
+    if (!frage) return res.status(400).json({ error: 'Frage fehlt' });
+    if (frage.length > 400) return res.status(400).json({ error: 'Bitte kürzer fragen (höchstens 400 Zeichen).' });
+    const verlauf = Array.isArray(req.body?.verlauf) ? req.body.verlauf.slice(-6) : [];
+    const facts = await ladeFakten();
+    const pause = `Schorni macht gerade Pause. Ruf uns an: ${facts.telefon || ''}, ${facts.oeffnungszeitenKurz || ''}.`;
+    const wer = req.ip || 'unbekannt';
+    if (chatBremse.gesperrt(wer)) return res.status(429).json({ error: pause });
+    if (await fragenHeute() >= TAGESLIMIT()) return res.status(429).json({ error: pause });
+    chatBremse.fehlversuch(wer); // zählt jede Frage
+
+    res.status(200);
+    res.set({ 'Content-Type': 'application/x-ndjson; charset=utf-8', 'Cache-Control': 'no-store', 'X-Accel-Buffering': 'no' });
+    res.flushHeaders();
+    const sende = (obj) => res.write(JSON.stringify(obj) + '\n');
+    try {
+      const modell = await ladeChatModell();
+      const ergebnis = await antworte({ frage, verlauf, modell, config: cfg, facts, onDelta: (t) => sende({ typ: 'delta', text: t }) });
+      const quellen = await quellenChips(ergebnis.quellen);
+      await protokolliere({ frage, antwort: ergebnis.antwort, quellen: ergebnis.quellen, gewusst: ergebnis.gewusst }).catch((err) => console.error(`[Motor] [WARN] Chat-Protokoll: ${err.message}`));
+      sende({ typ: 'fertig', antwort: ergebnis.antwort, quellen, hinweis: ergebnis.hinweis, pflichtsatz: ergebnis.hinweis ? facts.biozidPflichthinweis || '' : '', gewusst: ergebnis.gewusst });
+    } catch (err) {
+      // P6: eine ehrliche Meldung, die Seite bleibt bedienbar. Die Ursache steht im Log.
+      console.error(`[Motor] [ERROR] Assistent: ${err.message}`);
+      sende({ typ: 'fehler', text: 'Gerade klappt das nicht.' });
+    }
+    res.end();
   } catch (err) { next(err); }
 });
 

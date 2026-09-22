@@ -84,7 +84,7 @@
   // ---- Rahmen ---------------------------------------------------------------------------
   const ansichten = {
     seiten: { titel: 'Seiten' }, generieren: { titel: 'Generieren' }, navigation: { titel: 'Navigation' }, medien: { titel: 'Medien' },
-    umleitungen: { titel: 'Umleitungen' }, anfragen: { titel: 'Anfragen' }, zugriffe: { titel: 'Zugriffe' }, fakten: { titel: 'Fakten' }, handbuch: { titel: 'Handbuch' },
+    umleitungen: { titel: 'Umleitungen' }, anfragen: { titel: 'Anfragen' }, zugriffe: { titel: 'Zugriffe' }, assistent: { titel: 'Assistent' }, fakten: { titel: 'Fakten' }, handbuch: { titel: 'Handbuch' },
   };
   let hauptbereich, badge;
 
@@ -177,6 +177,7 @@
     const fBeschr = el('textarea', { id: 'beschreibung', oninput: merke, style: 'min-height:64px' }, seite.description || '');
     const fOg = bildFeld({ id: 'og_image', wert: seite.og_image || '', onchange: merke });
     const fStatus = el('select', { id: 'status', onchange: merke }, stamm.statuses.map((s) => el('option', { value: s, selected: s === seite.status }, statusLabel[s] || s)));
+    const fChat = el('input', { type: 'checkbox', id: 'chat_excluded', checked: Boolean(seite.chat_excluded), onchange: merke });
 
     const bloeckeBox = el('div', { id: 'bloecke' });
     const zeichneBloecke = () => {
@@ -194,7 +195,7 @@
 
     const sammle = () => {
       bloeckeBox.querySelectorAll('.block').forEach((box, i) => { inhalt.blocks[i].data = liesBlock(box, stamm.blocks[inhalt.blocks[i].type]); });
-      return { title: fTitel.value, slug: fSlug.value, description: fBeschr.value, og_image: fOg.wert(), status: fStatus.value, content: inhalt };
+      return { title: fTitel.value, slug: fSlug.value, description: fBeschr.value, og_image: fOg.wert(), status: fStatus.value, chat_excluded: fChat.checked, content: inhalt };
     };
 
     const speichern = async (status) => {
@@ -234,6 +235,7 @@
           el('label', { class: 'feld', style: 'flex:0 1 180px' }, el('span', {}, 'Status'), fStatus)),
         el('label', { class: 'feld' }, el('span', {}, 'Beschreibung (für Google und beim Teilen)'), fBeschr),
         el('div', { class: 'feld' }, el('span', {}, 'Vorschaubild fürs Teilen (og:image)'), fOg.node),
+        el('label', { class: 'feld feld--inline' }, fChat, el('span', {}, 'Vom Assistenten ausschließen (Schorni antwortet dann nicht aus dieser Seite)')),
         seite.status === 'published' ? el('p', { class: 'hinweis' }, 'Diese Seite ist veröffentlicht. Änderst du den Slug, legt der Motor von allein eine Umleitung an.') : null),
       el('h2', { style: 'font-size:16px;margin:18px 0 10px' }, 'Bausteine'),
       bloeckeBox, hinzu,
@@ -603,6 +605,37 @@
           : el('p', { class: 'hinweis' }, 'Noch nichts.')));
   }
 
+  // ---- Assistent (Stufe 7) ----------------------------------------------------------------------
+  async function ansichtAssistent() {
+    const s = await api('/assistent/status');
+    const neu = el('button', { class: 'knopf knopf--leise', type: 'button', id: 'index-neu', onclick: async () => {
+      neu.disabled = true;
+      try { const r = await api('/assistent/index', { method: 'POST' }); toast(`Index neu aufgebaut: ${r.chunks} Wissensstücke`); ansichtAssistent(); }
+      catch (err) { toast(err.message, true); neu.disabled = false; }
+    } }, 'Index neu aufbauen');
+    const statusZeile = s.bereit
+      ? el('p', { class: 'hinweis', id: 'assistent-status' }, `Bereit · Modell: ${s.modell} · ${s.chunks} Wissensstücke (davon ${s.wissen} geprüfte Produktdaten) · heute ${s.heute} Fragen`)
+      : el('div', { class: 'warn', id: 'assistent-status' }, s.aktiv
+        ? 'ANTHROPIC_API_KEY ist nicht gesetzt: Der Knopf auf der Website bleibt aus, bis der Schlüssel in .env steht und der Motor neu gestartet ist.'
+        : 'Der Assistent ist ausgeschaltet (config/assistent.json, aktiv: false).');
+    leeren(hauptbereich).append(
+      kopf('Assistent', neu),
+      el('p', { class: 'hinweis' }, 'Schorni antwortet nur aus den veröffentlichten Seiten und den geprüften Produktdaten. Jede Frage wird ohne IP-Adresse protokolliert, damit du siehst, was Leser wissen wollen und was auf der Website noch fehlt.'),
+      statusZeile,
+      el('div', { class: 'karte' }, el('h2', {}, 'Was er kennt'),
+        el('table', {}, el('thead', {}, el('tr', {}, el('th', {}, 'Seite'), el('th', { style: 'width:120px' }, 'Stücke'), el('th', { style: 'width:220px' }, 'Assistent'))),
+          el('tbody', {}, s.seiten.map((p) => el('tr', {},
+            el('td', {}, el('a', { href: '#/seite/' + p.id }, p.title || p.slug)),
+            el('td', {}, String(p.chunks)),
+            el('td', {}, p.chat_excluded ? 'ausgeschlossen' : (p.status === 'published' ? 'antwortet daraus' : 'nicht veröffentlicht'))))))),
+      el('div', { class: 'karte' }, el('h2', {}, `Fragen (die letzten ${s.fragen.length})`),
+        s.fragen.length
+          ? el('table', {}, el('thead', {}, el('tr', {}, el('th', { style: 'width:150px' }, 'Wann'), el('th', {}, 'Frage'), el('th', { style: 'width:150px' }, 'Gewusst'), el('th', {}, 'Quellen'))),
+            el('tbody', {}, s.fragen.map((f) => el('tr', { class: f.gewusst ? '' : 'anfrage--neu' },
+              el('td', {}, datum(f.created_at)), el('td', {}, f.frage), el('td', {}, f.gewusst ? '✓' : '✗ wusste er nicht'), el('td', {}, (f.quellen || []).join(', '))))))
+          : el('p', { class: 'hinweis' }, 'Noch keine Fragen.')));
+  }
+
   // ---- Router ---------------------------------------------------------------------------------------------
   async function route() {
     const h = location.hash || '#/seiten';
@@ -612,7 +645,7 @@
     zaehleUngelesen(); // bei jedem Ansichtswechsel — sonst zählt der Badge nur den Stand vom Laden
     try {
       if (view === 'seite' && id) return await ansichtSeite(id);
-      const f = { seiten: ansichtSeiten, generieren: ansichtGenerieren, navigation: ansichtNavigation, medien: ansichtMedien, umleitungen: ansichtUmleitungen, anfragen: ansichtAnfragen, zugriffe: ansichtZugriffe, fakten: ansichtFakten, handbuch: ansichtHandbuch }[view];
+      const f = { seiten: ansichtSeiten, generieren: ansichtGenerieren, navigation: ansichtNavigation, medien: ansichtMedien, umleitungen: ansichtUmleitungen, anfragen: ansichtAnfragen, zugriffe: ansichtZugriffe, assistent: ansichtAssistent, fakten: ansichtFakten, handbuch: ansichtHandbuch }[view];
       if (f) return await f();
       location.hash = '#/seiten';
     } catch (err) { if (err.message !== 'Anmeldung nötig') { leeren(hauptbereich).append(el('div', { class: 'fehler' }, err.message)); } }

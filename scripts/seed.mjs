@@ -12,6 +12,7 @@ import { randomUUID } from 'node:crypto';
 import { readdirSync, readFileSync } from 'node:fs';
 import { runMigrations, query, queryOne } from '../src/db.js';
 import { validateContent } from '../src/archetypes.js';
+import { indexiereAlles } from '../src/assistent.js';
 
 const FORCE = process.argv.includes('--force');
 await runMigrations();
@@ -52,16 +53,16 @@ for (const datei of dateien) {
     console.log(`[Seed] /${seite.slug}/ vorhanden — unverändert`);
   } else if (vorhanden) {
     await query(
-      `UPDATE pages SET page_type = $1, status = $2, title = $3, description = $4, content_json = $5, updated_at = $6
-       WHERE slug = $7`,
-      [seite.page_type, seite.status, seite.title, seite.description, JSON.stringify(seite.content), jetzt, seite.slug]);
+      `UPDATE pages SET page_type = $1, status = $2, title = $3, description = $4, content_json = $5, chat_excluded = $6, updated_at = $7
+       WHERE slug = $8`,
+      [seite.page_type, seite.status, seite.title, seite.description, JSON.stringify(seite.content), seite.chat_excluded ? 1 : 0, jetzt, seite.slug]);
     console.log(`[Seed] /${seite.slug}/ überschrieben (--force)`);
   } else {
     await query(
-      `INSERT INTO pages (id, slug, page_type, status, title, description, content_json, created_at, updated_at)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+      `INSERT INTO pages (id, slug, page_type, status, title, description, content_json, chat_excluded, created_at, updated_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
       [randomUUID(), seite.slug, seite.page_type, seite.status, seite.title, seite.description,
-        JSON.stringify(seite.content), jetzt, jetzt]);
+        JSON.stringify(seite.content), seite.chat_excluded ? 1 : 0, jetzt, jetzt]);
     console.log(`[Seed] /${seite.slug}/ angelegt (${seite.status})`);
   }
 }
@@ -70,3 +71,6 @@ if (fehler) {
   console.error(`[Seed] ${fehler} Datei(en) abgelehnt.`);
   process.exit(1);
 }
+
+// Stufe 7: der Assistent liest den Bestand — nach jedem Seed neu zerlegen.
+console.log(`[Seed] Assistent: ${await indexiereAlles()} Wissensstücke`);

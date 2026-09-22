@@ -18,6 +18,8 @@ import { loadFacts, loadSite } from '../config.js';
 import { Anmeldebremse, basisUrl } from '../oeffentlich.js';
 import { statistik } from '../zugriffe.js';
 import { mailKonfiguriert } from '../mail.js';
+import { indexiereSeite, entferneSeite, indexiereAlles, assistentStatus } from '../assistent.js';
+import { loadAssistent } from '../config.js';
 import { STATUS, normalisiereSlug, neuerInhalt, brauchtUmleitung, naechsterStatus, pfad } from '../pages.js';
 import { dynamik } from './public.js';
 import { generiere, ladeModell, generatorStatus } from '../generator.js';
@@ -53,7 +55,7 @@ apiRouter.post('/logout', (req, res) => {
 
 // Ab hier nur angemeldet — außer dem Formular-Endpunkt: der ist öffentlich und liegt im
 // public-Router. next('router') lässt ihn an diesem Router vorbei.
-apiRouter.use((req, res, next) => (req.path.startsWith('/form/') ? next('router') : anmeldungNoetig(req, res, next)));
+apiRouter.use((req, res, next) => (req.path.startsWith('/form/') || req.path.startsWith('/chat') ? next('router') : anmeldungNoetig(req, res, next)));
 apiRouter.get('/me', (_req, res) => res.json({ ok: true }));
 
 // ---- Stammdaten fürs Cockpit -------------------------------------------------
@@ -121,11 +123,15 @@ apiRouter.put('/pages/:id', async (req, res, next) => {
 
     const status = naechsterStatus(alt, b.status);
     await query(
-      `UPDATE pages SET slug = $1, title = $2, description = $3, og_image = $4, status = $5, content_json = $6, updated_at = $7 WHERE id = $8`,
+      `UPDATE pages SET slug = $1, title = $2, description = $3, og_image = $4, status = $5, content_json = $6, chat_excluded = $7, updated_at = $8 WHERE id = $9`,
       [slug, String(b.title ?? alt.title ?? ''), String(b.description ?? alt.description ?? ''),
-        b.og_image ?? alt.og_image ?? null, status, JSON.stringify(inhalt), jetzt(), alt.id]);
+        b.og_image ?? alt.og_image ?? null, status, JSON.stringify(inhalt),
+        b.chat_excluded === undefined ? Number(alt.chat_excluded || 0) : (b.chat_excluded ? 1 : 0), jetzt(), alt.id]);
     cache.clear();
     const neu = await queryOne('SELECT * FROM pages WHERE id = $1', [alt.id]);
+    // Stufe 7: erst die alten Stücke weg (auch unter dem alten Slug), dann die neuen — in einem Vorgang.
+    if (slug !== alt.slug) await entferneSeite(alt.slug);
+    await indexiereSeite(neu).catch((err) => console.error(`[Motor] [WARN] Index ${slug}: ${err.message}`));
     res.json({ ...neu, content_json: JSON.parse(neu.content_json), umleitung: brauchtUmleitung(alt, slug) ? `${pfad(alt.slug)} → ${pfad(slug)}` : null });
   } catch (err) { next(err); }
 });
@@ -143,6 +149,7 @@ apiRouter.delete('/pages/:id', async (req, res, next) => {
         [pfad(alt.slug), ziel.endsWith('/') ? ziel : `${ziel}/`, jetzt()]);
     }
     await query('DELETE FROM pages WHERE id = $1', [alt.id]);
+    await entferneSeite(alt.slug);
     cache.clear();
     res.json({ ok: true });
   } catch (err) { next(err); }
@@ -323,6 +330,27 @@ apiRouter.get('/zugriffe', async (req, res, next) => {
   try { res.json(await statistik(req.query.tage)); } catch (err) { next(err); }
 });
 apiRouter.get('/mail/status', (_req, res) => res.json({ konfiguriert: mailKonfiguriert(), an: mailKonfiguriert() ? process.env.MAIL_TO : '' }));
+
+// ---- Assistent (Stufe 7) ------------------------------------------------------------
+apiRouter.get('/assistent/status', async (_req, res, next) => {
+  try {
+    const cfg = loadAssistent();
+    const status = assistentStatus(cfg);
+    const seiten = await query('SELECT id, slug, title, status, chat_excluded FROM pages ORDER BY title');
+    const zaehler = await query('SELECT page_slug, COUNT(*) AS n FROM chunks GROUP BY page_slug');
+    const je = Object.fromEntries(zaehler.map((z) => [z.page_slug, Number(z.n)]));
+    const fragen = (await query('SELECT id, frage, quellen, gewusst, created_at FROM chat_log ORDER BY created_at DESC LIMIT 100'))
+      .map((f) => ({ ...f, gewusst: Number(f.gewusst) === 1, quellen: JSON.parse(f.quellen || '[]') }));
+    const heute = (await queryOne('SELECT COUNT(*) AS n FROM chat_log WHERE created_at >= $1', [jetzt().slice(0, 10)]))?.n || 0;
+    res.json({
+      ...status, aktiv: Boolean(cfg.aktiv), chunks: Object.values(je).reduce((s, n) => s + n, 0), wissen: je['wissen/produkte'] || 0, heute: Number(heute),
+      seiten: seiten.map((p) => ({ ...p, chat_excluded: Number(p.chat_excluded) === 1, chunks: je[p.slug] || 0 })), fragen,
+    });
+  } catch (err) { next(err); }
+});
+apiRouter.post('/assistent/index', async (_req, res, next) => {
+  try { res.json({ chunks: await indexiereAlles() }); } catch (err) { next(err); }
+});
 
 // ---- Fakten ohne Deploy (3.8) --------------------------------------------------------
 apiRouter.get('/facts', async (_req, res, next) => {

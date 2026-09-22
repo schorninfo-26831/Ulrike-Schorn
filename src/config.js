@@ -4,13 +4,15 @@
  * src/fakten.js darüber; dieses Modul bleibt ohne Datenbank, damit Renderer und
  * Tests ohne sie auskommen.
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 
 const lies = (pfad) => JSON.parse(readFileSync(pfad, 'utf8'));
 
 export const loadSite = () => lies('config/site.json');
 export const loadFacts = () => lies('config/facts.json');
 export const loadTheme = () => lies('config/theme.json');
+export const loadAssistent = () => (existsSync('config/assistent.json') ? lies('config/assistent.json') : { aktiv: false });
+export const version = () => lies('package.json').version;
 
 /** Tiefes Zusammenführen: Override über Datei, verschachtelte Objekte werden gemischt. */
 export function mergeFakten(datei, override) {

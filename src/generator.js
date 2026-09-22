@@ -26,7 +26,7 @@ export const VERBOTENE_WOERTER = ['eintauchen', 'entdecken', 'enthüllen', 'umar
 /** Nennt ein Text eines dieser Produkte, ist die Seite Werbung für ein Biozid (Art. 72). */
 export const BIOZIDE = ['DEXDA', 'Silbernetz', 'Silvertex'];
 /** Gesperrt laut Compliance — als Hinweis für den Menschen, der die Seite liest. */
-const STOPP_PHRASEN = [
+export const STOPP_PHRASEN = [
   'natürliche wasserkonservierung', '100 % keimfrei', '100% keimfrei', 'alle keime', 'garantiert keimfrei',
   'keimfreies wasser', 'macht wasser trinkbar', 'unbedenklich', 'ungiftig', 'unschädlich', 'naturbelassen',
   'umweltfreundlich', 'tierfreundlich', 'niedrigem risiko', 'schützt vor krankheit', 'verhindert infektion',

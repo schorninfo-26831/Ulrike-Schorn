@@ -8,7 +8,7 @@ Ulrike am 21.09.2026. Was dort steht, wird nicht neu verhandelt. Was dort fehlt,
 
 Weitere Referenzen: [docs/vorlage.md](docs/vorlage.md) (Bestandsaufnahme von camping-schorni.de) ·
 [docs/lokal-starten.md](docs/lokal-starten.md) (Mac, Abnahmen) · [docs/veroeffentlichen.md](docs/veroeffentlichen.md) (Stufe 5, Weg A und B) ·
-[docs/erweitern.md](docs/erweitern.md) (Stufe 6: neuer Seitentyp, neuer Baustein, Übersichten) ·
+[docs/erweitern.md](docs/erweitern.md) (Stufe 6: neuer Seitentyp, neuer Baustein, Übersichten) · [docs/assistent.md](docs/assistent.md) (Stufe 7) ·
 [docs/assistent-vorbild.md](docs/assistent-vorbild.md) (Stufe 7, der Assistent).
 
 ## Starten — Weg A, Node ≥ 22.13
@@ -30,6 +30,7 @@ npm run golden -- <typ>                  # Goldreferenz eines Seitentyps aus sei
 - **Keine Preise** auf dieser Seite — sie verlinkt in den Shop. Der Shop bleibt auf Shopify und wird nicht nachgebaut.
 - Anrede **Du**. Verbotene Wörter: eintauchen, entdecken, enthüllen, umarmen.
 - Wasserhygiene-Texte folgen den geprüften Compliance-Daten (Skill `schorn-biozid-compliance`): Pflichtsatz nach Biozid-VO Art. 72, Silber-Regel, Stopp-Wörter.
+- **Stufe 7** Der Assistent antwortet nur aus Wissensstücken (veröffentlichte Seiten ohne `chat_excluded` + `knowledge/produkte.md`), nie aus dem Modellgedächtnis; Sperrliste, Preise und Pflichthinweis prüft der Motor. Rechtstexte sind ausgeschlossen.
 - **Stufe 4** Der Generator liest `knowledge/` (Stimme, Compliance, Shop-Ziele) und `page-types/<typ>/prompt.md`, liefert JSON gegen den Vertrag, Status immer `generated`. Schlüssel nur in `.env` (`ANTHROPIC_API_KEY`), nie im Repo, nie im Chat. Das Modell ist eine Funktion; Tests laufen ohne Netz.
 - Prüfen am laufenden System, nicht am Quelltext: `node -e "fetch('http://localhost:3000/').then(r=>console.log(r.status))"`
 - Windows und Mac gleich: Pfade mit Schrägstrich, Ordner vor Gebrauch anlegen, keine Shell-Skripte in `package.json`.
@@ -46,4 +47,4 @@ npm run golden -- <typ>                  # Goldreferenz eines Seitentyps aus sei
 | 4 · KI als Motor | gebaut 21.09.2026 — `src/generator.js` (Auftrag aus Schema, Goldreferenz-JSON, `knowledge/`, `page-types/<typ>/prompt.md`; gehärteter JSON-Parser; Vertrag hart, Hinweise weich; Pflichthinweis wird ergänzt; Status immer `generated`), Cockpit-Punkt „Generieren" + „Neu generieren" im Editor, Handbuch, 24 Tests grün ohne Schlüssel. **Abnahme offen:** erster echter Lauf mit Ulrikes Schlüssel, Ergebnis gegen die Goldreferenz (docs/lokal-starten.md) |
 | 5 · Öffentlich | gebaut 22.09.2026 (Weg A) — Tunnel zum Zeigen (docs/veroeffentlichen.md), P6-Schichten: Standard-og:image + canonical/og:url absolut, Zugriffe ohne personenbezogene Daten (Cockpit „Zugriffe"), Mailversand für Anfragen (SMTP_URL/MAIL_TO), Sicherheits-Kopfzeilen, Anmeldebremse, trust proxy; Weg B vorbereitet (Dockerfile, docker-compose.yml, Caddyfile, pg). **Abnahme offen:** sechs Prüfpunkte am Tunnel. **Entscheidungen offen:** Domain, Hoster, Justus-Prüfung, E-Mail, SMTP (Abschnitt 4 in docs/veroeffentlichen.md) |
 | 6 · Erweitern | gebaut 22.09.2026 — Baustein „Übersicht" (`liste`, liest den Bestand bei jedem Aufruf, P3), Seitentyp `uebersicht` + Seite `/ratgeber/`, zweite Menüebene in der Kopfzeile, Auswahlfelder im Cockpit (`select`), `npm run golden -- <typ>` erzeugt Goldreferenzen; docs/erweitern.md (neuer Typ = Ordner, neuer Baustein = Motor). **Abnahme offen:** fünf Prüfpunkte; Menü auf dem Mac umbauen |
-| 7 · Assistent | — |
+| 7 · Assistent | gebaut 22.09.2026 — `src/assistent.js`: Seiten werden beim Speichern in Wissensstücke zerlegt (Karten je Eintrag), dazu `knowledge/produkte.md`; Wortsuche mit Stämmen und Fachsynonymen, kleiner Bestand komplett im zwischengespeicherten Systemteil (bewusst ohne Embeddings: Anthropic hat keinen Embedding-Dienst); Antwort nur aus Auszügen, Quellenzeile → Chips, Sperrliste und Preise im Motor abgefangen, Pflichthinweis bei Biozid; Strom als NDJSON über `POST /api/chat`; Widget `public/assistent.js` (Knopf unten links, Chips, Quellen, Pflichtsatz); Cockpit „Assistent" (Index, Fragen mit Haken/Kreuz), Häkchen „Vom Assistenten ausschließen"; Bremsen 30/10 min je Absender, CHAT_TAGESLIMIT; `config/assistent.json`. **Abnahme offen:** drei Fragen mit Antwort auf der Website, eine ohne (docs/assistent.md); Datenschutz-Absatz zu Justus |
