@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  zerlege, zerlegeWissen, tokens, frageTokens, finde, baueChatAuftrag, parseAntwort, pruefeAntwort,
+  zerlege, zerlegeWissen, ladeProduktwissen, tokens, frageTokens, finde, baueChatAuftrag, parseAntwort, pruefeAntwort,
   brauchtPflichthinweis, antworte, ALLES_BIS,
 } from '../src/assistent.js';
 import { loadFacts } from '../src/config.js';
@@ -110,4 +110,20 @@ test('Der Lauf: Strom ohne Quellenzeile, Quellen und Pflichthinweis am Ende, Ver
   const nix = async () => ({ text: 'Das steht hier nicht. Ruf an: ' + facts.telefon + '.\nQUELLEN: keine' });
   const n = await antworte({ frage: 'Passt das in meinen Dethleffs?', modell: nix, stuecke: st, facts, config: {} });
   assert.equal(n.gewusst, false); assert.deepEqual(n.quellen, []); assert.equal(n.hinweis, false);
+});
+
+test('Produktwissen: Steckbriefe zuerst, dann das Sortiment aus produkte-*.md — UV-8 und WM Filter sind auffindbar', () => {
+  const md = ladeProduktwissen();
+  assert.ok(md.indexOf('**Silbernetz Flex**') < md.indexOf('**UV-8 Serie**'), 'Steckbriefe stehen vor dem Sortiment');
+  const w = zerlegeWissen();
+  assert.ok(w.length >= 40);
+  assert.ok(w.some((s) => s.ueberschrift === 'UV-8 Serie'));
+  assert.ok(w.every((s) => s.page_slug === 'wissen/produkte'), 'eine Quelle, eine Kennung');
+  assert.equal(ladeProduktwissen('gibt-es-nicht'), '');
+  const uv = finde('Welcher UV-8 passt zu meiner Druckpumpe?', w, 3);
+  assert.ok(uv.some((s) => /^UV-8/.test(s.ueberschrift)), 'UV-8 vorn');
+  const wmf = finde('Welches Element passt in den WM Filter?', w, 3);
+  assert.ok(wmf.some((s) => /WM Filter|Filterelemente Größe S/.test(s.ueberschrift)), 'WM Filter oder Elemente vorn');
+  const trio = finde('Was ist im Hygiene-Trio drin?', w, 3);
+  assert.match(trio[0].ueberschrift, /Hygiene-Trio|KLW-Nachfüll-Set/);
 });

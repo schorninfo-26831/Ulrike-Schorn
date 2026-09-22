@@ -16,7 +16,7 @@
  * Dieselbe Strenge wie bei den Fakten (P2): Zahlen nur aus den Auszügen, Sperrliste der Compliance,
  * Pflichthinweis, sobald ein Biozidprodukt genannt wird — geprüft im Code, nicht nur im Prompt.
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { query, queryOne } from './db.js';
 import { loadFacts } from './config.js';
@@ -65,7 +65,14 @@ export function zerlege(page) {
 }
 
 /** knowledge/produkte.md: ein Absatz je Produkt, „**Name** (…): Text". */
-export function zerlegeWissen(md = existsSync('knowledge/produkte.md') ? readFileSync('knowledge/produkte.md', 'utf8') : '') {
+/** Produktwissen: knowledge/produkte.md (Steckbriefe von Justus) zuerst, dann jede knowledge/produkte-*.md (Sortiment). */
+export function ladeProduktwissen(ordner = 'knowledge') {
+  if (!existsSync(ordner)) return '';
+  const gehoert = (d) => d === 'produkte.md' || (d.startsWith('produkte-') && d.endsWith('.md'));
+  const zuerst = (a, b) => (a === 'produkte.md' ? -1 : b === 'produkte.md' ? 1 : a.localeCompare(b));
+  return readdirSync(ordner).filter(gehoert).sort(zuerst).map((d) => readFileSync(`${ordner}/${d}`, 'utf8').trim()).join('\n\n');
+}
+export function zerlegeWissen(md = ladeProduktwissen()) {
   return String(md).split(/\n\s*\n/).map((a) => a.trim()).filter((a) => a.startsWith('**')).map((a, i) => {
     const m = a.match(/^\*\*(.+?)\*\*\s*(.*)$/s);
     return { id: `${WISSEN_SLUG}#${i}`, page_slug: WISSEN_SLUG, ueberschrift: m ? m[1] : '', text: glatt(m ? `${m[1]} ${m[2]}` : a) };

@@ -9,7 +9,10 @@ sagt das. Das Vorbild steht in docs/assistent-vorbild.md, die Bauanleitung in WE
 1. **Zerlegen.** Beim Speichern wird jede veröffentlichte Seite in Wissensstücke zerlegt: ein Stück je
    Baustein, bei Karten ein Stück je Karte. Kopfzeile, Fußzeile, Pflichthinweis und Formulare zählen
    nicht. Jedes Stück trägt den Slug seiner Seite. Dazu kommt `knowledge/produkte.md`, ein Absatz je
-   Produkt (die freigegebenen Formulierungen von Justus). Rechtstexte sind ausgeschlossen
+   Produkt (die freigegebenen Formulierungen von Justus), und jede `knowledge/produkte-*.md`, etwa
+   `produkte-sortiment.md` mit dem Sortiment Wasser und UV-C aus den Shop-Texten und Gebrauchsanweisungen
+   (ohne Preise; für Biozide gelten weiter nur die Steckbriefe). Nach einer Änderung an diesen Dateien
+   den Index neu aufbauen: Cockpit „Assistent“ oder `npm run seed`. Rechtstexte sind ausgeschlossen
    (Häkchen „Vom Assistenten ausschließen" im Editor).
 2. **Suchen.** Wortsuche mit Wortstämmen und Fachsynonymen („Kalk" findet KXpress, „Keime" findet
    Biofilm). Solange der Bestand klein ist (bis 60 Stücke), bekommt das Modell alle Stücke, das
