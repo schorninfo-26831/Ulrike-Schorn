@@ -34,6 +34,9 @@ einzige Schrift — ohne Ausnahmen. *(bestätigt von Ulrike, 21.09.2026)*
 caravan-reiniger.de ist der eBay-Kanal und keine eigene Marke; UV-Einbauservice und Beratung sind bestätigte Leistungen.*
 **Sortiment:** DEXDA Plus ist nicht mehr im Sortiment und kommt nicht wieder. Es taucht auf keiner Seite, in keiner
 Wissensdatei und in keinem Steckbrief mehr auf. *(entschieden von Ulrike, 22.09.2026, bereits zuvor so besprochen)*
+**Silbernetz Flex und Silvertex** sind dasselbe Produkt in unterschiedlicher Verpackung: gleicher Wirkstoff, gleiche
+Gebrauchsanweisung, gleiche Standzeiten (bis zu sechs Monate frisches Wasser, Produktwechsel nach zwölf Monaten). Kein Text
+stellt sie als verschiedene Produkte dar. *(Ulrike, 22.09.2026; die Steckbriefe vom 13.08.2026 sind entsprechend korrigiert)*
 
 ---
 

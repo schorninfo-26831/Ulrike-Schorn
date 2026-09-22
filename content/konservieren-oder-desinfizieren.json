@@ -35,7 +35,7 @@
           "items": [
             {
               "titel": "Konservieren: frisch halten",
-              "text": "Konservierung stabilisiert das Wasser, das du getankt hast: Eingetragene Mikroorganismen vermehren sich nicht weiter, das Wasser bleibt, was es beim Tanken war. Im Tank übernimmt das **Silbernetz Flex**: gibt selbstregulierend reine Silberionen ab, ohne Nanosilber. Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert. Bis zu 6 Monate frisches Wasser im Tank, dosiert wird bei jeder Tankfüllung von selbst. **Silvertex** arbeitet mit demselben Wirkstoff und wird einmal jährlich gewechselt. Wer lieber flüssig dosiert, nimmt **DEXDA One**, hält Wasser bis zu 6 Monate frisch.",
+              "text": "Konservierung stabilisiert das Wasser, das du getankt hast: Eingetragene Mikroorganismen vermehren sich nicht weiter, das Wasser bleibt, was es beim Tanken war. Im Tank übernimmt das **Silbernetz Flex**: gibt selbstregulierend reine Silberionen ab, ohne Nanosilber. Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert. Bis zu 6 Monate frisches Wasser im Tank, dosiert wird bei jeder Tankfüllung von selbst. **Silvertex** ist dasselbe Produkt in anderer Verpackung, du wählst nach Tankgröße. Wer lieber flüssig dosiert, nimmt **DEXDA One**, hält Wasser bis zu 6 Monate frisch.",
               "label": "Silbernetz Flex im Shop",
               "href": "{{facts.shopUrl}}/collections/wasser"
             },
@@ -111,7 +111,7 @@
             },
             {
               "titel": "Wie lange hält konserviertes Wasser?",
-              "text": "Bis zu 6 Monate frisches Wasser im Tank. Steht das Fahrzeug länger, wechselst du das Wasser spätestens nach sechs Monaten. Das Netz selbst wird nach der Gebrauchsanweisung gewechselt, Silvertex einmal jährlich."
+              "text": "Bis zu 6 Monate frisches Wasser im Tank. Steht das Fahrzeug länger, wechselst du das Wasser spätestens nach sechs Monaten. Das Netz selbst, Silbernetz Flex wie Silvertex, wechselst du nach zwölf Monaten ab dem ersten Wasserkontakt, so steht es in der Gebrauchsanweisung."
             },
             {
               "titel": "Wenn ich konserviere, muss ich dann noch reinigen?",
