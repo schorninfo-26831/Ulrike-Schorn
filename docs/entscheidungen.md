@@ -47,8 +47,10 @@ werden in den Shop verlinkt, nie nachgebaut.
 Was daraus folgt:
 
 - Der Kaufprozess wird nicht angefasst. Keine Bestellung ist in Gefahr.
-- **Domain noch offen:** Hauptdomain für die Inhalte und Shop auf einer Subdomain — oder umgekehrt.
-  Das ist eine SEO-Entscheidung mit Umleitungsliste (Stufe 0b, Punkt 6) und wird gesondert getroffen,
-  nicht nebenbei. Bis dahin läuft die neue Seite lokal (Weg A) und braucht keine Domain.
+- **Domain entschieden am 22.09.2026:** Die Inhaltsseite bekommt eine **Subdomain von camping-schorni.de**
+  (Vorschlag ratgeber.camping-schorni.de; Ulrike hat die Subdomain beim Domain-Anbieter angelegt, der genaue
+  Name wird beim Livegang in config/site.json eingetragen). Der Shop bleibt auf der Hauptdomain, alle
+  Shop-Adressen bleiben gültig, die Umleitungsliste bleibt leer. Ein Umzug der Inhalte auf die Hauptdomain
+  ist eine spätere Entscheidung mit Zahlen. Bis zum Hoster (Weg B) zeigt die Subdomain nirgendwohin.
 - Produktfakten (Preise, Gebinde, Verfügbarkeit) bleiben in Shopify. Die neue Seite nennt keine
   Preise — sie verlinkt (P2: Fakten kommen nie aus dem Modell, und hier auch nicht aus einer zweiten Quelle).

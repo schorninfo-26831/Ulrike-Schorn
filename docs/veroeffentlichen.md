@@ -68,7 +68,7 @@ Nichts davon wird geraten. Jede Zeile ist eine Entscheidung oder eine Lieferung 
 
 | | Punkt | Wer |
 |---|---|---|
-| ☐ | **Domain:** Inhalte auf der Hauptdomain und Shop auf einer Subdomain, oder umgekehrt? Das ist eine SEO-Entscheidung mit Umleitungsliste (docs/vorlage.md, Punkt 6) | Ulrike, ggf. mit Leo |
+| ✔ | **Domain:** Subdomain von camping-schorni.de für die Inhalte, Shop bleibt auf der Hauptdomain, keine Umleitungsliste (entschieden 22.09.2026, docs/entscheidungen.md). Beim Livegang: Subdomain per A-Record auf den Hoster zeigen, Name in config/site.json | erledigt |
 | ☐ | **Hoster für Weg B** (Coolify auf einem VPS, Hetzner, Railway …) | Ulrike |
 | ◐ | **Rechtstexte prüfen:** Justus hat am 22.09.2026 geprüft und überarbeitet (docs/rechtspruefung.md). Rechtsform geklärt (kein Handelsregister). Offen: Hoster und Standort im Datenschutz, Anthropic-DPA in der Konsole akzeptieren | Ulrike, Justus |
 | ✔ | **E-Mail-Adresse:** info@caravan-reiniger.de, bestätigt durch die Team-Basis des KI-Teams (Marken-Fakten, Stand Juni 2026) | erledigt |
