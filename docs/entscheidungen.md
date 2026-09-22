@@ -32,6 +32,8 @@ einzige Schrift — ohne Ausnahmen. *(bestätigt von Ulrike, 21.09.2026)*
 **Offene Fakten:** Social-Links. Rechtsform geklärt am 22.09.2026: Einzelunternehmen, kein Handelsregister-Eintrag.
 *Geklärt am 22.09.2026 aus der Team-Basis des KI-Teams: E-Mail info@caravan-reiniger.de gilt für Camping Schorni;
 caravan-reiniger.de ist der eBay-Kanal und keine eigene Marke; UV-Einbauservice und Beratung sind bestätigte Leistungen.*
+**Sortiment:** DEXDA Plus ist nicht mehr im Sortiment und kommt nicht wieder. Es taucht auf keiner Seite, in keiner
+Wissensdatei und in keinem Steckbrief mehr auf. *(entschieden von Ulrike, 22.09.2026, bereits zuvor so besprochen)*
 
 ---
 

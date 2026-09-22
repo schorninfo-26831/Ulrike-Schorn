@@ -7,7 +7,7 @@ Was hier fehlt, wird nicht erfunden.
 
 Wird ein Biozidprodukt genannt oder beworben, gehört auf die Seite der Baustein `hinweis`. Er trägt
 den Pflichtsatz aus den Fakten. Biozidprodukte: DEXDA Clean, DEXDA Clean active, DEXDA Complete,
-DEXDA One, DEXDA Plus, Silbernetz, Silbernetz Flex, Silvertex und alle Sets mit einem davon.
+DEXDA One, Silbernetz, Silbernetz Flex, Silvertex und alle Sets mit einem davon.
 Kein Pflichthinweis: KXpress (Entkalker, kein Biozid), Filter, Aktivkohle, reine UV-C-Geräte,
 Pumpen, Schläuche, Zubehör.
 
