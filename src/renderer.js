@@ -34,7 +34,7 @@ function stempleDaten(wert, facts) {
  * Reine Funktion: gleiche Daten, gleiches HTML, immer. Die Fakten kommen von außen
  * (mit Cockpit-Overrides) oder, ohne Angabe, aus der Datei.
  */
-export function renderPage(page, { dynamicData = {}, facts = loadFacts() } = {}) {
+export function renderPage(page, { dynamicData = {}, facts = loadFacts(), basis = '' } = {}) {
   const site = loadSite();
   const inhalt = typeof page.content_json === 'string'
     ? JSON.parse(page.content_json) : page.content_json;
@@ -61,7 +61,13 @@ export function renderPage(page, { dynamicData = {}, facts = loadFacts() } = {})
 
   const titel = escapeHtml(page.title || site.name) + escapeHtml(site.titleSuffix || '');
   const beschreibung = escapeHtml(page.description || site.beschreibung || '');
-  const ogImage = page.og_image ? `<meta property="og:image" content="${escapeHtml(page.og_image)}">` : '';
+  // Fürs Teilen (3.5, P6): Vorschaubild je Seite, sonst das Standardbild; absolut, sobald eine Basis bekannt ist.
+  const absolut = (u) => (!u ? '' : /^https?:\/\//i.test(u) ? u : basis ? `${basis}${u.startsWith('/') ? '' : '/'}${u}` : u);
+  const bild = absolut(page.og_image || site.ogImage || '');
+  const pfad = !page.slug || page.slug === 'start' ? '/' : `/${page.slug}/`;
+  const kanonisch = basis && page.status === 'published'
+    ? `<link rel="canonical" href="${escapeHtml(basis + pfad)}">\n<meta property="og:url" content="${escapeHtml(basis + pfad)}">` : '';
+  const ogImage = bild ? `<meta property="og:image" content="${escapeHtml(bild)}">\n<meta name="twitter:card" content="summary_large_image">` : '';
 
   return stemple(`<!doctype html>
 <html lang="${escapeHtml(site.locale || 'de')}">
@@ -73,6 +79,9 @@ export function renderPage(page, { dynamicData = {}, facts = loadFacts() } = {})
 <meta property="og:title" content="${escapeHtml(page.title || site.name)}">
 <meta property="og:description" content="${beschreibung}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="${escapeHtml(site.name)}">
+<meta property="og:locale" content="de_DE">
+${kanonisch}
 ${ogImage}
 <link rel="icon" href="/img/schorni-logo.png" type="image/png">
 ${page.status === 'published' ? '' : '<meta name="robots" content="noindex">'}

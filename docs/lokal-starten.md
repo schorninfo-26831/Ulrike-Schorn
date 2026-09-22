@@ -40,7 +40,7 @@ Die Datei `.env` bleibt auf deinem Mac; sie wird nie ins Repository übertragen.
 npm i && npm run seed && npm start
 ```
 
-Wenn `[Motor] v0.4.0 läuft auf http://localhost:3000 · Cockpit: /admin/` erscheint, bist du drin:
+Wenn `[Motor] v0.5.0 läuft auf http://localhost:3000 · Cockpit: /admin/` erscheint, bist du drin:
 
 - Website: http://localhost:3000
 - Cockpit: http://localhost:3000/admin/

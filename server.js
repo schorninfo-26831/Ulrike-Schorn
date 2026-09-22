@@ -4,11 +4,15 @@ import { readFileSync } from 'node:fs';
 import { runMigrations } from './src/db.js';
 import { apiRouter } from './src/routes/api.js';
 import { publicRouter } from './src/routes/public.js';
+import { sicherheitsKopfzeilen, trustProxy } from './src/oeffentlich.js';
 
 await runMigrations();
 const VERSION = JSON.parse(readFileSync('package.json', 'utf8')).version;
 const app = express();
 app.disable('x-powered-by');
+// Hinter Caddy, Coolify oder einem Tunnel: Protokoll und Absender aus X-Forwarded-* lesen (TRUST_PROXY).
+app.set('trust proxy', trustProxy());
+app.use(sicherheitsKopfzeilen);
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 app.use(express.static('public', { maxAge: '7d' }));

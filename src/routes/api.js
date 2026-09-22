@@ -14,7 +14,10 @@ import { renderPage } from '../renderer.js';
 import { ladeFakten, speichereFakten } from '../fakten.js';
 import { ladeBaumRoh } from '../navigation.js';
 import { cache } from '../cache.js';
-import { loadFacts } from '../config.js';
+import { loadFacts, loadSite } from '../config.js';
+import { Anmeldebremse, basisUrl } from '../oeffentlich.js';
+import { statistik } from '../zugriffe.js';
+import { mailKonfiguriert } from '../mail.js';
 import { STATUS, normalisiereSlug, neuerInhalt, brauchtUmleitung, naechsterStatus, pfad } from '../pages.js';
 import { dynamik } from './public.js';
 import { generiere, ladeModell, generatorStatus } from '../generator.js';
@@ -30,9 +33,14 @@ const fehler = (res, code, text) => res.status(code).json({ error: text });
 // ---- Anmeldung ---------------------------------------------------------------
 apiRouter.get('/status', (_req, res) => res.json({ passwortKonfiguriert: passwortKonfiguriert() }));
 
+// Öffentlich heißt: jemand probiert Passwörter. Nach zehn Fehlversuchen je Absender ist 15 Minuten Pause.
+const bremse = new Anmeldebremse();
 apiRouter.post('/login', (req, res) => {
+  const wer = req.ip || 'unbekannt';
+  if (bremse.gesperrt(wer)) return fehler(res, 429, `Zu viele Fehlversuche. Bitte ${Math.max(1, Math.ceil(bremse.wartezeitSek(wer) / 60))} Minuten warten.`);
   if (!passwortKonfiguriert()) return fehler(res, 503, 'ADMIN_PASSWORD ist nicht gesetzt (.env)');
-  if (!passwortStimmt(req.body?.passwort)) return fehler(res, 401, 'Passwort stimmt nicht');
+  if (!passwortStimmt(req.body?.passwort)) { bremse.fehlversuch(wer); return fehler(res, 401, 'Passwort stimmt nicht'); }
+  bremse.erfolg(wer);
   cookieSetzen(res, neueSitzung(), req);
   res.json({ ok: true });
 });
@@ -145,7 +153,7 @@ apiRouter.get('/preview/:id', async (req, res, next) => {
     const page = await queryOne('SELECT * FROM pages WHERE id = $1', [req.params.id]);
     if (!page) return fehler(res, 404, 'Seite nicht gefunden');
     res.set('Cache-Control', 'no-store');
-    res.type('html').send(renderPage(page, { facts: await ladeFakten(), dynamicData: await dynamik(page) }));
+    res.type('html').send(renderPage(page, { facts: await ladeFakten(), dynamicData: await dynamik(page), basis: basisUrl(loadSite(), req) }));
   } catch (err) { next(err); }
 });
 
@@ -308,6 +316,12 @@ apiRouter.put('/submissions/:id', async (req, res, next) => {
     res.json({ ok: true });
   } catch (err) { next(err); }
 });
+
+// ---- Öffentlich (Stufe 5): Zugriffe und Mailstatus --------------------------------
+apiRouter.get('/zugriffe', async (req, res, next) => {
+  try { res.json(await statistik(req.query.tage)); } catch (err) { next(err); }
+});
+apiRouter.get('/mail/status', (_req, res) => res.json({ konfiguriert: mailKonfiguriert(), an: mailKonfiguriert() ? process.env.MAIL_TO : '' }));
 
 // ---- Fakten ohne Deploy (3.8) --------------------------------------------------------
 apiRouter.get('/facts', async (_req, res, next) => {

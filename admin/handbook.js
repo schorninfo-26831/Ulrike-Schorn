@@ -99,7 +99,7 @@ window.HANDBUCH = [
     wann: 'Jemand hat das Kontaktformular abgeschickt.',
     schritte: ['„Anfragen" öffnen — die Zahl daneben sagt, wie viele ungelesen sind.', 'Auf eine Zeile klicken: Details erscheinen, die Anfrage gilt als gelesen. „Als ungelesen markieren" macht das rückgängig.'],
     automatisch: ['Jede Anfrage wird ZUERST gespeichert, DANN verschickt. Klemmt der Mailversand, liegt sie trotzdem hier.', 'Ein verstecktes Feld fängt Bots ab; deren Einträge landen gar nicht erst in der Liste.'],
-    fallstricke: ['Mailversand ist noch nicht eingerichtet. Bis dahin ist diese Liste der einzige Ort, an dem Anfragen sichtbar sind — täglich reinschauen.'],
+    fallstricke: ['Solange der Mailversand nicht eingerichtet ist (Ablauf „Mailversand einrichten"), ist diese Liste der einzige Ort, an dem Anfragen sichtbar sind — täglich reinschauen.'],
   },
   {
     titel: 'Einen Fakt ändern (Telefon, Öffnungszeiten, E-Mail …)',
@@ -114,5 +114,35 @@ window.HANDBUCH = [
     schritte: ['„Umleitungen" öffnen, „von" und „nach" eintragen (z. B. /alte-seite/ → /wasser-ratgeber/), „Umleitung anlegen".'],
     automatisch: ['Umleitungen durch Umbenennen und Löschen stehen hier von allein.'],
     fallstricke: ['„von" ist immer ein Pfad dieser Website. „nach" darf auch eine volle https-Adresse sein, z. B. in den Shop.'],
+  },
+  {
+    titel: 'Mailversand einrichten (Anfragen per E-Mail)',
+    wann: 'Sobald die Seite öffentlich ist, sollen neue Anfragen nicht nur im Cockpit liegen, sondern auch in deinem Postfach landen.',
+    schritte: [
+      'Von deinem E-Mail-Anbieter brauchst du den SMTP-Zugang: Server, Port, Benutzername, Passwort.',
+      'In die Datei .env eintragen: SMTP_URL=smtps://benutzer:passwort@server:465 (Sonderzeichen im Passwort URL-kodiert, z. B. @ als %40), MAIL_TO=deine Adresse, optional MAIL_FROM.',
+      'Motor neu starten. Unter „Anfragen" steht dann „Mailversand eingerichtet".',
+      'Auf der Website /kontakt/ eine Testanfrage abschicken und im Postfach nachsehen.',
+    ],
+    automatisch: ['Jede Anfrage wird ZUERST gespeichert, DANN verschickt. Klemmt der Versand, steht sie trotzdem unter „Anfragen", und im Motor-Log steht, warum.', 'Antworten geht direkt: die Mail trägt die Adresse aus dem Formular als Antwort-Adresse.'],
+    fallstricke: ['Zugangsdaten gehören nur in .env — nie ins Repository, nie in einen Chat.', 'Bei Weg B (Hoster) stehen diese Werte in der Oberfläche des Hosters, nicht in einer Datei im Projekt.'],
+  },
+  {
+    titel: 'Zugriffe lesen',
+    wann: 'Du willst wissen, was gelesen wird.',
+    schritte: ['„Zugriffe" öffnen: oben die letzten 30 Tage, darunter die Aufrufe je Seite.'],
+    automatisch: ['Gezählt wird je Tag und Adresse, ohne IP-Adresse, ohne Cookie, ohne Browserkennung. Bekannte Bots zählen nicht. Deshalb braucht es weder Banner noch Einwilligung.'],
+    fallstricke: ['Die Zahlen sind Aufrufe, keine Besucher: wer eine Seite dreimal öffnet, zählt dreimal.', 'Entwürfe und die Vorschau zählen nicht — nur die veröffentlichte Seite.'],
+  },
+  {
+    titel: 'Die Website zeigen, bevor sie eine Domain hat (Weg A, Tunnel)',
+    wann: 'Du willst die Seite jemandem zeigen, der nicht an deinem Mac sitzt: Justus zur Prüfung, jemandem aus der Schulung, einem Kunden.',
+    schritte: [
+      'Motor starten (npm start). In einem zweiten Terminal-Fenster: cloudflared tunnel --url http://localhost:3000 (einmalige Einrichtung steht in docs/veroeffentlichen.md).',
+      'Im Terminal erscheint eine Adresse wie https://irgendwas.trycloudflare.com. Die schickst du weiter.',
+      'Zum Beenden Ctrl + C im Tunnel-Fenster. Die Adresse ist danach tot.',
+    ],
+    automatisch: ['Sitemap, robots.txt und die Vorschaubilder fürs Teilen nehmen von allein die Adresse des Tunnels.', 'Das Cockpit ist über den Tunnel mit erreichbar, geschützt durch dein Passwort und die Bremse gegen Passwort-Raten.'],
+    fallstricke: ['Ein Tunnel ist zum Zeigen, nicht zum Dauerbetrieb: Läuft der Mac nicht, ist die Seite weg.', 'Für den echten Betrieb ist Weg B da (docs/veroeffentlichen.md).'],
   },
 ];

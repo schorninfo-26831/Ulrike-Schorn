@@ -11,6 +11,9 @@ import { ladeBaum } from '../navigation.js';
 import { cache } from '../cache.js';
 import { loadSite } from '../config.js';
 import { escapeHtml } from '../blocks/_util.js';
+import { basisUrl } from '../oeffentlich.js';
+import { zaehle } from '../zugriffe.js';
+import { benachrichtige } from '../mail.js';
 
 export const publicRouter = Router();
 
@@ -28,8 +31,7 @@ publicRouter.use(async (req, res, next) => {
 // Was beim Veröffentlichen mitläuft (3.5): Sitemap und robots aus dem Bestand, nie von Hand.
 publicRouter.get('/sitemap.xml', async (req, res, next) => {
   try {
-    const site = loadSite();
-    const basis = (site.domain ? `https://${site.domain}` : `${req.protocol}://${req.get('host')}`).replace(/\/+$/, '');
+    const basis = basisUrl(loadSite(), req);
     const seiten = await query("SELECT slug, updated_at FROM pages WHERE status = 'published' ORDER BY slug");
     const urls = seiten.map((s) => `  <url><loc>${basis}/${s.slug === 'start' ? '' : `${s.slug}/`}</loc><lastmod>${escapeHtml(s.updated_at.slice(0, 10))}</lastmod></url>`).join('\n');
     res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
@@ -37,8 +39,7 @@ publicRouter.get('/sitemap.xml', async (req, res, next) => {
 });
 
 publicRouter.get('/robots.txt', (req, res) => {
-  const site = loadSite();
-  const basis = (site.domain ? `https://${site.domain}` : `${req.protocol}://${req.get('host')}`).replace(/\/+$/, '');
+  const basis = basisUrl(loadSite(), req);
   res.type('text/plain').send(`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nSitemap: ${basis}/sitemap.xml\n`);
 });
 
@@ -53,22 +54,19 @@ publicRouter.post('/api/form/:name', async (req, res, next) => {
 
     // 2. ZUERST speichern, DANN benachrichtigen. Nie umgekehrt.
     const id = randomUUID();
+    const anfrage = { id, form: req.params.name, page_slug: daten._seite || null, daten, created_at: new Date().toISOString() };
     await query(
       `INSERT INTO submissions (id, form, page_slug, daten, created_at) VALUES ($1, $2, $3, $4, $5)`,
-      [id, req.params.name, daten._seite || null, JSON.stringify(daten), new Date().toISOString()]);
+      [id, anfrage.form, anfrage.page_slug, JSON.stringify(daten), anfrage.created_at]);
 
-    // 3. Die Mail darf scheitern, ohne die Anfrage zu verlieren.
-    try { await benachrichtige(id, daten); }
+    // 3. Die Mail darf scheitern, ohne die Anfrage zu verlieren (src/mail.js; nur mit SMTP_URL und MAIL_TO).
+    const site = loadSite();
+    try { await benachrichtige(anfrage, { site, basis: basisUrl(site, req) }); }
     catch (err) { console.error(`[Motor] [ERROR] Mail zu ${id}: ${err.message}`); }
 
     danke();
   } catch (err) { next(err); }
 });
-
-async function benachrichtige(id) {
-  // Noch kein Mailversand konfiguriert — die Anfrage liegt in der Tabelle, das Cockpit zeigt sie.
-  console.log(`[Motor] Anfrage ${id} gespeichert (Mailversand nicht konfiguriert)`);
-}
 
 const dankeSeite = (zurueck) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Danke – Camping Schorni</title><style>body{font-family:system-ui,sans-serif;background:#F1ECE3;color:#16242F;margin:0;padding:48px 20px;text-align:center}a{color:#0B3B5C}</style></head><body><h1>Danke, deine Anfrage ist angekommen.</h1><p>Wir melden uns.</p><p><a href="${escapeHtml(zurueck || '/')}">Zurück zur Seite</a></p></body></html>`;
 
@@ -77,8 +75,11 @@ publicRouter.get(/^\/(.*)$/, async (req, res, next) => {
   try {
     const slug = (req.params[0] || 'start').replace(/\/+$/, '') || 'start';
     if (/^(admin|api|uploads|fonts|img)(\/|$)/.test(slug)) return next();
-    const treffer = cache.get(slug);
-    if (treffer) return res.type('html').send(treffer);
+    const basis = basisUrl(loadSite(), req);
+    const schluessel = `${basis}|${slug}`;
+    const gezaehlt = () => { if (req.method === 'GET') zaehle(slug === 'start' ? '/' : `/${slug}/`, req.get('user-agent')); };
+    const treffer = cache.get(schluessel);
+    if (treffer) { gezaehlt(); return res.type('html').send(treffer); }
 
     const page = await queryOne("SELECT * FROM pages WHERE slug = $1 AND status = 'published'", [slug]);
     if (!page) return next();
@@ -86,8 +87,10 @@ publicRouter.get(/^\/(.*)$/, async (req, res, next) => {
     const html = renderPage(page, {
       facts: await ladeFakten(),
       dynamicData: await dynamik(page),
+      basis,
     });
-    cache.set(slug, html);
+    cache.set(schluessel, html);
+    gezaehlt();
     res.type('html').send(html);
   } catch (err) { next(err); }
 });

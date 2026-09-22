@@ -4,10 +4,13 @@
   "status": "published",
   "title": "Datenschutzerklärung",
   "description": "Datenschutzerklärung der Inhaltsseite von Camping Schorni.",
-  "_hinweis": "Erste Fassung für den aktuellen Stand der Seite (lokal, ohne Cookies, ohne Tracking, ohne fremde Dienste). Vor der Veröffentlichung (Stufe 5) um Hoster und Speicherdauer ergänzen; bei Kontaktformular (Stufe 3) und Assistent (Stufe 7) erweitern. Prüfung durch Dr. Justus Klar vor Veröffentlichung.",
+  "_hinweis": "Erste Fassung für den aktuellen Stand der Seite (lokal, ohne Cookies, ohne Tracking, ohne fremde Dienste). Vor der Veröffentlichung (Stufe 5) um Hoster und Speicherdauer ergänzen; bei Kontaktformular (Stufe 3) und Assistent (Stufe 7) erweitern. Stufe 5: Absatz Zugriffszählung ergänzt (aggregiert, ohne personenbezogene Daten). Prüfung durch Dr. Justus Klar vor Veröffentlichung — auch dieser Absatz.",
   "content": {
     "blocks": [
-      { "type": "nav", "data": {} },
+      {
+        "type": "nav",
+        "data": {}
+      },
       {
         "type": "hero",
         "data": {
@@ -27,7 +30,7 @@
         "type": "richtext",
         "data": {
           "titel": "Aufruf der Seite (Server-Logdaten)",
-          "text": "Beim Aufruf dieser Seite verarbeitet der Webserver technisch notwendige Daten: die IP-Adresse deines Geräts, Datum und Uhrzeit, die aufgerufene Seite und die Browserkennung. Das ist nötig, um die Seite auszuliefern und ihre Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden ausschließlich dafür verwendet.\n\n**Hinweis zum Stand:** Diese Seite wird derzeit lokal betrieben und ist noch nicht öffentlich erreichbar. Vor der Veröffentlichung wird dieser Abschnitt um den Hoster und die Speicherdauer der Logdaten ergänzt."
+          "text": "Beim Aufruf dieser Seite verarbeitet der Webserver technisch notwendige Daten: die IP-Adresse deines Geräts, Datum und Uhrzeit, die aufgerufene Seite und die Browserkennung. Das ist nötig, um die Seite auszuliefern und ihre Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden ausschließlich dafür verwendet.\n\n**Zugriffszählung:** Wir zählen, wie oft eine Seite an einem Tag aufgerufen wird. Dabei speichern wir keine IP-Adresse und keine Browserkennung und setzen kein Cookie. Ein Rückschluss auf dich ist damit nicht möglich.\n\n**Hinweis zum Stand:** Diese Seite wird derzeit lokal betrieben und ist noch nicht öffentlich erreichbar. Vor der Veröffentlichung wird dieser Abschnitt um den Hoster und die Speicherdauer der Logdaten ergänzt."
         }
       },
       {
@@ -72,7 +75,10 @@
           "text": "September 2026. Diese Erklärung wird ergänzt, sobald die Seite einen Assistenten bekommt oder öffentlich gehostet wird."
         }
       },
-      { "type": "footer", "data": {} }
+      {
+        "type": "footer",
+        "data": {}
+      }
     ]
   }
 }

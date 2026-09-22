@@ -84,7 +84,7 @@
   // ---- Rahmen ---------------------------------------------------------------------------
   const ansichten = {
     seiten: { titel: 'Seiten' }, generieren: { titel: 'Generieren' }, navigation: { titel: 'Navigation' }, medien: { titel: 'Medien' },
-    umleitungen: { titel: 'Umleitungen' }, anfragen: { titel: 'Anfragen' }, fakten: { titel: 'Fakten' }, handbuch: { titel: 'Handbuch' },
+    umleitungen: { titel: 'Umleitungen' }, anfragen: { titel: 'Anfragen' }, zugriffe: { titel: 'Zugriffe' }, fakten: { titel: 'Fakten' }, handbuch: { titel: 'Handbuch' },
   };
   let hauptbereich, badge;
 
@@ -430,7 +430,7 @@
 
   // ---- Anfragen (3.7) ------------------------------------------------------------------------------
   async function ansichtAnfragen() {
-    const liste = await api('/submissions');
+    const [liste, mail] = await Promise.all([api('/submissions'), api('/mail/status').catch(() => ({ konfiguriert: false }))]);
     const zeilen = [];
     for (const a of liste) {
       const detail = el('tr', { class: 'anfrage__detail', hidden: true }, el('td', { colspan: 4 },
@@ -447,6 +447,9 @@
     leeren(hauptbereich).append(
       kopf('Anfragen'),
       el('p', { class: 'hinweis' }, 'Jede Anfrage wird zuerst gespeichert, dann verschickt. Was hier steht, ist angekommen — auch wenn keine Mail kam.'),
+      mail.konfiguriert
+        ? el('p', { class: 'hinweis', id: 'mail-status' }, `Mailversand eingerichtet: jede neue Anfrage geht an ${mail.an}.`)
+        : el('div', { class: 'warn', id: 'mail-status' }, 'Mailversand nicht eingerichtet: Anfragen sind nur hier sichtbar. SMTP_URL und MAIL_TO in .env eintragen, Motor neu starten (Handbuch: „Mailversand einrichten").'),
       liste.length ? el('table', {}, el('thead', {}, el('tr', {}, el('th', {}, 'Wann'), el('th', {}, 'Formular'), el('th', {}, 'Seite'), el('th', {}, 'Von'))), el('tbody', {}, zeilen)) : el('p', { class: 'hinweis' }, 'Noch keine Anfragen.'));
   }
 
@@ -571,6 +574,28 @@
     document.body.append(modal); quelle.focus();
   }
 
+  // ---- Zugriffe (Stufe 5) --------------------------------------------------------------------
+  async function ansichtZugriffe() {
+    const s = await api('/zugriffe?tage=30');
+    const max = Math.max(1, ...s.proTag.map((r) => r.anzahl));
+    const tagName = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit' });
+    const balken = (n) => el('div', { class: 'balken' },
+      el('div', { class: 'balken__spur' }, el('div', { class: 'balken__fuell', style: `width:${Math.max(1, Math.round((n / max) * 100))}%` })), el('span', {}, String(n)));
+    leeren(hauptbereich).append(
+      kopf('Zugriffe'),
+      el('p', { class: 'hinweis' }, 'Gezählt wird je Tag und Adresse, wie oft eine Seite aufgerufen wurde: ohne IP-Adresse, ohne Cookie, ohne Browserkennung. Bekannte Bots zählen nicht. Deshalb braucht es dafür kein Banner.'),
+      el('div', { class: 'karte' }, el('h2', { id: 'zugriffe-summe' }, `Letzte ${s.tage} Tage: ${s.gesamt} Aufrufe`),
+        s.proTag.length
+          ? el('table', {}, el('thead', {}, el('tr', {}, el('th', { style: 'width:160px' }, 'Tag'), el('th', {}, 'Aufrufe'))),
+            el('tbody', {}, s.proTag.map((r) => el('tr', {}, el('td', {}, tagName(r.tag)), el('td', {}, balken(r.anzahl))))))
+          : el('p', { class: 'hinweis' }, 'Noch nichts gezählt. Gezählt wird erst, wenn jemand die veröffentlichte Seite aufruft.')),
+      el('div', { class: 'karte' }, el('h2', {}, 'Je Seite'),
+        s.proPfad.length
+          ? el('table', {}, el('thead', {}, el('tr', {}, el('th', {}, 'Adresse'), el('th', { style: 'width:140px' }, 'Aufrufe'))),
+            el('tbody', {}, s.proPfad.map((r) => el('tr', {}, el('td', {}, el('code', {}, r.pfad)), el('td', {}, String(r.anzahl))))))
+          : el('p', { class: 'hinweis' }, 'Noch nichts.')));
+  }
+
   // ---- Router ---------------------------------------------------------------------------------------------
   async function route() {
     const h = location.hash || '#/seiten';
@@ -580,7 +605,7 @@
     zaehleUngelesen(); // bei jedem Ansichtswechsel — sonst zählt der Badge nur den Stand vom Laden
     try {
       if (view === 'seite' && id) return await ansichtSeite(id);
-      const f = { seiten: ansichtSeiten, generieren: ansichtGenerieren, navigation: ansichtNavigation, medien: ansichtMedien, umleitungen: ansichtUmleitungen, anfragen: ansichtAnfragen, fakten: ansichtFakten, handbuch: ansichtHandbuch }[view];
+      const f = { seiten: ansichtSeiten, generieren: ansichtGenerieren, navigation: ansichtNavigation, medien: ansichtMedien, umleitungen: ansichtUmleitungen, anfragen: ansichtAnfragen, zugriffe: ansichtZugriffe, fakten: ansichtFakten, handbuch: ansichtHandbuch }[view];
       if (f) return await f();
       location.hash = '#/seiten';
     } catch (err) { if (err.message !== 'Anmeldung nötig') { leeren(hauptbereich).append(el('div', { class: 'fehler' }, err.message)); } }

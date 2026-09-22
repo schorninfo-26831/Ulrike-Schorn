@@ -1,0 +1,9 @@
+node_modules
+data
+.env
+.git
+.gitattributes
+docs
+tests
+WEBSITE-MOTOR.md
+CLAUDE.md

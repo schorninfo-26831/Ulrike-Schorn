@@ -1,0 +1,5 @@
+# Reverse-Proxy mit automatischem Zertifikat. DOMAIN kommt aus .env (docker-compose.yml).
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy motor:3000
+}

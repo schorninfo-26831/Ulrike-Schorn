@@ -7,6 +7,7 @@ Alle Entscheidungen stehen in **[docs/entscheidungen.md](docs/entscheidungen.md)
 Ulrike am 21.09.2026. Was dort steht, wird nicht neu verhandelt. Was dort fehlt, wird gefragt, nicht geraten.
 
 Weitere Referenzen: [docs/vorlage.md](docs/vorlage.md) (Bestandsaufnahme von camping-schorni.de) ·
+[docs/lokal-starten.md](docs/lokal-starten.md) (Mac, Abnahmen) · [docs/veroeffentlichen.md](docs/veroeffentlichen.md) (Stufe 5, Weg A und B) ·
 [docs/assistent-vorbild.md](docs/assistent-vorbild.md) (Stufe 7, der Assistent).
 
 ## Starten — Weg A, Node ≥ 22.13
@@ -41,6 +42,6 @@ npm test                                 # läuft ohne Datenbank und ohne Schlü
 | 2 · Goldreferenz + Startseiten | ✔ 21.09.2026 — sechs Seiten (start, wasser-ratgeber, ueber-uns, kontakt, impressum, datenschutz), vier Seitentypen mit golden.html, Poppins selbst gehostet, 11 Tests grün. Offen: Über-uns-Originaltext von Ulrike; Datenschutz vor Stufe 5 durch Justus prüfen |
 | 3 · Cockpit | ✔ 21.09.2026 — Login, Seiten (anlegen/bearbeiten/umbenennen mit 301/löschen mit Umleitung), Navigation als Daten, Medien mit Alt-Pflicht, Umleitungen, Formular mit Honigtopf und Anfragen-Liste, Fakten ohne Deploy, Handbuch; automatisierte Abnahme 19/19 im Browser, 18 Unit-Tests. **Von Ulrike am Mac abgenommen: alle neun Handgriffe** (docs/lokal-starten.md) |
 | 4 · KI als Motor | gebaut 21.09.2026 — `src/generator.js` (Auftrag aus Schema, Goldreferenz-JSON, `knowledge/`, `page-types/<typ>/prompt.md`; gehärteter JSON-Parser; Vertrag hart, Hinweise weich; Pflichthinweis wird ergänzt; Status immer `generated`), Cockpit-Punkt „Generieren" + „Neu generieren" im Editor, Handbuch, 24 Tests grün ohne Schlüssel. **Abnahme offen:** erster echter Lauf mit Ulrikes Schlüssel, Ergebnis gegen die Goldreferenz (docs/lokal-starten.md) |
-| 5 · Öffentlich | — |
+| 5 · Öffentlich | gebaut 22.09.2026 (Weg A) — Tunnel zum Zeigen (docs/veroeffentlichen.md), P6-Schichten: Standard-og:image + canonical/og:url absolut, Zugriffe ohne personenbezogene Daten (Cockpit „Zugriffe"), Mailversand für Anfragen (SMTP_URL/MAIL_TO), Sicherheits-Kopfzeilen, Anmeldebremse, trust proxy; Weg B vorbereitet (Dockerfile, docker-compose.yml, Caddyfile, pg). **Abnahme offen:** sechs Prüfpunkte am Tunnel. **Entscheidungen offen:** Domain, Hoster, Justus-Prüfung, E-Mail, SMTP (Abschnitt 4 in docs/veroeffentlichen.md) |
 | 6 · Erweitern | — |
 | 7 · Assistent | — |

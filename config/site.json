@@ -3,5 +3,7 @@
   "titleSuffix": " – Camping Schorni",
   "locale": "de",
   "domain": "",
-  "beschreibung": "Sauberes Wasser im Wohnmobil, verständlich erklärt. Ratgeber und Beratung von Camping Schorni."
+  "beschreibung": "Sauberes Wasser im Wohnmobil, verständlich erklärt. Ratgeber und Beratung von Camping Schorni.",
+  "ogImage": "/img/og-standard.png",
+  "_hinweis": "domain bleibt leer, bis die Domain-Entscheidung gefallen ist (docs/entscheidungen.md). Bis dahin nimmt der Motor die Adresse des Aufrufs. ogImage ist das Vorschaubild fürs Teilen für Seiten ohne eigenes."
 }
