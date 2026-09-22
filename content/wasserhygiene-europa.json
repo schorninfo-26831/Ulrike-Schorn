@@ -1,0 +1,96 @@
+{
+  "slug": "wasserhygiene-europa",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Wasserhygiene auf Europa-Reisen: das 2-Stufen-System",
+  "description": "Beim Befüllen filtern, im Tank konservieren, einmal im Jahr der Saison-Check. So bleibt Leitungswasser im Wohnmobil frisch. Der Ratgeber von Camping Schorni.",
+  "content": {
+    "blocks": [
+      {
+        "type": "nav",
+        "data": {}
+      },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Mittel- und Nordeuropa",
+          "titel": "Zwei Stufen, und dein Wasser bleibt frisch.",
+          "sub": "Für Reisen mit Leitungswasser in Mittel- und Nordeuropa reichen zwei Handgriffe: beim Befüllen filtern, im Tank konservieren. Dazu einmal im Jahr der Saison-Check. Hier steht, was jeder Schritt tut und welches Produkt dazugehört.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was im Tank passiert",
+          "text": "Das Wasser aus dem Hahn zu Hause ist geprüft und gut. Im Tank verändert es sich trotzdem: Wärme, Licht und Standzeit lassen Mikroorganismen wachsen, an den Wänden bildet sich Biofilm. Bei Wärme verdoppeln sich manche Bakterien in weniger als einer halben Stunde, und das Wasser riecht und schmeckt dabei oft noch ganz normal. Das Problem ist selten die Quelle. Es ist die Speicherung.\n\nDeshalb gilt: sauber rein, frisch halten, regelmäßig durchputzen. Genau das sind die zwei Stufen und der Saison-Check."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Das 2-Stufen-System",
+          "titel": "Was wann dran ist",
+          "items": [
+            {
+              "titel": "1 · Beim Befüllen filtern",
+              "text": "Der Befüllfilter ist der Türsteher am Tank: Er hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe. Mit Aktivkohle-Element bindet er zusätzlich Stoffe, die Geruch und Geschmack beeinflussen, Chlor zum Beispiel. Was gar nicht erst in den Tank kommt, muss später niemand herausholen. Für die Hygiene im Tank bleibt die Konservierung zuständig.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "2 · Im Tank konservieren",
+              "text": "Ohne Konservierung wächst nach, was der Filter draußen gelassen hat. **Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, ohne Nanosilber: Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert. Bis zu 6 Monate frisches Wasser, ohne manuelles Dosieren. **Silvertex** arbeitet mit demselben Wirkstoff und wird einmal jährlich gewechselt. Wer lieber flüssig dosiert: **DEXDA One** hält Wasser bis zu 6 Monate frisch. Für gespeichertes Trinkwasser gibt es dafür sogar eine Norm, die DIN EN 15030.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "Der Saison-Check",
+              "text": "Reinigen, entkalken, desinfizieren: mindestens einmal im Jahr und nach längeren Standzeiten. Kalk bietet Biofilm einen Untergrund, darum zuerst **KXpress**, dann **DEXDA Clean**. Der löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System, beides in einem Arbeitsschritt. Für die Tankreinigung zwischendurch: **DEXDA Clean active** mit Aktivsauerstoff, ohne Chlor, ohne Nachspülen.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            }
+          ]
+        }
+      },
+      {
+        "type": "hinweis",
+        "data": {}
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Für wen reicht das?",
+          "text": "Für alle, die in Mittel- und Nordeuropa unterwegs sind und Leitungswasser tanken. Das Wasser an Bord ist dann zum Duschen, Zähneputzen und Kochen da, und mit den zwei Stufen bleibt es, was es beim Tanken war.\n\nWer nach Südeuropa fährt, lange unterwegs ist oder Wasser aus Brunnen und Zisternen nimmt, liest weiter bei der [erweiterten Lösung mit UV-C](/wasserhygiene-suedeuropa-weltweit/). Und was die Begriffe bedeuten, steht im [Wasser-Lexikon](/wasser-lexikon/)."
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was Konservieren nicht kann",
+          "text": "Damit die Erwartung stimmt: Die Konservierung hält getanktes Wasser frisch, mehr nicht. Sie desinfiziert nicht sofort, sie braucht Zeit. Gegen Viren ist sie nur eingeschränkt wirksam. Chemische Stoffe, Geschmack und Geruch lässt sie unverändert, dafür ist die Aktivkohle im Befüllfilter da. Und sie ersetzt keine Reinigung: In einem Tank mit Biofilm und Kalk hat sie kaum eine Chance, darum kommt der Saison-Check zuerst.\n\nBei sehr hartem Wasser oder Wasser mit Salzanteil, etwa in Küstennähe, kann die Wirkung nachlassen. Dann ruf kurz an, wir schauen gemeinsam auf dein System: {{facts.telefon}}."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Silbernetz Flex einmal rein und vergessen: Es dosiert bei jeder Tankfüllung selbst nach. Nur beim Saison-Check kommt es kurz raus, damit KXpress und DEXDA Clean an alles herankommen."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Zwei Stufen, ein Warenkorb.",
+          "text": "Befüllfilter, Silbernetz Flex und der Saison-Check: alles im Sortiment Wasser, sortiert nach Tankgröße. Unsicher? {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "footer",
+        "data": {}
+      }
+    ]
+  }
+}

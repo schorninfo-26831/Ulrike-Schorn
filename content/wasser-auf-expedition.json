@@ -1,0 +1,98 @@
+{
+  "slug": "wasser-auf-expedition",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Expedition: Wasser aus Fluss, See und Brunnen",
+  "description": "Wer Oberflächenwasser nutzen will, braucht eine mehrstufige Aufbereitung, die zum Fahrzeug passt. Aus welchen Stufen sie besteht und warum sie geplant wird, erklärt Camping Schorni.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Expedition",
+          "titel": "Wasser aus Fluss, See und Brunnen.",
+          "sub": "Fernab der Versorgung zählt, dass die Technik läuft. Wer Oberflächenwasser nutzen will, braucht eine mehrstufige Aufbereitung, die zum Fahrzeug passt. Hier steht, aus welchen Stufen sie besteht und warum sie geplant wird statt bestellt.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Die Herausforderung",
+          "text": "Flüsse, Seen, Brunnen und Regenwasser: Die Qualität ist unbekannt, und Oberflächenwasser kann Bakterien, Viren, Parasiten, Einzeller und organische Verunreinigungen enthalten. Dazu Hitze, Kälte, Staub und Erschütterungen, die jedem Gerät zusetzen. Ein einfacher Filter reicht hier nicht.\n\nWas hilft, ist das Prinzip der Wasserwerke: mehrere Barrieren hintereinander, jede für eine andere Art von Verunreinigung. Nur eben auf kleinstem Raum, im Fahrzeug."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Die Stufen einer Expeditionsanlage",
+          "titel": "Was welche Stufe leistet",
+          "items": [
+            {
+              "titel": "1 · Grob filtern beim Fördern",
+              "text": "Eine mehrstufige Vorfiltration pumpt das Wasser aus der Quelle in den Tank und hält dabei Schmutz, Trübstoffe und Einzeller wie Amöben zurück, die sich mit Desinfektionsmitteln schwer erreichen lassen. Mobil als Filter-Rack oder fest verbaut als Kaskade.",
+              "label": "",
+              "href": ""
+            },
+            {
+              "titel": "2 · Erste Desinfektion im Tank",
+              "text": "**DEXDA Complete** desinfiziert dein Wasser, indem es vorhandene Keime reduziert, und konserviert es gleichzeitig gegen erneute Verkeimung. Hält dein Tankwasser bis zu sechs Monate frisch. Messbecher und Tröpfcheneinsatz liegen bei.",
+              "label": "DEXDA Complete im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "3 · Konservieren im Tank",
+              "text": "**Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, ohne Nanosilber: Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm reduziert, bis zu 6 Monate. Bei jeder Tankfüllung dosiert es selbst nach.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "4 · Aktivkohle vor der Technik",
+              "text": "Ein Aktivkohle-Filterelement bindet Stoffe, die Geruch und Geschmack beeinflussen, und hält Schwebeteilchen von den Stufen dahinter fern. So bleibt das UV-C-Gerät sauber und arbeitet, wie es soll.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "5 · UV-C am Auslass",
+              "text": "Die UV-8 Serie von WM aquatec arbeitet rein physikalisch: Die Bestrahlung passiert im Durchfluss, ohne Aufwärmphase und ohne Lampenwechsel. Für Fernreisemobile gibt es sie als Komplettlösung mit Filtern in einem Gehäuse.",
+              "label": "UV-C-Geräte im Shop",
+              "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+            },
+            {
+              "titel": "6 · Feine Filtration vor dem Hahn",
+              "text": "Die letzte Stufe kombiniert Aktivkohle mit einer sehr feinen Filtration direkt vor der Entnahme. Sie hält zurück, was die Stufen davor durchgelassen haben. Was am Ende herauskommt, hängt von der Quelle und vom Zusammenspiel aller Stufen ab. Ein Versprechen gibt es dafür von uns nicht, eine Planung schon.",
+              "label": "",
+              "href": ""
+            }
+          ]
+        }
+      },
+      { "type": "hinweis", "data": {} },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Standard oder Expedition?",
+          "text": "Das Standard-System aus [Filtern, Konservieren und Saison-Check](/wasserhygiene-europa/) ist für Leitungswasser gebaut, die [erweiterte Lösung mit UV-C](/wasserhygiene-suedeuropa-weltweit/) für Reisen mit schwankender Wasserqualität. Die Expeditionsanlage ist für Fluss, See, Brunnen und Regenwasser gedacht, mit mehreren Filter- und Desinfektionsstufen hintereinander.\n\nEin Standardpaket dafür gibt es nicht. Reiseziel und Quellen, Tankgröße und Verbrauch pro Tag, Stromversorgung im Fahrzeug, Personenzahl und Reisedauer entscheiden über die Auslegung. Das ist ein Gespräch, kein Warenkorb: {{facts.telefon}} oder über die [Kontaktseite](/kontakt/). Auf Wunsch bauen wir die UV-C-Technik ein."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Wasserhygiene fängt nicht erst beim Trinken an. Kaffee, Zähneputzen, Salat waschen, Duschen: Überall ist das Tankwasser dabei. Plane die Anlage für alles, was aus dem Hahn kommt, nicht nur für die Trinkflasche."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Lass uns deine Anlage planen.",
+          "text": "Die Bausteine findest du im Shop, die Auslegung machen wir gemeinsam. {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zum Sortiment Wasser",
+          "href": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}

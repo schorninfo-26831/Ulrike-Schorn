@@ -1,0 +1,86 @@
+{
+  "slug": "wasserhygiene-suedeuropa-weltweit",
+  "page_type": "ratgeber",
+  "status": "generated",
+  "title": "Südeuropa und weltweit: die erweiterte Lösung mit UV-C",
+  "description": "Wo Leitungswasser nicht überall gleich gut ist, kommt zu Filtern und Konservieren eine dritte Stufe am Auslass: UV-C. Wann sie sich lohnt, erklärt Camping Schorni.",
+  "content": {
+    "blocks": [
+      { "type": "nav", "data": {} },
+      {
+        "type": "hero",
+        "data": {
+          "pill": "Ratgeber · Südeuropa und weltweit",
+          "titel": "Eine Stufe mehr: die erweiterte Lösung mit UV-C.",
+          "sub": "Wo das Wasser aus der Leitung nicht überall gleich gut ist, kommt zu Filtern und Konservieren eine dritte Stufe direkt vor dem Hahn: UV-C. Hier steht, wann sie sich lohnt und wie die drei Stufen zusammenspielen.",
+          "ctaLabel": "Zum Sortiment Wasser",
+          "ctaHref": "{{facts.shopUrl}}/collections/wasser"
+        }
+      },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Warum eine Stufe mehr",
+          "text": "In Südeuropa und außerhalb Europas schwankt die Qualität des Leitungswassers stärker, und wer lange unterwegs ist, tankt auch mal an Brunnen oder Zisternen. Filter und Konservierung tun dann dasselbe wie zu Hause, halten aber nicht alles fern, was in solchen Quellen vorkommen kann.\n\nDeshalb kommt eine dritte Stufe dazu, direkt vor dem Hahn: die UV-C-Desinfektion. Sie arbeitet rein physikalisch und ergänzt die Konservierung im Tank."
+        }
+      },
+      {
+        "type": "cards",
+        "data": {
+          "eyebrow": "Die erweiterte Lösung",
+          "titel": "Drei Stufen und der Saison-Check",
+          "items": [
+            {
+              "titel": "1 · Beim Befüllen filtern",
+              "text": "Der Befüllfilter hält beim Tanken grobe Partikel zurück und filtert Schmutz- und Trübstoffe. Mit Aktivkohle-Element bindet er zusätzlich Stoffe, die Geruch und Geschmack beeinflussen. Unterwegs im Süden ist er Pflicht, nicht Kür.",
+              "label": "Filter im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "2 · Im Tank konservieren",
+              "text": "**Silbernetz Flex** gibt selbstregulierend reine Silberionen ab, ohne Nanosilber: Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm reduziert, bis zu 6 Monate frisches Wasser. **Silvertex** arbeitet mit demselben Wirkstoff, Wechsel einmal jährlich. Flüssig dosiert: **DEXDA One**, hält Wasser bis zu 6 Monate frisch.",
+              "label": "Silbernetz Flex im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            },
+            {
+              "titel": "3 · UV-C am Auslass",
+              "text": "UV-C-Geräte wie die UV-8 Serie von WM aquatec arbeiten rein physikalisch: Die Bestrahlung passiert im Durchfluss, ohne Aufwärmphase und ohne Lampenwechsel. Sie werden in die Wasserleitung eingebaut und ergänzen die Konservierung im Tank. Welche Ausführung zu deinem Fahrzeug, deinem Strom und deinem Wasserverbrauch passt, klären wir am Telefon. Auf Wunsch übernehmen wir den Einbau.",
+              "label": "UV-C-Geräte im Shop",
+              "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+            },
+            {
+              "titel": "Der Saison-Check, nur öfter",
+              "text": "Reinigen, entkalken, desinfizieren wie zu Hause, nur häufiger: Wer länger unterwegs ist oder Wasser aus unsicheren Quellen tankt, plant Reinigung und Desinfektion etwa alle drei Monate ein. **KXpress** entkalkt, **DEXDA Clean** löst Biofilm, entfernt organische Verschmutzungen und desinfiziert das gesamte System, beides in einem Arbeitsschritt.",
+              "label": "DEXDA Clean im Shop",
+              "href": "{{facts.shopUrl}}/collections/wasser"
+            }
+          ]
+        }
+      },
+      { "type": "hinweis", "data": {} },
+      {
+        "type": "richtext",
+        "data": {
+          "titel": "Was das Wasser danach ist",
+          "text": "Ein Versprechen wie „Trinkwasser aus jeder Quelle“ gibt es von uns nicht. Ob Wasser trinkbar ist, entscheidet die Qualität an der Quelle und die Aufbereitung als Ganzes. Was jede Stufe leistet, steht beim jeweiligen Produkt, nicht mehr und nicht weniger.\n\nWas dein Fahrzeug braucht, hängt von Reiseziel, Tankgröße, Stromversorgung und Personenzahl ab. Das klären wir am besten in einem kurzen Gespräch: {{facts.telefon}}. Für Fluss, See und Brunnen gibt es ein eigenes Kapitel: [Wasser auf Expedition](/wasser-auf-expedition/)."
+        }
+      },
+      {
+        "type": "tipp",
+        "data": {
+          "text": "Den Saison-Check vor der Abfahrt in den Süden machen, nicht erst dort. Ein sauberes System startet mit Vorsprung, und die Konservierung hat leichtes Spiel."
+        }
+      },
+      {
+        "type": "cta",
+        "data": {
+          "titel": "Welche Ausführung passt zu dir?",
+          "text": "UV-C-Geräte gibt es für verschiedene Durchflüsse und Stromversorgungen. Schau ins Sortiment, und wenn du unsicher bist: {{facts.telefon}}, {{facts.oeffnungszeitenKurz}}.",
+          "label": "Zu den UV-C-Geräten",
+          "href": "{{facts.shopUrl}}/collections/uv-c-desinfektion"
+        }
+      },
+      { "type": "footer", "data": {} }
+    ]
+  }
+}
