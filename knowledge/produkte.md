@@ -4,6 +4,8 @@ Freigegeben von Dr. Justus Klar, Stand 13.08.2026. Diese Steckbriefe sind der ei
 Wirkungsaussagen, Standzeiten und Gebindegrößen stammen dürfen. Was hier fehlt, wird nicht erfunden.
 Korrektur von Ulrike am 22.09.2026: Silbernetz Flex und Silvertex sind dasselbe Produkt in unterschiedlicher
 Verpackung (gleicher Wirkstoff, gleiche Gebrauchsanweisung, gleiche Standzeiten); die frühere Abgrenzung ist gestrichen.
+Seit 22.09.2026 ist diese Datei die einzige Quelle für Produktdaten (docs/entscheidungen.md): Änderungen nur hier,
+mit Datum und Urheber; Skill, Shop-Texte, Seiten und Assistent werden daraus abgeleitet.
 Der Assistent (Stufe 7) liest jeden Absatz als eigenes Wissensstück.
 
 **Silbernetz Flex** (Konservierung im Frischwassertank): gibt selbstregulierend reine Silberionen ab, ohne Nanosilber. Die Vermehrung von Bakterien wird verhindert, die Bildung von Biofilm in Tank, Kanister und Leitungen wird reduziert. Wichtige Grundlage für die Legionellen-Prophylaxe. Der Wirkstoff entspricht der DIN EN 15030. Bis zu 6 Monate frisches Wasser im Tank; Wasserwechsel bei Nichtbenutzung spätestens nach sechs Monaten, Produktwechsel nach zwölf Monaten ab dem ersten Wasserkontakt (Gebrauchsanweisung). Flexibles Material für fast alle Tanköffnungen. Dosierung selbstregulierend bei jeder Tankfüllung, kein manuelles Dosieren. Größen für Tanks bis 15, 30, 60, 100, 160, 320, 500 und 1000 Liter. Einsatz: Camping, Caravaning, Vanlife, Boote, Yachten, Notwasserversorgung zu Hause. Silvertex ist dasselbe Produkt in anderer Verpackung. Biozidprodukt.
