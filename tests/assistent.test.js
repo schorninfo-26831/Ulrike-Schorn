@@ -41,6 +41,8 @@ test('Suche: Stämme, Umlaute, Synonyme, Seltenheit — Truma findet DEXDA Clean
   const treffer = finde('Verträgt mein Truma Boiler DEXDA Clean?', [...st, ...gross], 6);
   assert.ok(treffer.length <= 6 && treffer.length > 0);
   assert.match(treffer[0].text, /Truma/);
+  const allgemein = finde('Verträgt mein Boiler DEXDA Clean?', [...st, ...gross], 6);
+  assert.match(allgemein[0].text, /DEXDA Clean/, 'auch ohne Markenname zuerst DEXDA Clean');
   const kalk = finde('Wie kriege ich den Kalk aus dem Boiler?', [...st, ...gross], 3);
   assert.ok(kalk.some((t) => /KXpress/.test(t.text)));
   const klein = finde('irgendwas', st, 6);
