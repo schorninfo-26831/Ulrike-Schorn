@@ -4,6 +4,9 @@ Für die Abnahme von Stufe 3 musst du die Website auf deinem Mac laufen lassen u
 neun Handgriffe selbst machen — ohne Hilfe. So steht es in WEBSITE-MOTOR.md, und so
 findet sich heraus, ob Cockpit und Handbuch reichen.
 
+Ulrike prüft in Chrome, selten in Safari (23.09.2026). Nach einem `git pull` die Seite hart neu laden:
+Chrome Cmd + Shift + R, Safari Cmd + Option + R. Anleitungen nennen nur diese beiden Tastenkombinationen.
+
 ## Einmalig: holen und einrichten
 
 Terminal öffnen (⌘ + Leertaste, „Terminal"). Dann Block für Block einfügen.
