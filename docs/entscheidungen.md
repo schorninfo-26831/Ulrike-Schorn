@@ -37,6 +37,9 @@ Wissensdatei und in keinem Steckbrief mehr auf. *(entschieden von Ulrike, 22.09.
 **Silbernetz Flex und Silvertex** sind dasselbe Produkt in unterschiedlicher Verpackung: gleicher Wirkstoff, gleiche
 Gebrauchsanweisung, gleiche Standzeiten (bis zu sechs Monate frisches Wasser, Produktwechsel nach zwölf Monaten). Kein Text
 stellt sie als verschiedene Produkte dar. *(Ulrike, 22.09.2026; die Steckbriefe vom 13.08.2026 sind entsprechend korrigiert)*
+Präzisierung: Einsatz (Frischwassertank und Kanister) und Größen sind bei beiden gleich. Der einzige Unterschied ist die
+Verpackung: Silbernetz Flex gibt es für 15 und 30 Liter zusätzlich im Doppelpack, Silvertex nicht. Kein Text nennt einen
+anderen Unterschied, auch keinen im Einsatzzweck. *(Ulrike, 23.09.2026, nach der ersten Antwort des Assistenten)*
 **Eine Produktwahrheit:** Die Steckbriefe in `knowledge/produkte.md` sind die einzige Quelle für Produktdaten:
 Wirkstoff, Standzeiten, Größen, freigegebene Formulierungen. Jede Änderung geschieht dort, mit Datum und Urheber,
 und wird von dort in Skill, Shop-Texte, Seiten und Assistent übernommen; keiner dieser Orte wird direkt geändert.

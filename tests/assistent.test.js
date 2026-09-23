@@ -127,3 +127,16 @@ test('Produktwissen: Steckbriefe zuerst, dann das Sortiment aus produkte-*.md �
   const trio = finde('Was ist im Hygiene-Trio drin?', w, 3);
   assert.match(trio[0].ueberschrift, /Hygiene-Trio|KLW-Nachfüll-Set/);
 });
+
+test('Silbernetz Flex und Silvertex: ein Produkt, ein Wissensstück zum Unterschied steht vorn', () => {
+  const w = zerlegeWissen();
+  const u = finde('Was ist der Unterschied zwischen Silbernetz Flex und Silvertex?', w, 3);
+  assert.equal(u[0].ueberschrift, 'Silbernetz Flex und Silvertex: der Unterschied');
+  assert.match(u[0].text, /einzige Unterschied liegt in der Verpackung/);
+  assert.match(u[0].text, /Doppelpack/);
+  for (const name of ['Silbernetz Flex', 'Silvertex']) {
+    const s = w.find((x) => x.ueberschrift === name);
+    assert.match(s.text, /Frischwassertank und in Kanistern/, name + ': gleicher Einsatz');
+    assert.doesNotMatch(s.text, /einmal jährlich/, name + ': kein alter Unterschied');
+  }
+});
