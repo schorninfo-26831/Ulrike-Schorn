@@ -1,7 +1,23 @@
 import { blocks } from './blocks/index.js';
 import { themeCss } from './blocks/_theme.js';
 import { escapeHtml } from './blocks/_util.js';
+import { createHash } from 'node:crypto';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { loadSite, loadFacts, loadAssistent, version } from './config.js';
+
+/**
+ * Versionsstempel des Widgets aus seinem Inhalt, nicht aus package.json: public/ liegt sieben Tage
+ * im Browser-Cache. Ein Stempel, der sich nur mit der Motor-Version ändert, zeigt dem Browser nach
+ * einem git pull bis zu sieben Tage das alte Widget (Falle aus Stufe 7). Gemerkt je Änderungszeit.
+ */
+const WIDGET = 'public/assistent.js';
+let stempel = { mtime: -1, wert: '' };
+export function assistentStempel() {
+  if (!existsSync(WIDGET)) return version();
+  const mtime = statSync(WIDGET).mtimeMs;
+  if (mtime !== stempel.mtime) stempel = { mtime, wert: createHash('sha1').update(readFileSync(WIDGET)).digest('hex').slice(0, 10) };
+  return stempel.wert;
+}
 
 /**
  * Das Fakten-Tor (P2): {{facts.pfad}} → Wert. Fehlt der Wert, erscheint sichtbar […]
@@ -60,7 +76,7 @@ export function renderPage(page, { dynamicData = {}, facts = loadFacts(), basis 
   }).join('\n');
 
   // Stufe 7: der Assistent kommt als ein Skript dazu. Fehlt es oder meldet der Motor „nicht bereit", bleibt die Seite, wie sie ist.
-  const assistent = loadAssistent().aktiv ? `\n<script src="/assistent.js?v=${escapeHtml(version())}" defer></script>` : '';
+  const assistent = loadAssistent().aktiv ? `\n<script src="/assistent.js?v=${escapeHtml(assistentStempel())}" defer></script>` : '';
   const titel = escapeHtml(page.title || site.name) + escapeHtml(site.titleSuffix || '');
   const beschreibung = escapeHtml(page.description || site.beschreibung || '');
   // Fürs Teilen (3.5, P6): Vorschaubild je Seite, sonst das Standardbild; absolut, sobald eine Basis bekannt ist.

@@ -13,7 +13,7 @@
 .sa-knopf img{width:36px;height:36px;border-radius:50%;background:var(--mint,#E6F8F5);display:block}\
 .sa-knopf:focus-visible{outline:3px solid var(--signal,#00C2A8);outline-offset:3px}\
 .sa-fenster{position:fixed;left:18px;bottom:18px;z-index:61;width:min(400px,calc(100vw - 36px));height:min(640px,calc(100dvh - 36px));display:flex;flex-direction:column;background:var(--grund-2,#FAF7F2);color:var(--text,#16242F);border:1px solid var(--grund-3,#E3DCCF);border-radius:18px;box-shadow:0 24px 60px rgba(11,59,92,.28);font-family:var(--font-body,Poppins,system-ui,sans-serif);overflow:hidden}\
-.sa-fenster[hidden]{display:none}\
+.sa-knopf[hidden],.sa-fenster[hidden]{display:none}\
 @media (max-width:600px){.sa-fenster{left:0;bottom:0;width:100vw;height:100dvh;border-radius:0}}\
 .sa-kopf{display:flex;align-items:center;gap:11px;padding:12px 14px;background:var(--handlung,#0B3B5C);color:#fff}\
 .sa-kopf img{width:38px;height:38px;border-radius:50%;background:var(--mint,#E6F8F5)}\

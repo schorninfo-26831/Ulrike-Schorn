@@ -48,6 +48,13 @@ sagt Schorni, dass er Pause macht, und nennt das Telefon. Jede Frage kostet beim
 deutlich unter einem Cent; das Cockpit zeigt unter „Assistent" die Summe des Monats in Euro (Preisliste in
 `config/kosten.json`).
 
+Wenn der Knopf da ist, aber nichts passiert: erst die Seite hart neu laden (Mac: Cmd + Shift + R), dann
+im Terminal nachsehen, ob wirklich der frische Motor läuft. Läuft von gestern noch einer, meldet
+`npm start` einen belegten Port (`EADDRINUSE`), und der Browser zeigt den alten Stand. Das Widget trägt
+seit dem 23.09.2026 einen Stempel aus seinem Inhalt (`/assistent.js?v=…`), damit der Browser nach jedem
+`git pull` die aktuelle Fassung holt statt der aus seinem Sieben-Tage-Cache. Escape schließt das Fenster;
+der Knopf bekommt dann den Fokusring.
+
 ## Abnahme Stufe 7
 
 Stell drei Fragen, deren Antwort auf der Website steht, und eine, deren Antwort nicht dort steht.

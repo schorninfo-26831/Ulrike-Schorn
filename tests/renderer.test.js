@@ -1,7 +1,7 @@
 // Läuft ohne Datenbank und ohne Schlüssel: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderPage } from '../src/renderer.js';
+import { renderPage, assistentStempel } from '../src/renderer.js';
 import { validateContent } from '../src/archetypes.js';
 import { loadFacts } from '../src/config.js';
 
@@ -77,4 +77,11 @@ test('Vertrag: Pflichtbausteine und erlaubte Bausteine', () => {
   assert.equal(validateContent('home', { blocks: [{ type: 'hero' }] }).ok, false);
   assert.equal(validateContent('home', { blocks: [{ type: 'nav' }, { type: 'hero' }, { type: 'footer' }, { type: 'karussell' }] }).ok, false);
   assert.equal(validateContent('gibtEsNicht', { blocks: [] }).ok, false);
+});
+
+test('Widget-Skript trägt einen Stempel aus seinem Inhalt, nicht die Motor-Version', () => {
+  const stempel = assistentStempel();
+  assert.match(stempel, /^[0-9a-f]{10}$/);
+  const out = renderPage(seite([{ type: 'richtext', data: { text: 'Hallo' } }]));
+  assert.ok(out.includes(`<script src="/assistent.js?v=${stempel}" defer></script>`));
 });
