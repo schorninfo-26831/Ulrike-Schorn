@@ -139,4 +139,11 @@ test('Silbernetz Flex und Silvertex: ein Produkt, ein Wissensstück zum Untersch
     assert.match(s.text, /Frischwassertank und in Kanistern/, name + ': gleicher Einsatz');
     assert.doesNotMatch(s.text, /einmal jährlich/, name + ': kein alter Unterschied');
   }
+  // Größen im Vertrieb (Ulrike, 23.09.2026): eine Liste für beide, alte Stufen aus Shop-Exporten tauchen nicht auf
+  for (const name of ['Silbernetz Flex', 'Silvertex', 'Silbernetz Flex und Silvertex: der Unterschied']) {
+    const s = w.find((x) => x.ueberschrift === name);
+    assert.match(s.text, /15, 30, 60, 100, 160, 320, 500 und 1000 Liter/, name + ': Größen im Vertrieb');
+    assert.doesNotMatch(s.text, /\b(25|50|120|240) Liter/, name + ': keine alten Stufen');
+  }
+  assert.match(w.find((x) => x.ueberschrift === 'Silvertex').text, /ohne Doppelpack/);
 });

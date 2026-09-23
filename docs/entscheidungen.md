@@ -40,6 +40,9 @@ stellt sie als verschiedene Produkte dar. *(Ulrike, 22.09.2026; die Steckbriefe 
 Präzisierung: Einsatz (Frischwassertank und Kanister) und Größen sind bei beiden gleich. Der einzige Unterschied ist die
 Verpackung: Silbernetz Flex gibt es für 15 und 30 Liter zusätzlich im Doppelpack, Silvertex nicht. Kein Text nennt einen
 anderen Unterschied, auch keinen im Einsatzzweck. *(Ulrike, 23.09.2026, nach der ersten Antwort des Assistenten)*
+**Größen im Vertrieb (Stand 23.09.2026):** bei beiden Tanks bis 15, 30, 60, 100, 160, 320, 500 und 1000 Liter, bei Silbernetz Flex
+zusätzlich die Doppelpacks 15 und 30 Liter. Die Größen haben sich in der Vergangenheit mehrfach geändert; abweichende Stufen
+in älteren Shop-Exporten (etwa 25, 50, 120 und 240 Liter bei Silvertex) sind überholt und werden nirgends übernommen. *(Ulrike, 23.09.2026)*
 **Eine Produktwahrheit:** Die Steckbriefe in `knowledge/produkte.md` sind die einzige Quelle für Produktdaten:
 Wirkstoff, Standzeiten, Größen, freigegebene Formulierungen. Jede Änderung geschieht dort, mit Datum und Urheber,
 und wird von dort in Skill, Shop-Texte, Seiten und Assistent übernommen; keiner dieser Orte wird direkt geändert.
