@@ -9,7 +9,8 @@ Ulrike am 21.09.2026. Was dort steht, wird nicht neu verhandelt. Was dort fehlt,
 Weitere Referenzen: [docs/vorlage.md](docs/vorlage.md) (Bestandsaufnahme von camping-schorni.de) ·
 [docs/lokal-starten.md](docs/lokal-starten.md) (Mac, Abnahmen) · [docs/veroeffentlichen.md](docs/veroeffentlichen.md) (Stufe 5, Weg A und B) ·
 [docs/erweitern.md](docs/erweitern.md) (Stufe 6: neuer Seitentyp, neuer Baustein, Übersichten) · [docs/assistent.md](docs/assistent.md) (Stufe 7) ·
-[docs/assistent-vorbild.md](docs/assistent-vorbild.md) (Stufe 7, der Assistent).
+[docs/assistent-vorbild.md](docs/assistent-vorbild.md) (Stufe 7, der Assistent) ·
+[docs/fertigstellung.md](docs/fertigstellung.md) (der eine Überblick: was bis zur Live-Schaltung fehlt, wer es macht, Reihenfolge).
 
 ## Starten — Weg A, Node ≥ 22.13
 
